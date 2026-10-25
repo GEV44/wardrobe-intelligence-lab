@@ -15,6 +15,7 @@ def isolated_data(tmp_path, monkeypatch):
     """Every test gets its own temporary SQLite DB and image folder."""
     monkeypatch.setenv("LOOKROOM_DATA_DIR", str(tmp_path))
     monkeypatch.setenv("LOOKROOM_DISABLE_LLM", "1")  # tests never call the paid API unless they opt in
+    monkeypatch.setenv("LOOKROOM_LOCAL_LLM", "0")    # nor load the local LLM, except the tests that opt in
     return tmp_path
 
 

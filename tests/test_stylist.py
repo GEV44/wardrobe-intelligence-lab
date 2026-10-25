@@ -89,6 +89,41 @@ def test_refusal_falls_back(fake_llm):
     assert stylist.chat("dinner date", [], DEFAULT).source == "rules"
 
 
+@pytest.mark.parametrize("msg,expect", [
+    ("Завтра важная встреча с клиентом, будет около 22 градусов", ("work", 22.0)),
+    ("Այսօր երեկոյան ժամադրություն ունեմ, մոտ 8 աստիճան է", ("date", 8.0)),
+    ("свадьба в субботу, будет холодно", ("formal", 6.0)),
+])
+def test_multilingual_keyword_rules(msg, expect):
+    c = stylist.parse_context(msg, DEFAULT)
+    assert (c.occasion, c.temperature) == expect
+
+
+def test_explicit_rules_beat_llm_guess():
+    c = stylist.parse_context("client meeting at 10 degrees", DEFAULT,
+                              extra={"occasion": "date", "temperature_c": 30, "style": "classic"})
+    assert (c.occasion, c.temperature, c.style) == ("work", 10.0, "classic")  # LLM only fills the unknown style
+
+
+def _local_llm_ready() -> bool:
+    try:
+        from huggingface_hub import try_to_load_from_cache
+        from lookroom import llm
+        os.environ.pop("LOOKROOM_LOCAL_LLM", None)
+        ok = llm.enabled() and isinstance(try_to_load_from_cache(llm.REPO, llm.FILE), str)
+        return ok
+    except Exception:
+        return False
+
+
+@pytest.mark.skipif(not _local_llm_ready(), reason="local Qwen3 GGUF not downloaded")
+def test_free_local_llm_stylist_path(seeded, monkeypatch):
+    monkeypatch.setenv("LOOKROOM_LOCAL_LLM", "1")
+    r = stylist.chat("Something nice for a relaxed weekend brunch, it's sunny", [], DEFAULT, lang="en")
+    assert r.source == "local" and r.outfit is not None and len(r.text) > 20
+    assert r.context.occasion == "casual"
+
+
 @pytest.mark.skipif(os.environ.get("RUN_LIVE_LLM") != "1", reason="set RUN_LIVE_LLM=1 to call the real API")
 def test_live_claude(seeded, monkeypatch):
     monkeypatch.setenv("LOOKROOM_DISABLE_LLM", "0")

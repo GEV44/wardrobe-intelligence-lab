@@ -74,6 +74,8 @@ def load_rows(shards: list[int]) -> list[dict]:
         for r in table.to_pylist():
             if r["gender"] not in ("Men", "Unisex") or r["articleType"] not in ARTICLES:
                 continue
+            if any(w in (r["productDisplayName"] or "") for w in ("Kids", "Boys", "Girls", "Infant")):
+                continue  # some kids' items carry a "Men" gender label in the source data
             color = COLORS.get(r["baseColour"] or "")
             if not color or not r.get("image") or not r["image"].get("bytes"):
                 continue

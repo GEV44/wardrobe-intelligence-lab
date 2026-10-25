@@ -11,28 +11,6 @@
 "image": "img/p11128.jpg"
 },
 {
-"id": "p13302",
-"name": "Gini and Jony Kids Boys Solid Beige Shorts",
-"category": "bottom",
-"article": "Shorts",
-"color": "beige",
-"style": "casual",
-"warmth": 1,
-"formality": 1,
-"image": "img/p13302.jpg"
-},
-{
-"id": "p13303",
-"name": "Gini and Jony Kids Boys Solid Beige Shorts",
-"category": "bottom",
-"article": "Shorts",
-"color": "beige",
-"style": "casual",
-"warmth": 1,
-"formality": 1,
-"image": "img/p13303.jpg"
-},
-{
 "id": "p14659",
 "name": "Probase Men Solid LT.Khaki Trousers",
 "category": "bottom",
@@ -174,28 +152,6 @@
 "warmth": 3,
 "formality": 4,
 "image": "img/p11324.jpg"
-},
-{
-"id": "p13284",
-"name": "Gini and Jony Kids Boys Solid Black Shorts",
-"category": "bottom",
-"article": "Shorts",
-"color": "black",
-"style": "casual",
-"warmth": 1,
-"formality": 1,
-"image": "img/p13284.jpg"
-},
-{
-"id": "p13285",
-"name": "Gini and Jony Kids Boys Solid Black Shorts",
-"category": "bottom",
-"article": "Shorts",
-"color": "black",
-"style": "casual",
-"warmth": 1,
-"formality": 1,
-"image": "img/p13285.jpg"
 },
 {
 "id": "p14695",
@@ -506,28 +462,6 @@
 "image": "img/p10261.jpg"
 },
 {
-"id": "p13248",
-"name": "Palm Tree Kids Boy Solid Brown Trousers",
-"category": "bottom",
-"article": "Trousers",
-"color": "brown",
-"style": "smart",
-"warmth": 3,
-"formality": 4,
-"image": "img/p13248.jpg"
-},
-{
-"id": "p13249",
-"name": "Palm Tree Kids Boy Solid Brown Trousers",
-"category": "bottom",
-"article": "Trousers",
-"color": "brown",
-"style": "smart",
-"warmth": 3,
-"formality": 4,
-"image": "img/p13249.jpg"
-},
-{
 "id": "p15111",
 "name": "Arrow Men Stripes Coffee Brown Trousers",
 "category": "bottom",
@@ -570,17 +504,6 @@
 "warmth": 3,
 "formality": 4,
 "image": "img/p26508.jpg"
-},
-{
-"id": "p27214",
-"name": "Doodle Kids Boy  Brown Shorts",
-"category": "bottom",
-"article": "Shorts",
-"color": "brown",
-"style": "casual",
-"warmth": 1,
-"formality": 1,
-"image": "img/p27214.jpg"
 },
 {
 "id": "p29852",
@@ -1969,28 +1892,6 @@
 "image": "img/p7686.jpg"
 },
 {
-"id": "p13240",
-"name": "Palm Tree Kids Boys Solid White Jackets",
-"category": "outerwear",
-"article": "Jackets",
-"color": "white",
-"style": "casual",
-"warmth": 4,
-"formality": 2,
-"image": "img/p13240.jpg"
-},
-{
-"id": "p13241",
-"name": "Palm Tree Kids Boys Solid White Jackets",
-"category": "outerwear",
-"article": "Jackets",
-"color": "white",
-"style": "casual",
-"warmth": 4,
-"formality": 2,
-"image": "img/p13241.jpg"
-},
-{
 "id": "p15006",
 "name": "ADIDAS Men Solid White Jackets",
 "category": "outerwear",
@@ -2165,17 +2066,6 @@
 "warmth": 1,
 "formality": 1,
 "image": "img/p12967.jpg"
-},
-{
-"id": "p12993",
-"name": "ADIDAS Kids Adispeed Black Sports Shoes",
-"category": "shoes",
-"article": "Sports Shoes",
-"color": "black",
-"style": "streetwear",
-"warmth": 2,
-"formality": 1,
-"image": "img/p12993.jpg"
 },
 {
 "id": "p16154",
@@ -3201,28 +3091,6 @@
 "image": "img/p43958.jpg"
 },
 {
-"id": "p10747",
-"name": "Disney Unisex Kids Daisy Pink Sandals",
-"category": "shoes",
-"article": "Sandals",
-"color": "pink",
-"style": "casual",
-"warmth": 1,
-"formality": 1,
-"image": "img/p10747.jpg"
-},
-{
-"id": "p3832",
-"name": "Crocs Kid's Crocband Fuchsia Pink Kidswear",
-"category": "shoes",
-"article": "Sandals",
-"color": "pink",
-"style": "casual",
-"warmth": 1,
-"formality": 1,
-"image": "img/p3832.jpg"
-},
-{
 "id": "p4855",
 "name": "Newfeel Unisex Pink Grey Shoes",
 "category": "shoes",
@@ -3342,17 +3210,6 @@
 "warmth": 2,
 "formality": 1,
 "image": "img/p4578.jpg"
-},
-{
-"id": "p47501",
-"name": "Footfun Kids Unisex Red Shoes",
-"category": "shoes",
-"article": "Casual Shoes",
-"color": "red",
-"style": "casual",
-"warmth": 2,
-"formality": 2,
-"image": "img/p47501.jpg"
 },
 {
 "id": "p8970",
@@ -4829,17 +4686,6 @@
 "image": "img/p30805.jpg"
 },
 {
-"id": "p33489",
-"name": "Doodle Kids Boy Check Green Shirt",
-"category": "top",
-"article": "Shirts",
-"color": "green",
-"style": "smart",
-"warmth": 3,
-"formality": 4,
-"image": "img/p33489.jpg"
-},
-{
 "id": "p39344",
 "name": "Mr. Men Green T-shirt",
 "category": "top",
@@ -6237,28 +6083,6 @@
 "image": "img/p43500.jpg"
 },
 {
-"id": "p4943",
-"name": "Gini and Jony Boy's Kaleb White Brown Kidswear",
-"category": "top",
-"article": "Shirts",
-"color": "white",
-"style": "smart",
-"warmth": 3,
-"formality": 4,
-"image": "img/p4943.jpg"
-},
-{
-"id": "p4944",
-"name": "Gini and Jony Boy's Kaleb White Brown Infant Kidswear",
-"category": "top",
-"article": "Shirts",
-"color": "white",
-"style": "smart",
-"warmth": 3,
-"formality": 4,
-"image": "img/p4944.jpg"
-},
-{
 "id": "p53766",
 "name": "Puma Men White and Navy Blue T-shirt",
 "category": "top",
@@ -6466,28 +6290,6 @@
 "warmth": 3,
 "formality": 4,
 "image": "img/p39780.jpg"
-},
-{
-"id": "p4973",
-"name": "Gini and Jony Boy's Kangaroo Yellow Kidswear",
-"category": "top",
-"article": "Shirts",
-"color": "yellow",
-"style": "smart",
-"warmth": 3,
-"formality": 4,
-"image": "img/p4973.jpg"
-},
-{
-"id": "p4974",
-"name": "Gini and Jony Boy's Kangaroo Yellow Infant Kidswear",
-"category": "top",
-"article": "Shirts",
-"color": "yellow",
-"style": "smart",
-"warmth": 3,
-"formality": 4,
-"image": "img/p4974.jpg"
 },
 {
 "id": "p51400",

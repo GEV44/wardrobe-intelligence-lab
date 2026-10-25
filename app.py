@@ -43,19 +43,69 @@ def name_of(item) -> str:
 
 st.markdown("""<style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600&family=Noto+Sans+Armenian:wght@400;500;600&family=Noto+Serif+Armenian:wght@500;600&display=swap');
-:root {--ink:#1c1b19; --muted:#6f6a63; --line:#e8e2d9; --accent:#8a6a4f; --accent-soft:#f1e9df; --bg:#faf8f5;
-       --good:#3f7d58; --bad:#a5483d;}
+:root {--ink:#141414; --muted:#6b665f; --line:#ebe5dc; --accent:#9a7650; --accent-soft:#f4ede4; --bg:#f8f6f2;
+       --card:#ffffff; --radius:20px; --good:#3f7d58; --bad:#a5483d;
+       --shadow:0 1px 2px rgba(20,20,20,.04), 0 8px 28px rgba(20,20,20,.06);
+       --shadow-hover:0 2px 6px rgba(20,20,20,.06), 0 18px 40px rgba(20,20,20,.10);}
 html, body, [class*="css"], .stMarkdown, .stButton button, input, textarea, label {
   font-family: 'Inter', 'Noto Sans Armenian', system-ui, sans-serif;}
+.stApp {background: radial-gradient(1200px 500px at 85% -10%, #efe6da 0%, rgba(239,230,218,0) 60%), var(--bg);}
 h1, h2, h3, .serif {font-family: 'Playfair Display', 'Noto Serif Armenian', Georgia, serif !important;
-  font-weight: 600 !important; letter-spacing: -.01em; color: var(--ink);}
-.block-container {padding-top: 1.6rem; max-width: 1280px;}
-[data-testid="stToolbar"], #MainMenu, footer {visibility: hidden;}
-header[data-testid="stHeader"] {background: transparent;}
-.wil-brand {display:flex; align-items:center; gap:.7rem;}
-.wil-mark {width:38px; height:38px; border-radius:10px; background:var(--ink); color:#fff; display:flex;
-  align-items:center; justify-content:center; font:600 15px 'Playfair Display', serif; letter-spacing:.04em;}
-.wil-name {font:600 1.02rem 'Inter', sans-serif; color:var(--ink); line-height:1.1;}
+  font-weight: 600 !important; letter-spacing: -.015em; color: var(--ink);}
+h3 {font-size: 1.45rem !important; margin-top: 1.4rem !important;}
+.block-container {padding-top: 1.1rem; padding-bottom: 3rem; max-width: 1380px;}
+header[data-testid="stHeader"], [data-testid="stToolbar"], #MainMenu, footer,
+[data-testid="stSidebar"], [data-testid="stSidebarCollapsedControl"] {display: none !important;}
+/* --- cards: every keyed container (st-key-card*, ctxbar) --- */
+[class*="st-key-card"], .st-key-ctxbar {background: var(--card); border: 1px solid var(--line) !important;
+  border-radius: var(--radius) !important; box-shadow: var(--shadow); transition: box-shadow .25s ease, transform .25s ease;}
+[class*="st-key-card"]:hover {box-shadow: var(--shadow-hover); transform: translateY(-2px);}
+.st-key-card-hero:hover {transform: none;}
+.st-key-ctxbar {padding: .35rem .6rem; margin-bottom: .2rem;}
+/* --- imagery --- */
+[data-testid="stImage"] img {border-radius: 14px;}
+/* --- pill navigation (tabs) --- */
+[data-testid="stTabs"] [role="tablist"] {gap: .35rem; background: rgba(255,255,255,.7); padding: .35rem;
+  border: 1px solid var(--line); border-radius: 999px; width: fit-content; max-width: 100%; overflow-x: auto;
+  backdrop-filter: blur(6px);}
+[data-testid="stTab"] {border-radius: 999px !important; padding: .45rem 1rem !important; height: auto !important;
+  border: none !important; transition: background .2s ease;}
+[data-testid="stTab"] p {font-size: .92rem !important; font-weight: 500 !important; color: #3d3a35;}
+[data-testid="stTab"][aria-selected="true"] {background: var(--ink) !important;}
+[data-testid="stTab"][aria-selected="true"] p, [data-testid="stTab"][aria-selected="true"] span {color: #fff !important;}
+[data-testid="stTab"]:hover {background: var(--accent-soft);}
+[data-baseweb="tab-highlight"], [data-baseweb="tab-border"] {display: none !important;}
+[data-testid="stTabPanel"] {padding-top: 1.1rem;}
+/* --- buttons: black pills --- */
+.stButton button, [data-testid="stPopover"] button, .stFormSubmitButton button {border-radius: 999px !important;
+  font-weight: 500; transition: all .2s ease;}
+[data-testid="stBaseButton-primary"], [data-testid="stBaseButton-primaryFormSubmit"] {background: var(--ink) !important;
+  border-color: var(--ink) !important; color: #fff !important;}
+[data-testid="stBaseButton-primary"]:hover, [data-testid="stBaseButton-primaryFormSubmit"]:hover {background: #000 !important;
+  box-shadow: 0 6px 18px rgba(0,0,0,.18);}
+[data-testid="stBaseButton-secondary"] {background: #fff !important; border-color: var(--line) !important;}
+[data-testid="stBaseButton-secondary"]:hover {border-color: var(--ink) !important; color: var(--ink) !important;}
+[data-testid="stButtonGroup"] button {border-radius: 999px !important; margin: 0 .2rem .3rem 0;}
+button[aria-checked="true"] {background: var(--ink) !important; color: #fff !important;
+  border-color: var(--ink) !important;}
+button[aria-checked="true"] p, button[aria-checked="true"] span {color: #fff !important;}
+button[aria-checked="false"] {background: #fff !important; border-color: var(--line) !important;}
+button[aria-checked="false"]:hover {border-color: var(--ink) !important;}
+[data-testid="stTab"]::after, [data-testid="stTab"]::before {display: none !important;}
+[data-testid="stTab"] {border-bottom: none !important; box-shadow: none !important;}
+[data-testid="stTabs"] [role="tablist"] > :not([data-testid="stTab"]) {display: none !important;}
+[data-testid="stWidgetLabel"] p {font-size: .74rem !important; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--muted) !important; font-weight: 600 !important;}
+[data-testid="stExpander"] details {border-radius: 14px !important; border-color: var(--line) !important;}
+[data-testid="stChatMessage"] {background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 1rem;}
+.wil-statusline {margin: .1rem 0 .6rem .2rem;}
+.wil-tagline {font-size: .86rem; color: var(--muted); font-family: 'Playfair Display', 'Noto Serif Armenian', serif;
+  font-style: italic;}
+.wil-brand {display:flex; align-items:center; gap:.8rem;}
+.wil-mark {width:42px; height:42px; border-radius:12px; background:var(--ink); color:#fff; display:flex;
+  align-items:center; justify-content:center; font:600 16px 'Playfair Display', serif; letter-spacing:.04em;
+  box-shadow: 0 6px 16px rgba(0,0,0,.18);}
+.wil-name {font:600 1.08rem 'Inter', sans-serif; color:var(--ink); line-height:1.15;}
 .wil-eyebrow {font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent);}
 .wil-hero h1 {font-size: clamp(2rem, 3.6vw, 3.1rem); margin: .2rem 0 .3rem 0; line-height:1.08;}
 .wil-sub {color:var(--muted); font-size:1.04rem; max-width: 760px; margin-bottom: .4rem;}
@@ -81,8 +131,9 @@ div[data-testid="stTabs"] button p {font-size: 1rem; font-weight: 500;}
 </style>""", unsafe_allow_html=True)
 
 if LANG == "hy":  # Armenian capitals are hard to scan in small eyebrow labels: keep natural case
-    st.markdown("<style>.wil-eyebrow,.wil-tile .k,.wil-score .lbl{text-transform:none !important;"
-                "letter-spacing:.01em !important;font-size:.8rem !important;}</style>", unsafe_allow_html=True)
+    st.markdown("<style>.wil-eyebrow,.wil-tile .k,.wil-score .lbl,[data-testid='stWidgetLabel'] p"
+                "{text-transform:none !important;letter-spacing:.01em !important;font-size:.82rem !important;}</style>",
+                unsafe_allow_html=True)
 
 try:
     service.ensure_ready(UID)
@@ -103,7 +154,7 @@ def _warmup() -> bool:
     def run() -> None:
         for step in (lambda: __import__("lookroom.vision", fromlist=["x"]).ensure_siglip(),
                      lambda: __import__("lookroom.vision", fromlist=["x"]).get_tagger(),
-                     lambda: __import__("anthropic")):
+                     lambda: __import__("lookroom.llm", fromlist=["x"]).warmup()):
             try:
                 step()
             except Exception:
@@ -208,31 +259,22 @@ def feedback_buttons(outfit, ctx_tuple, snapshot, key: str, primary: bool = True
               on_click=on_feedback, args=(list(outfit.key), "dislike", ctx_tuple, snapshot))
 
 
-# ---------- sidebar: user context ----------
+# ---------- app header: brand · language · settings ----------
 
-with st.sidebar:
-    st.markdown(f"### {T('ctx_title')}")
-    occasion = st.selectbox(T("occasion"), OCCASIONS, index=1, format_func=lambda v: L("occasion", v))
-    style = st.selectbox(T("style_pref"), STYLES, index=3, format_func=lambda v: L("style", v))
-    use_live = st.toggle(T("live_weather"), value=LIVE_WEATHER_DEFAULT)
-    live, city = None, None
-    if use_live:
-        city = st.selectbox(T("city"), list(weather.CITIES), index=0)
-        live = live_weather(city)
-        if live:
-            st.caption(T("weather_now", city=city, temp=f"{live['temperature']:g}", cond=live["condition"])
-                       + f" · {live['source']}")
-        else:
-            st.caption(T("weather_off"))
-    default_temp = int(round(live["temperature"])) if live else 16
-    temperature = st.slider(T("temperature"), -10, 35, max(-10, min(35, default_temp)))
-    st.divider()
+h1, h2, h3 = st.columns([6, 1.7, 0.55], vertical_alignment="center")
+h1.markdown('<div class="wil-brand"><div class="wil-mark">WI</div><div><div class="wil-name">'
+            f'{T("brand")}</div><div class="wil-tagline">{html.escape(T("headline"))}</div></div></div>',
+            unsafe_allow_html=True)
+h2.segmented_control("Language", list(i18n.LANGS), format_func=lambda k: i18n.LANG_SHORT[k], default=LANG,
+                     key="lang_sel", on_change=on_lang, label_visibility="collapsed")
+with h3.popover("", icon=":material/tune:", help=T("settings"), width="stretch"):
     st.markdown(f"**{T('ai_services')}**")
     ai = service.ai_status()
     for label_key, on, detail in (("svc_tagger", ai["vision"]["available"], ai["vision"].get("detail", "")),
                                   ("svc_bg", True, "BiRefNet-lite" if service.bgremove_online()
                                    and ai["bgremove"]["available"] else "fast cut-out · BiRefNet offline"),
-                                  ("svc_llm", ai["llm"], stylist.MODEL)):
+                                  ("svc_llm", ai["llm"] or ai["local_llm"]["available"],
+                                   stylist.MODEL if ai["llm"] else ai["local_llm"]["detail"])):
         state = T("svc_on") if on else T("svc_off")
         st.caption(f"{'●' if on else '○'} {T(label_key)}: {state}" + (f" · {detail}" if on and detail else ""))
     st.divider()
@@ -246,33 +288,38 @@ with st.sidebar:
         st.rerun()
     st.caption(T("privacy_note"))
 
+# ---------- context bar: the inputs that drive every recommendation ----------
+
+with st.container(border=True, key="ctxbar"):
+    c1, c2, c3, c4 = st.columns([2.6, 3.4, 2.0, 1.7], gap="medium")
+    occasion = c1.segmented_control(T("occasion"), OCCASIONS, default="work", key="occ",
+                                    format_func=lambda v: L("occasion", v)) or "work"
+    style = c2.segmented_control(T("style_pref"), STYLES, default="smart", key="sty",
+                                 format_func=lambda v: L("style", v)) or "smart"
+    with c4:
+        use_live = st.toggle(T("live_weather"), value=LIVE_WEATHER_DEFAULT)
+        live, city = None, None
+        if use_live:
+            city = st.selectbox(T("city"), list(weather.CITIES), index=0, label_visibility="collapsed")
+            live = live_weather(city)
+            st.caption(T("weather_now", city=city, temp=f"{live['temperature']:g}", cond=live["condition"])
+                       if live else T("weather_off"))
+    default_temp = int(round(live["temperature"])) if live else 16
+    temperature = c3.slider(T("temperature"), -10, 35, max(-10, min(35, default_temp)))
+
 ctx = validate_context(occasion, temperature, style)
 CTX_T = (occasion, temperature, style)
 result = service.get_recommendations(ctx, UID, LANG)
 items = db.list_items(UID)
 summary = service.feedback_summary(UID)
-
-# ---------- header ----------
-
-h1, h2 = st.columns([5, 1.3], vertical_alignment="center")
-h1.markdown('<div class="wil-brand"><div class="wil-mark">WI</div><div><div class="wil-name">'
-            f'{T("brand")}</div><div class="wil-eyebrow">{html.escape(T("eyebrow"))}</div></div></div>',
-            unsafe_allow_html=True)
-h2.segmented_control("Language", list(i18n.LANGS), format_func=lambda k: i18n.LANG_SHORT[k], default=LANG,
-                     key="lang_sel", on_change=on_lang, label_visibility="collapsed")
-st.markdown(f'<div class="wil-hero"><h1>{html.escape(T("headline"))}</h1>'
-            f'<div class="wil-sub">{html.escape(T("subline"))}</div></div>', unsafe_allow_html=True)
-ctx_label = f"{L('occasion', occasion)} · {temperature}°C"
-st.markdown(
-    '<div class="wil-tiles">'
-    f'<div class="wil-tile"><div class="k">{T("m_items")}</div><div class="v">{len(items)}</div></div>'
-    f'<div class="wil-tile"><div class="k">{T("m_context")}</div><div class="v">{html.escape(ctx_label)}</div></div>'
-    f'<div class="wil-tile"><div class="k">{T("m_feedback")}</div><div class="v">{summary["likes"]} / {summary["dislikes"]}</div></div>'
-    f'<div class="wil-tile"><div class="k">{T("m_scored")}</div><div class="v">{result.candidates_considered}</div></div>'
-    '</div>', unsafe_allow_html=True)
+st.markdown('<div class="wil-statusline">' + chips([
+    f"{len(items)} {T('m_items').lower()}", f"{result.candidates_considered} {T('m_scored').lower()}",
+    f"♥ {summary['likes']} · ✕ {summary['dislikes']}"]) + "</div>", unsafe_allow_html=True)
 
 tab_today, tab_week, tab_stylist, tab_wardrobe, tab_shop, tab_learn = st.tabs(
-    [T("tab_today"), T("tab_week"), T("tab_stylist"), T("tab_wardrobe"), T("tab_shop"), T("tab_insights")])
+    [f":material/wb_sunny: {T('tab_today')}", f":material/calendar_month: {T('tab_week')}",
+     f":material/forum: {T('tab_stylist')}", f":material/checkroom: {T('tab_wardrobe')}",
+     f":material/shopping_bag: {T('tab_shop')}", f":material/insights: {T('tab_insights')}"])
 WARDROBE_SIG = tuple(sorted(i.id for i in items))
 PREFS_SIG = tuple(sorted(db.item_preferences(UID).items()))
 
@@ -286,7 +333,7 @@ with tab_today, safe("today"):
     else:
         snapshot = ranking(result)
         hero = result.outfits[0]
-        with st.container(border=True):
+        with st.container(border=True, key="card-hero"):
             c1, c2 = st.columns([1.25, 1], gap="large")
             with c1:
                 if p := board_path(hero.items):
@@ -307,7 +354,7 @@ with tab_today, safe("today"):
         if len(result.outfits) > 1:
             st.markdown(f"### {T('alternatives')}")
             for n, (col, o) in enumerate(zip(st.columns(2, gap="large"), result.outfits[1:]), start=2):
-                with col, st.container(border=True):
+                with col, st.container(border=True, key=f"card-alt{n}"):
                     if p := board_path(o.items):
                         st.image(p, width="stretch")
                     st.markdown(f'<div class="wil-score">{score_ring(o.score, 64)}<div><div class="lbl">'
@@ -357,31 +404,32 @@ with tab_week, safe("week"):
     st.caption(T("week_source_live", city=city) if fc else T("week_source_manual", temp=temperature))
     start = dt.date.today()
     day_names = T("days").split(",")
-    cols = st.columns(7, gap="small")
-    occs, temps = [], []
-    for i, col in enumerate(cols):
+    occs, temps, cards = [], [], []
+    for i, col in enumerate(st.columns(7, gap="small")):
         d = start + dt.timedelta(days=i)
         f = fc[i] if fc and i < len(fc) else None
         t_day = f["temperature"] if f else float(temperature)
         default = "work" if d.weekday() < 5 else ("casual" if d.weekday() == 5 else "date")
-        with col:
+        card = col.container(border=True, key=f"card-day{i}")
+        with card:
             st.markdown(f'<div class="wil-eyebrow">{day_names[d.weekday()]} · {d.day:02d}.{d.month:02d}</div>'
-                        f'<div class="wil-item-meta">{t_day:.0f}°C{(" · " + html.escape(f["condition"])) if f else ""}</div>',
+                        f'<div class="serif" style="font-size:1.35rem">{t_day:.0f}°C</div>'
+                        f'<div class="wil-item-meta">{html.escape(f["condition"]) if f else "&nbsp;"}</div>',
                         unsafe_allow_html=True)
             occs.append(st.selectbox(T("plan_for"), OCCASIONS, index=OCCASIONS.index(default), key=f"wk-occ-{i}",
                                      format_func=lambda v: L("occasion", v), label_visibility="collapsed"))
         temps.append(max(-30.0, min(45.0, t_day)))
+        cards.append(card)
     plan = cached_week(UID, tuple((o, t, style) for o, t in zip(occs, temps)), WARDROBE_SIG, PREFS_SIG, LANG)
-    cols = st.columns(7, gap="small")
-    for col, o in zip(cols, plan):
-        with col:
+    for card, o in zip(cards, plan):  # fill each day card after the whole week is planned
+        with card:
             if o is None:
                 st.caption("—")
                 continue
             if p := board_path(o.items):
                 st.image(p, width="stretch")
-            st.markdown(f'<div class="wil-item-meta"><b>{o.score:.0f}</b>/100</div>' +
-                        "".join(f'<div class="wil-item-meta">· {html.escape(name_of(it))}</div>' for it in o.items),
+            st.markdown(f'<div class="wil-chip dark">{o.score:.0f}/100</div>' +
+                        "".join(f'<div class="wil-item-meta">{html.escape(name_of(it))}</div>' for it in o.items),
                         unsafe_allow_html=True)
     used_pieces = {i for o in plan if o for i in o.key}
     st.caption(T("week_variety", n=len(used_pieces)))
@@ -399,7 +447,7 @@ with tab_shop, safe("shop"):
     for row_start in range(0, len(sugg), 4):
         for col, s in zip(st.columns(4, gap="medium"), sugg[row_start:row_start + 4]):
             p = s["product"]
-            with col, st.container(border=True):
+            with col, st.container(border=True, key=f"card-shop-{p.id}"):
                 if p.image_path.is_file():
                     st.image(str(p.image_path), width="stretch")
                 st.markdown(f'<div class="wil-item-name">{html.escape(p.name)}</div>'
@@ -436,7 +484,8 @@ with tab_stylist, safe("stylist"):
                     if p := board_path(outfit_items):
                         st.image(p, width=520)
                 c_occ, c_temp, c_style = msg["ctx"]
-                src = T("src_claude") + f" ({stylist.MODEL})" if msg["source"] == "claude" else T("src_rules")
+                src = {"claude": T("src_claude") + f" ({stylist.MODEL})",
+                       "local": "Qwen3-1.7B · " + T("src_local")}.get(msg["source"], T("src_rules"))
                 st.caption(f"{src} · {T('engine_score')} {msg['score']:.1f}/100 · {L('occasion', c_occ)} · "
                            f"{c_temp:g}°C · {L('style', c_style)} · {msg['latency_ms']} ms"
                            + (f" · {msg['note']}" if msg.get("note") else ""))
@@ -473,7 +522,7 @@ with tab_wardrobe, safe("wardrobe"):
         st.info(T("empty_wardrobe"))
     grid = st.columns(5)
     for idx, it in enumerate(shown):
-        with grid[idx % 5], st.container(border=True):
+        with grid[idx % 5], st.container(border=True, key=f"card-item-{it.id}"):
             if p := images.resolve_image(it.image_path):
                 st.image(str(p), width="stretch")
             st.markdown(f'<div class="wil-item-name">{html.escape(name_of(it))}</div>'
@@ -498,7 +547,7 @@ with tab_wardrobe, safe("wardrobe"):
 
     st.markdown(f"### {T('add_item')}")
     st.caption(T("add_hint"))
-    with st.container(border=True):
+    with st.container(border=True, key="card-add"):
         ss.setdefault("upload_nonce", 0)
         up = st.file_uploader(T("photo"), type=["jpg", "jpeg", "png", "webp"], key=f"upload-{ss['upload_nonce']}")
         raw = up.getvalue() if up else None
@@ -560,7 +609,7 @@ with tab_learn, safe("insights"):
         f'<div class="wil-tile"><div class="k">{T("dislikes")}</div><div class="v">{summary["dislikes"]}</div></div>'
         f'<div class="wil-tile"><div class="k">{T("learned_items")}</div><div class="v">{n_learned}</div></div>'
         '</div>', unsafe_allow_html=True)
-    with st.container(border=True):
+    with st.container(border=True, key="card-how"):
         st.markdown(f"#### {T('how_title')}")
         st.markdown(T("how_body", scale=f"{PREFERENCE_SCALE:g}", w=f"{WEIGHTS['preference'] * 100:.0f}",
                       cap=f"{100 * WEIGHTS['preference'] * 0.5:.1f}").replace("\n", "  \n"))
@@ -575,11 +624,11 @@ with tab_learn, safe("insights"):
         st.metric(f"{T('like') if lf['vote'] == 'like' else T('dislike')}: {' + '.join(lf['names'])}",
                   f"{now:.1f}", delta=f"{now - lf['score_before']:+.1f} {T('vs_before')}")
         bc, ac = st.columns(2)
-        with bc, st.container(border=True):
+        with bc, st.container(border=True, key="card-before"):
             st.markdown(f"**{T('ranking_before')}**")
             for r, names, sc in lf["ranking_before"]:
                 st.write(f"{r}. {names} · **{sc:.1f}**")
-        with ac, st.container(border=True):
+        with ac, st.container(border=True, key="card-after"):
             st.markdown(f"**{T('ranking_now')}**")
             for r, names, sc in ranking(service.get_recommendations(lctx, UID, LANG)):
                 st.write(f"{r}. {names} · **{sc:.1f}**")

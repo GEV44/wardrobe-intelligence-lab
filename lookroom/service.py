@@ -214,4 +214,5 @@ def ai_status() -> dict:
         bg = bgremove.status()
     except Exception as exc:
         bg = {"available": False, "loaded": False, "detail": f"not installed ({type(exc).__name__})"}
-    return {"vision": vision.status(), "bgremove": bg, "llm": stylist.llm_available()}
+    from . import llm
+    return {"vision": vision.status(), "bgremove": bg, "llm": stylist.llm_available(), "local_llm": llm.status()}

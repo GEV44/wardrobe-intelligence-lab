@@ -59,7 +59,7 @@ def smooth_scroll(page: Page, dy: int, steps: int = 12) -> None:
 
 
 def tab(page: Page, name: str) -> None:
-    loc = page.get_by_text(name, exact=True).first
+    loc = page.locator('[data-testid="stTab"]').filter(has_text=name).first
     loc.scroll_into_view_if_needed()
     loc.click(force=True)  # Streamlit's sticky header can overlap after scrolling
     page.wait_for_timeout(900)
@@ -104,13 +104,13 @@ def walkthrough(page: Page) -> None:
     smooth_scroll(page, -450)
 
     tab(page, "Shop the gap")
-    caption(page, "Shop the gap: 594 real catalog products tested against the wardrobe by the same engine", 4.5)
+    caption(page, "Shop the gap: 576 real catalog products tested against the wardrobe by the same engine", 4.5)
     smooth_scroll(page, 500)
     caption(page, "Each suggestion shows its score gain, versatility and what it pairs with", 3.5)
     smooth_scroll(page, -500)
 
     tab(page, "AI Stylist")
-    caption(page, "AI Stylist: natural language → Claude picks ONLY real wardrobe items", 2.5)
+    caption(page, "AI Stylist: free local LLM (Qwen3-1.7B, CPU, no API key) + the engine picks real items", 2.5)
     page.get_by_text("Dinner date, 8°C, classic", exact=True).click(force=True)
     page.locator('[data-testid="stChatMessage"]').nth(1).wait_for(timeout=120000)
     page.wait_for_timeout(2500)
@@ -142,7 +142,7 @@ def walkthrough(page: Page) -> None:
         page.wait_for_timeout(3500)
         smooth_scroll(page, 400)
         page.wait_for_timeout(1500)
-    caption(page, "Python · Streamlit · FastAPI · SQLite · FashionSigLIP + FashionCLIP ONNX · Claude · MET Norway", 4.5)
+    caption(page, "100% free: FashionSigLIP + FashionCLIP ONNX · Qwen3 GGUF · MET Norway · Streamlit · FastAPI", 4.5)
 
 
 def api_demo(page: Page) -> None:
@@ -170,7 +170,7 @@ def api_demo(page: Page) -> None:
     page.wait_for_timeout(3500)
     smooth_scroll(page, 700)
     page.wait_for_timeout(1500)
-    caption(page, "POST /stylist/chat: Claude reply + validated outfit + engine score")
+    caption(page, "POST /stylist/chat: local-LLM reply + engine-chosen outfit + score")
     run("/stylist/chat", '{"message": "Client meeting tomorrow, about 10 degrees, smart", "style": "smart"}', "post")
     page.wait_for_timeout(4000)
     smooth_scroll(page, 600)
@@ -207,7 +207,7 @@ def record(name: str, fn, url: str) -> Path:
 def main(which: str) -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     data = tempfile.mkdtemp(prefix="wil-demo-")
-    env = {**os.environ, "LOOKROOM_DATA_DIR": data}
+    env = {**os.environ, "LOOKROOM_DATA_DIR": data, "LOOKROOM_DISABLE_LLM": "1"}  # show the free, key-less path
     procs = [
         subprocess.Popen([sys.executable, "-m", "streamlit", "run", "app.py", "--server.headless", "true",
                           "--server.port", str(UI_PORT)], cwd=ROOT, env=env,

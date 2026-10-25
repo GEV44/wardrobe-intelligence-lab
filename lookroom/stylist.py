@@ -68,31 +68,61 @@ def llm_available() -> bool:
 
 # ---------- deterministic fallback: keyword context parsing + engine ----------
 
+# Multilingual keyword rules (EN / RU / HY stems). Explicit matches always win over the LLM.
 _OCCASION_WORDS = {
-    "work": ("work", "office", "meeting", "interview", "presentation", "client"),
-    "date": ("date", "dinner", "romantic", "drinks"),
-    "formal": ("formal", "wedding", "gala", "ceremony", "black tie", "opera"),
-    "casual": ("casual", "weekend", "park", "errands", "brunch", "coffee", "relax"),
+    "formal": ("formal", "wedding", "gala", "ceremony", "black tie", "opera", "theatre", "theater",
+               "свадьб", "официальн", "торжеств", "театр", "опер", "церемон",
+               "հարսանիք", "պաշտոնական", "թատրոն", "արարողություն"),
+    "work": ("work", "office", "meeting", "interview", "presentation", "client", "conference",
+             "работ", "офис", "встреч", "собеседован", "клиент", "презентац", "конференц",
+             "աշխատանք", "գրասենյակ", "հանդիպում", "հարցազրույց", "հաճախորդ", "շնորհանդես"),
+    "date": ("date", "dinner", "romantic", "drinks", "restaurant",
+             "свидани", "ужин", "романт", "ресторан",
+             "ժամադրություն", "ընթրիք", "ռեստորան", "ռոմանտիկ"),
+    "casual": ("casual", "weekend", "park", "errands", "brunch", "coffee", "relax", "walk",
+               "выходн", "парк", "кофе", "прогулк", "отдых", "повседнев",
+               "հանգստյան", "այգի", "սուրճ", "զբոսանք", "ամենօրյա"),
 }
-_STYLE_WORDS = {s: (s,) for s in STYLES} | {"streetwear": ("streetwear", "street", "urban", "hoodie")}
+_STYLE_WORDS = {
+    "streetwear": ("streetwear", "street", "urban", "hoodie", "стритвир", "уличн", "худи", "սթրիթ", "փողոցային"),
+    "classic": ("classic", "классик", "классическ", "դասական"),
+    "minimal": ("minimal", "минимал", "մինիմալ"),
+    "smart": ("smart", "business", "смарт", "делов", "սմարթ", "գործնական"),
+    "casual": ("casual", "relaxed", "кэжуал", "расслаблен", "ազատ"),
+}
+_TEMP_WORDS = ((-2.0, ("freezing", "snow", "very cold", "мороз", "снег", "сառնամանիք", "ձյուն")),
+               (6.0, ("cold", "chilly", "холодн", "прохладн", "ցուրտ", "սառը", "զով")),
+               (29.0, ("hot", "summer", "жарк", "жара", "лето", "շոգ", "ամառ")),
+               (23.0, ("warm", "sunny", "тепл", "солнечн", "տաք", "արևոտ")))
+_DEGREES = re.compile(r"(-?\d{1,2})\s*(?:°|degrees|deg|c\b|градус|град|աստիճան)")
 
 
-def parse_context(message: str, default: Context) -> Context:
+def parse_context_explicit(message: str) -> dict:
+    """Only what the keyword rules can see: {"occasion"|"style"|"temperature": value} (missing keys = unknown)."""
     m = message.lower()
-    occasion = next((o for o, words in _OCCASION_WORDS.items() if any(w in m for w in words)), default.occasion)
-    style = next((s for s, words in _STYLE_WORDS.items() if any(w in m for w in words)), default.style)
-    temp = default.temperature
-    if hit := re.search(r"(-?\d{1,2})\s*(?:°|degrees|deg|c\b)", m):
-        temp = float(hit.group(1))
-    elif any(w in m for w in ("freezing", "snow", "very cold")):
-        temp = -2.0
-    elif "cold" in m or "chilly" in m:
-        temp = 6.0
-    elif "hot" in m or "summer" in m:
-        temp = 29.0
-    elif "warm" in m or "sunny" in m:
-        temp = 23.0
-    temp = max(TEMP_MIN, min(TEMP_MAX, temp))
+    found: dict = {}
+    if occ := next((o for o, words in _OCCASION_WORDS.items() if any(w in m for w in words)), None):
+        found["occasion"] = occ
+    if sty := next((s for s, words in _STYLE_WORDS.items() if any(w in m for w in words)), None):
+        found["style"] = sty
+    if hit := _DEGREES.search(m):
+        found["temperature"] = float(hit.group(1))
+    elif t := next((t for t, words in _TEMP_WORDS if any(w in m for w in words)), None):
+        found["temperature"] = t
+    return found
+
+
+def parse_context(message: str, default: Context, extra: dict | None = None) -> Context:
+    """Keyword rules first, then optional LLM-extracted fields (`extra`), then the app's current context."""
+    found = parse_context_explicit(message)
+    extra = extra or {}
+    occasion = found.get("occasion") or (extra.get("occasion") if extra.get("occasion") in OCCASIONS else None) \
+        or default.occasion
+    style = found.get("style") or (extra.get("style") if extra.get("style") in STYLES else None) or default.style
+    temp = found.get("temperature")
+    if temp is None and isinstance(extra.get("temperature_c"), (int, float)):
+        temp = float(extra["temperature_c"])
+    temp = max(TEMP_MIN, min(TEMP_MAX, default.temperature if temp is None else temp))
     return validate_context(occasion, temp, style)
 
 
@@ -101,17 +131,32 @@ LANGUAGE_NAMES = {"en": "English", "hy": "Armenian (Հայերեն)", "ru": "Rus
 
 
 def _rules_reply(message: str, default: Context, items: list[Item], prefs: dict, note: str | None,
-                 lang: str = "en") -> StylistReply:
+                 lang: str = "en", use_local_llm: bool = False) -> StylistReply:
+    """Engine-chosen outfit. With use_local_llm, a free local model (Qwen3) fills unknown context fields and
+    phrases the reply; every LLM step falls back to the deterministic rule/template path."""
+    from . import llm
+
     t0 = time.perf_counter()
-    ctx = parse_context(message, default)
+    local = use_local_llm and llm.enabled()
+    extra = None
+    if local:
+        found = parse_context_explicit(message)
+        if len(found) < 3:  # only ask the model for what the keyword rules could not see
+            extra = llm.extract_context(message)
+    ctx = parse_context(message, default, extra)
     res = recommender.recommend(items, ctx, prefs, n=1, lang=lang)
     if not res.outfits:
         return StylistReply(res.message or "", ctx, None, "rules", note=note)
     o = res.outfits[0]
-    text = i18n.t("rules_reply", lang, occ=i18n.label("occasion", ctx.occasion, lang), temp=f"{ctx.temperature:.0f}",
-                  style=i18n.label("style", ctx.style, lang),
-                  names=", ".join(i18n.item_name(i, lang) for i in o.items), why=o.explanation)
-    return StylistReply(text, ctx, o, "rules", int((time.perf_counter() - t0) * 1000), note)
+    names = [i18n.item_name(i, lang) for i in o.items]
+    text = llm.stylist_reply(lang, i18n.label("occasion", ctx.occasion, lang), ctx.temperature,
+                             i18n.label("style", ctx.style, lang), names, o.explanation) if local else None
+    source = "local" if (local and (text or extra)) else "rules"
+    if not text:
+        text = i18n.t("rules_reply", lang, occ=i18n.label("occasion", ctx.occasion, lang),
+                      temp=f"{ctx.temperature:.0f}", style=i18n.label("style", ctx.style, lang),
+                      names=", ".join(names), why=o.explanation)
+    return StylistReply(text, ctx, o, source, int((time.perf_counter() - t0) * 1000), note)
 
 
 # ---------- Claude path ----------
@@ -184,13 +229,13 @@ def chat(message: str, history: list[dict] | None = None, default: Context | Non
     items = db.list_items(user_id)
     prefs = db.item_preferences(user_id)
 
-    def rules(note: str | None) -> StylistReply:
-        return _rules_reply(message, default, items, prefs, note, lang)
+    def rules(note: str | None, local: bool = True) -> StylistReply:
+        return _rules_reply(message, default, items, prefs, note, lang, use_local_llm=local)
 
     if not message or recommender.missing_categories(items):
+        return rules(None, local=False)
+    if not llm_available():  # no paid key configured: the free local model (Qwen3) + engine is the default path
         return rules(None)
-    if not llm_available():
-        return rules("LLM offline: rule engine")
     if not allow_llm:
         return rules("session Claude limit reached: rule engine")
     if not db.try_consume_llm_call(daily_cap()):
