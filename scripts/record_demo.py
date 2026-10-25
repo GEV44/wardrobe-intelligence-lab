@@ -59,7 +59,9 @@ def smooth_scroll(page: Page, dy: int, steps: int = 12) -> None:
 
 
 def tab(page: Page, name: str) -> None:
-    page.get_by_text(name, exact=True).first.click()
+    loc = page.get_by_text(name, exact=True).first
+    loc.scroll_into_view_if_needed()
+    loc.click(force=True)  # Streamlit's sticky header can overlap after scrolling
     page.wait_for_timeout(900)
 
 
@@ -85,7 +87,7 @@ def walkthrough(page: Page) -> None:
     caption(page, "... a coat is layered in automatically and weather-fit scores update", 4.5)
 
     caption(page, "Feedback loop: Dislike today's look ...", 1.5)
-    page.locator('button:has-text("Dislike")').first.click()
+    page.locator('button:has-text("Dislike")').first.click(force=True)
     page.wait_for_timeout(2500)
     caption(page, "... the score drops and the ranking re-orders (bounded adaptation, max ±7.5 pts)", 4.5)
 
@@ -95,9 +97,21 @@ def walkthrough(page: Page) -> None:
     page.wait_for_timeout(2500)
     smooth_scroll(page, -600, 10)
 
+    tab(page, "Plan my week")
+    caption(page, "Plan my week: 7 looks from the daily forecast, no piece repeated on consecutive days", 4.5)
+    smooth_scroll(page, 450)
+    page.wait_for_timeout(2000)
+    smooth_scroll(page, -450)
+
+    tab(page, "Shop the gap")
+    caption(page, "Shop the gap: 594 real catalog products tested against the wardrobe by the same engine", 4.5)
+    smooth_scroll(page, 500)
+    caption(page, "Each suggestion shows its score gain, versatility and what it pairs with", 3.5)
+    smooth_scroll(page, -500)
+
     tab(page, "AI Stylist")
     caption(page, "AI Stylist: natural language → Claude picks ONLY real wardrobe items", 2.5)
-    page.get_by_text("Dinner date, 8°C, classic", exact=True).click()
+    page.get_by_text("Dinner date, 8°C, classic", exact=True).click(force=True)
     page.locator('[data-testid="stChatMessage"]').nth(1).wait_for(timeout=120000)
     page.wait_for_timeout(2500)
     caption(page, "Context extracted (date · 8°C · classic); the pick is validated and re-scored by the engine", 3.5)
@@ -114,20 +128,20 @@ def walkthrough(page: Page) -> None:
     page.wait_for_timeout(800)
     smooth_scroll(page, 500, 10)
     caption(page, "Shoes · white · warmth/formality suggested; the user reviews, then saves", 4.5)
-    page.locator('button:has-text("Add to wardrobe")').click()
+    page.locator('button:has-text("Add to wardrobe")').click(force=True)
     page.wait_for_timeout(3000)
     caption(page, "Validated, re-encoded, stored under a UUID name in the user's private workspace", 3.5)
     smooth_scroll(page, -3000, 12)
 
     caption(page, "Fully localized: English · Armenian · Russian", 1.5)
-    page.get_by_text("ՀԱՅ", exact=True).first.click()
-    page.wait_for_timeout(3500)
-    tab(page, "Այսօր")
-    page.wait_for_timeout(2500)
-    page.get_by_text("РУ", exact=True).first.click()
-    page.wait_for_timeout(3500)
-    tab(page, "Сегодня")
-    page.wait_for_timeout(2500)
+    for lang, today in (("hy", "Այսօրվա կերպարը"), ("ru", "Образ дня")):
+        url = page.url.split("?")[0] + "?" + "&".join(
+            p for p in page.url.split("?")[1].split("&") if not p.startswith("lang=")) + f"&lang={lang}"
+        page.goto(url)
+        page.get_by_text(today).first.wait_for(timeout=90000)
+        page.wait_for_timeout(3500)
+        smooth_scroll(page, 400)
+        page.wait_for_timeout(1500)
     caption(page, "Python · Streamlit · FastAPI · SQLite · FashionSigLIP + FashionCLIP ONNX · Claude · MET Norway", 4.5)
 
 

@@ -9,6 +9,8 @@
 3. **Context sensitivity**: drag the temperature to 2 °C. Outerwear appears and the weather fit changes. Switch Occasion to Casual and the formality scores shift.
 4. **Personalization**: click **Dislike** on Look 1. The toast shows the score drop, for example 84.9 → 81.5, and the ranking reorders.
 5. **How It Learns**: show the counts, the before/after ranking, the item signal table and the bounded formula (±7.5 pts maximum).
+5b. **Plan my week**: seven looks from the MET Norway daily forecast, an occasion per day, and no item repeated on consecutive days. Explain that this is the same engine with a repeat penalty: deterministic, greedy and explainable.
+5c. **Shop the gap**: 594 real catalog products, each tested against the wardrobe by the same engine. It shows the score gain, how many occasions improve, and what it pairs with. "Add to my wardrobe" closes the loop, which is LookRoom's "what to buy" made measurable.
 6. **AI Stylist**: click "Dinner date, 8°C, classic". Claude extracts date / 8 °C / classic and picks real items. Show the "engine score" badge and Like the result, which closes the loop.
 7. **Wardrobe**: upload `demo_assets/sneakers_public_domain.jpg`. FashionCLIP suggests White Sneakers · shoes · white in about 0.2 s. Review the suggestion, add it, and show it in the grid.
 8. **API**: open `http://127.0.0.1:8010/docs`, run `GET /recommendations` and `POST /stylist/chat`.
