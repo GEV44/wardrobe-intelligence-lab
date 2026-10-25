@@ -268,7 +268,8 @@ def status() -> dict:
         return {"available": False, "loaded": False, "detail": "disabled by LOOKROOM_DISABLE_VISION"}
     cands = _candidates()
     if not cands:
-        return {"available": False, "loaded": False, "detail": "model not installed (python scripts/setup_models.py)"}
+        detail = _errors.get("siglip-download") or "model not installed yet (downloads on first start)"
+        return {"available": False, "loaded": False, "detail": detail}
     loaded = next((b for b in cands if b in _taggers), None)
     errs = "; ".join(f"{b}: {_errors[b]}" for b in cands if b in _errors)
     detail = _taggers[loaded].model if loaded else (errs or f"{cands[0]} int8 ONNX")
