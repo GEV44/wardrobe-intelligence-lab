@@ -10,7 +10,7 @@
 4. **Personalization**: click **Dislike** on Look 1. The toast shows the score drop, for example 84.9 → 81.5, and the ranking reorders.
 5. **How It Learns**: show the counts, the before/after ranking, the item signal table and the bounded formula (±7.5 pts maximum).
 5b. **Plan my week**: seven looks from the MET Norway daily forecast, an occasion per day, and no item repeated on consecutive days. Explain that this is the same engine with a repeat penalty: deterministic, greedy and explainable.
-5c. **Shop the gap**: 576 real catalog products, each tested against the wardrobe by the same engine. It shows the score gain, how many occasions improve, and what it pairs with. "Add to my wardrobe" closes the loop, which is LookRoom's "what to buy" made measurable.
+5c. **Shop the gap**: 984 real catalog products, each tested against the wardrobe by the same engine across today plus 5 representative situations. It shows the biggest gap with its best look, the score gain, how many situations improve and how many strong looks it unlocks. "Add to my wardrobe" closes the loop, which is LookRoom's "what to buy" made measurable.
 6. **AI Stylist (free, local)**: click "Dinner date, 8°C, classic". The keyword rules plus the local Qwen3-1.7B extract date / 8 °C / classic, the engine picks real items, and Qwen phrases the reply. No API key and no cost. Show the "engine score" badge and Like the result, which closes the loop.
 7. **Wardrobe**: upload `demo_assets/sneakers_public_domain.jpg`. FashionCLIP suggests White Sneakers · shoes · white in about 0.2 s. Review the suggestion, add it, and show it in the grid.
 8. **API**: open `http://127.0.0.1:8010/docs`, run `GET /recommendations` and `POST /stylist/chat`.

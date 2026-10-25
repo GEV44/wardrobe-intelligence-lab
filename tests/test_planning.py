@@ -41,12 +41,14 @@ needs_shop = pytest.mark.skipif(not shop.load_products(), reason="shop catalog n
 def test_shop_suggestions_improve_score_and_are_real_products(seeded):
     ctx = validate_context("formal", 2, "classic")
     sugg = service.shop_suggestions(ctx)
-    assert sugg, "expected at least one improving product for a cold formal day"
-    base = shop.current_best(db.list_items(), ctx, {})
+    assert sugg, "expected at least one product that closes a wardrobe gap"
     catalog_ids = {p.id for p in shop.load_products()}
     for s in sugg:
         assert s["product"].id in catalog_ids and s["product"].image_path.is_file()
-        assert s["score"] > base and s["gain"] > 0
+        # qualifies by raising the best look somewhere, or by unlocking several near-best looks
+        assert (s["gain"] > 0 and s["score"] > s["base"]) or s["unlocks"] >= 3
+        assert 0 <= s["occasions_improved"] <= s["situations"]
+        assert s["product"].gender == "men"  # default (men's) wardrobe only sees men's products
         assert all(it.id in {i.id for i in db.list_items()} for it in s["pairs_with"])
     cats = [s["product"].category for s in sugg]
     assert all(cats.count(c) <= 2 for c in cats)

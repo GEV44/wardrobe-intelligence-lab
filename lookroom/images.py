@@ -219,7 +219,15 @@ def compose_board(items: list[Item], width: int = 960) -> str | None:
     canvas = Image.new("RGB", (width, h), BOARD_BG)
     by_cat = {i.category: p for i, p in zip(items, paths)}
     inner_w, inner_h = width - 2 * pad, h - 2 * pad
-    if "outerwear" in by_cat:      # coat tall on the left, top/bottom/shoes stacked on the right
+    if "dress" in by_cat:          # dress tall on the left; shoes (+ outerwear) on the right
+        lw = int(inner_w * 0.5)
+        rw = inner_w - lw - gap
+        right = [c for c in ("outerwear", "shoes") if c in by_cat]
+        rh = (inner_h - gap * (len(right) - 1)) // len(right)
+        cells = {"dress": (pad, pad, lw, inner_h)}
+        for k, cat in enumerate(right):
+            cells[cat] = (pad + lw + gap, pad + k * (rh + gap), rw, rh)
+    elif "outerwear" in by_cat:    # coat tall on the left, top/bottom/shoes stacked on the right
         lw = int(inner_w * 0.42)
         rw = inner_w - lw - gap
         rh = (inner_h - 2 * gap) // 3
@@ -245,6 +253,18 @@ def compose_board(items: list[Item], width: int = 960) -> str | None:
         canvas.paste(img, (x + (w - img.width) // 2, y + (hh - img.height) // 2))
     canvas.save(out, format="JPEG", quality=88)
     return f"images/boards/{name}"
+
+
+def shop_image(src: Path, product_id: str) -> str | None:
+    """Expose a shop catalog photo inside the data dir so outfit boards can use it. Returns its relative path."""
+    if not src.is_file():
+        return None
+    rel = f"images/shop/{product_id}.jpg"
+    dst = db.data_dir() / rel
+    if not dst.is_file():
+        images_dir("shop")
+        dst.write_bytes(src.read_bytes())
+    return rel
 
 
 def delete_uploads(rel_paths: list[str]) -> int:

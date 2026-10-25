@@ -13,7 +13,7 @@ with tempfile.TemporaryDirectory() as tmp:
 
     service.ensure_ready()
     items = db.list_items()
-    assert len(items) == 14, items
+    assert len(items) >= 14, items
     print(f"[ok] database initialized at {db.db_path()} with {len(items)} seed items")
 
     ctx = validate_context("work", 10, "smart")

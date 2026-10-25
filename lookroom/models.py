@@ -3,8 +3,18 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 
-CATEGORIES = ("top", "bottom", "shoes", "outerwear")
-REQUIRED_CATEGORIES = ("top", "bottom", "shoes")
+CATEGORIES = ("top", "bottom", "dress", "shoes", "outerwear")
+REQUIRED_CATEGORIES = ("top", "bottom", "shoes")   # the two-piece outfit shape
+DRESS_OUTFIT = ("dress", "shoes")                  # the one-piece outfit shape
+DISPLAY_ORDER = {c: i for i, c in enumerate(("top", "dress", "bottom", "shoes", "outerwear"))}
+
+
+def is_valid_outfit(categories: list[str]) -> bool:
+    """Exactly one of each piece and either top+bottom+shoes or dress+shoes; optional single outerwear."""
+    if len(categories) != len(set(categories)):
+        return False
+    core = set(categories) - {"outerwear"}
+    return core in ({"top", "bottom", "shoes"}, {"dress", "shoes"})
 OCCASIONS = ("casual", "work", "date", "formal")
 STYLES = ("casual", "classic", "minimal", "smart", "streetwear")
 

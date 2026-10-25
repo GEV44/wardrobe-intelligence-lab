@@ -58,4 +58,29 @@ def test_reset_clears_feedback_and_user_items(seeded, ctx):
     service.add_item("Red Scarf Top", "top", "red", "casual", 2, 2)
     stats = seed.reset_demo()
     assert stats["feedback_deleted"] == 1 and stats["items_deleted"] == 1
-    assert len(db.list_items()) == 14 and db.list_feedback() == []
+    assert len(db.list_items()) == len(seed.load_demo_items()) and db.list_feedback() == []
+
+
+def test_dislike_swaps_to_another_look(seeded, ctx):
+    first = service.get_recommendations(ctx).outfits[0]
+    service.record_feedback(list(first.key), "dislike", ctx)
+    assert first.key not in [o.key for o in service.get_recommendations(ctx).outfits]
+
+
+def test_show_another_look_skips_current(seeded, ctx):
+    first = service.get_recommendations(ctx).outfits[0]
+    assert service.get_recommendations(ctx, skip={first.key}).outfits[0].key != first.key
+
+
+def test_switch_to_women_wardrobe(seeded):
+    import pytest
+    if "women" not in seed.available_presets():
+        pytest.skip("women's wardrobe not built")
+    from lookroom.models import validate_context
+    service.switch_preset(db.DEFAULT_USER, "women")
+    items = db.list_items()
+    assert service.current_preset(db.DEFAULT_USER) == "women" and any(i.category == "dress" for i in items)
+    res = service.get_recommendations(validate_context("date", 22, "classic"))
+    assert res.outfits and all(i.id.startswith("w-") for o in res.outfits for i in o.items)
+    service.switch_preset(db.DEFAULT_USER, "men")
+    assert not any(i.category == "dress" for i in db.list_items())

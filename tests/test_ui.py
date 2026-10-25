@@ -3,7 +3,7 @@ from pathlib import Path
 import pytest
 from streamlit.testing.v1 import AppTest
 
-from lookroom import db
+from lookroom import db, seed
 
 APP = str(Path(__file__).resolve().parent.parent / "app.py")
 
@@ -17,7 +17,7 @@ def test_app_renders_and_like_updates_feedback(isolated_data):
     assert not at.exception
     assert "Your wardrobe. Fewer decisions." in _md(at)
     uid = at.query_params["u"][0] if isinstance(at.query_params["u"], list) else at.query_params["u"]
-    assert uid and uid != db.DEFAULT_USER and db.count_items(uid) == 14  # private workspace provisioned
+    assert uid and uid != db.DEFAULT_USER and db.count_items(uid) == len(seed.load_demo_items())  # private workspace provisioned
     likes = [b for b in at.button if b.key and b.key.startswith("like-")]
     assert len(likes) == 3
     likes[0].click().run()

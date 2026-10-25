@@ -13,7 +13,8 @@ import time
 from dataclasses import dataclass, field
 
 from . import db, i18n, recommender
-from .models import OCCASIONS, REQUIRED_CATEGORIES, STYLES, TEMP_MAX, TEMP_MIN, Context, Item, validate_context
+from .models import (DISPLAY_ORDER, OCCASIONS, STYLES, TEMP_MAX, TEMP_MIN, Context, Item, is_valid_outfit,
+                     validate_context)
 
 MODEL = "claude-opus-5-5"
 MAX_HISTORY_TURNS = 6
@@ -29,7 +30,7 @@ def daily_cap() -> int:
 
 SYSTEM_PROMPT = """You are the stylist inside Wardrobe Intelligence Lab, a wardrobe app.
 Pick ONE outfit for the user using only item ids from the wardrobe JSON you are given.
-An outfit is exactly one top, one bottom and one pair of shoes, plus at most one outerwear piece when it is cool (below ~20°C) and required below 12°C.
+An outfit is either one top + one bottom + one pair of shoes, or one dress + one pair of shoes, plus at most one outerwear piece when it is cool (below ~20°C) and required below 12°C.
 Infer occasion, temperature (°C) and style from the user's message; when something is not stated, keep the current app context.
 The engine's top-ranked outfits for the current context are provided with transparent scores. Prefer them unless the user's request clearly calls for something else; respect learned likes/dislikes.
 Write `reply` in the language named in reply_language, as a warm, concise stylist note (2-4 sentences, plain text, no markdown) that names the pieces and says why they work. Never mention item ids or pieces that are not in the wardrobe."""
@@ -165,11 +166,9 @@ def _validate_ids(ids: list[str], by_id: dict[str, Item]) -> tuple[Item, ...] | 
     if len(ids) != len(set(ids)) or any(i not in by_id for i in ids):
         return None
     chosen = [by_id[i] for i in ids]
-    cats = [c.category for c in chosen]
-    if len(cats) != len(set(cats)) or not set(REQUIRED_CATEGORIES) <= set(cats):
+    if not is_valid_outfit([c.category for c in chosen]):
         return None
-    order = {c: n for n, c in enumerate((*REQUIRED_CATEGORIES, "outerwear"))}
-    return tuple(sorted(chosen, key=lambda it: order[it.category]))
+    return tuple(sorted(chosen, key=lambda it: DISPLAY_ORDER[it.category]))
 
 
 def _claude_reply(message: str, history: list[dict], default: Context, items: list[Item],

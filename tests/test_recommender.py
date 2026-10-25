@@ -6,14 +6,14 @@ from conftest import make_item
 
 def test_seed_creates_all_categories(seeded):
     items = db.list_items()
-    assert len(items) == 14
-    assert {i.category for i in items} == set(CATEGORIES)
+    assert len(items) == len(seed.load_demo_items())
+    assert {i.category for i in items} == set(CATEGORIES) - {"dress"}
     assert all(i.image_path and (seeded / i.image_path).is_file() for i in items)
 
 
 def test_seed_is_idempotent(seeded):
     assert seed.seed() == 0
-    assert len(db.list_items()) == 14
+    assert len(db.list_items()) == len(seed.load_demo_items())
 
 
 def test_recommendations_only_use_wardrobe_items(seeded, ctx):
@@ -96,3 +96,22 @@ def test_color_rules():
     assert recommender.color_rule("blue", "blue") == "monochrome"
     assert recommender.color_rule("blue", "olive") == "palette"
     assert recommender.color_rule("red", "green") == "clash"
+
+
+def test_dress_outfits_are_generated_and_valid():
+    from lookroom.models import is_valid_outfit
+    items = [make_item("d", "dress", formality=4), make_item("s", "shoes"), make_item("t", "top"),
+             make_item("b", "bottom"), make_item("o", "outerwear", warmth=5)]
+    combos = recommender.generate_candidates(items, 5)
+    assert any(c[0].category == "dress" for c in combos)
+    assert all(is_valid_outfit([i.category for i in c]) for c in combos)
+    only_dress = recommender.recommend([make_item("d", "dress"), make_item("s", "shoes")],
+                                       validate_context("date", 22, "classic"))
+    assert only_dress.outfits and only_dress.outfits[0].by_category("dress")
+
+
+def test_outfit_validity_rules():
+    from lookroom.models import is_valid_outfit
+    assert is_valid_outfit(["top", "bottom", "shoes"]) and is_valid_outfit(["dress", "shoes", "outerwear"])
+    assert not is_valid_outfit(["dress", "top", "shoes"]) and not is_valid_outfit(["top", "shoes"])
+    assert not is_valid_outfit(["top", "top", "bottom", "shoes"])

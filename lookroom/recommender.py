@@ -13,7 +13,7 @@ from itertools import combinations, product
 from typing import Iterable, Mapping
 
 from . import i18n
-from .models import REQUIRED_CATEGORIES, Context, Item
+from .models import Context, Item
 
 WEIGHTS = {"occasion": 0.30, "weather": 0.25, "color": 0.15, "style": 0.15, "preference": 0.15}
 
@@ -198,46 +198,74 @@ def score_outfit(items: tuple[Item, ...], ctx: Context, prefs: Mapping[str, floa
 
 
 def missing_categories(items: Iterable[Item]) -> list[str]:
+    """What blocks every outfit shape: shoes always; top+bottom unless a dress is available."""
     present = {it.category for it in items}
-    return [c for c in REQUIRED_CATEGORIES if c not in present]
+    missing = [] if "shoes" in present else ["shoes"]
+    if "dress" not in present:
+        missing = [c for c in ("top", "bottom") if c not in present] + missing
+    return missing
+
+
+def _outer_options(outer: list[Item], temperature: float) -> list[Item | None]:
+    if temperature < OUTERWEAR_REQUIRED_BELOW and outer:
+        return list(outer)
+    return [None, *outer] if temperature < OUTERWEAR_ALLOWED_BELOW else [None]
+
+
+def combos_from(by_cat: Mapping[str, list[Item]], temperature: float) -> list[tuple[Item, ...]]:
+    """Both outfit shapes: top+bottom+shoes(+outer) and dress+shoes(+outer)."""
+    outer_opts = _outer_options(list(by_cat.get("outerwear", [])), temperature)
+    shoes = by_cat.get("shoes", [])
+    combos = [(t, b, s) + ((o,) if o else ())
+              for t, b, s, o in product(by_cat.get("top", []), by_cat.get("bottom", []), shoes, outer_opts)]
+    combos += [(d, s) + ((o,) if o else ()) for d, s, o in product(by_cat.get("dress", []), shoes, outer_opts)]
+    return combos
 
 
 def generate_candidates(items: list[Item], temperature: float) -> list[tuple[Item, ...]]:
     by_cat: dict[str, list[Item]] = {}
     for it in sorted(items, key=lambda i: i.id):
         by_cat.setdefault(it.category, []).append(it)
-    outer = by_cat.get("outerwear", [])
-    if temperature < OUTERWEAR_REQUIRED_BELOW and outer:
-        outer_opts: list[Item | None] = list(outer)
-    elif temperature < OUTERWEAR_ALLOWED_BELOW:
-        outer_opts = [None, *outer]
-    else:
-        outer_opts = [None]
-    combos = []
-    for top, bottom, shoes, o in product(by_cat.get("top", []), by_cat.get("bottom", []),
-                                         by_cat.get("shoes", []), outer_opts):
-        combos.append((top, bottom, shoes) + ((o,) if o else ()))
-    return combos
+    return combos_from(by_cat, temperature)
+
+
+def _main_piece(o: Outfit) -> str:
+    """The piece that defines the look: the top, or the dress for one-piece outfits."""
+    main = o.by_category("top") or o.by_category("dress")
+    return main.id if main else ""
 
 
 def select_diverse(ranked: list[Outfit], n: int = TOP_N) -> list[Outfit]:
-    """Greedy pick with a small penalty for items/tops already shown. Stable tie-break on ids."""
+    """Greedy pick with a small penalty for items/main pieces already shown. Stable tie-break on ids."""
     chosen: list[Outfit] = []
-    pool = list(ranked)
+    pool = list(ranked[:400])  # the top of the ranking is plenty to diversify over
     while pool and len(chosen) < n:
         used_items = {i for o in chosen for i in o.key}
-        used_tops = {o.by_category("top").id for o in chosen}
+        used_main = {_main_piece(o) for o in chosen}
 
         def adjusted(o: Outfit) -> float:
             shared = sum(1 for i in o.key if i in used_items)
-            top_rep = TOP_REPEAT_PENALTY if o.by_category("top").id in used_tops else 0.0
-            return o.breakdown.total - DIVERSITY_PENALTY * shared - top_rep
+            rep = TOP_REPEAT_PENALTY if _main_piece(o) in used_main else 0.0
+            return o.breakdown.total - DIVERSITY_PENALTY * shared - rep
 
         best = min(pool, key=lambda o: (-adjusted(o), o.key))
         chosen.append(best)
         pool.remove(best)
     # Diversity decides *which* outfits are shown; display order is by true score.
     return sorted(chosen, key=lambda o: (-o.breakdown.total, o.key))
+
+
+def _rank(combos: list[tuple[Item, ...]], ctx: Context, prefs: Mapping[str, float] | None) -> list[Outfit]:
+    """Score every candidate (no explanation yet: it is generated only for outfits actually shown)."""
+    prefs = prefs or {}
+    scored = [Outfit(c, ScoreBreakdown(occasion_score(c, ctx.occasion), weather_score(c, ctx.temperature),
+                                       color_score(c), style_score(c, ctx.style), preference_score(c, prefs)), "")
+              for c in combos]
+    return sorted(scored, key=lambda o: (-o.breakdown.total, o.key))
+
+
+def _explained(o: Outfit, ctx: Context, lang: str) -> Outfit:
+    return Outfit(o.items, o.breakdown, explain(o.items, o.breakdown, ctx, lang))
 
 
 REPEAT_YESTERDAY_PENALTY = 8.0   # points per item also worn the previous day
@@ -254,13 +282,13 @@ def plan_week(items: list[Item], contexts: list[Context], prefs: Mapping[str, fl
     uses: dict[str, int] = {}
     yesterday: set[str] = set()
     for ctx in contexts:
-        scored = [score_outfit(c, ctx, prefs, lang) for c in generate_candidates(items, ctx.temperature)]
+        scored = _rank(generate_candidates(items, ctx.temperature), ctx, prefs)
 
         def adjusted(o: Outfit) -> float:
             return (o.breakdown.total - REPEAT_YESTERDAY_PENALTY * sum(i in yesterday for i in o.key)
                     - REPEAT_WEEK_PENALTY * sum(uses.get(i, 0) for i in o.key))
 
-        best = min(scored, key=lambda o: (-adjusted(o), o.key))
+        best = _explained(min(scored, key=lambda o: (-adjusted(o), o.key)), ctx, lang)
         plan.append(best)
         yesterday = set(best.key)
         for i in best.key:
@@ -269,15 +297,19 @@ def plan_week(items: list[Item], contexts: list[Context], prefs: Mapping[str, fl
 
 
 def recommend(items: list[Item], ctx: Context, prefs: Mapping[str, float] | None = None,
-              n: int = TOP_N, lang: str = "en") -> RecommendationResult:
+              n: int = TOP_N, lang: str = "en", exclude: set[tuple[str, ...]] | None = None) -> RecommendationResult:
+    """exclude: exact outfit keys the user rejected (a Dislike swaps the look immediately)."""
     missing = missing_categories(items)
     if missing:
         cats = ", ".join(i18n.label("category", c, lang) for c in missing)
         return RecommendationResult([], i18n.t("missing_cats", lang, cats=cats))
     candidates = generate_candidates(items, ctx.temperature)
-    scored = [score_outfit(c, ctx, prefs, lang) for c in candidates]
-    ranked = sorted(scored, key=lambda o: (-o.breakdown.total, o.key))
+    ranked = _rank(candidates, ctx, prefs)
+    if exclude:
+        kept = [o for o in ranked if o.key not in exclude]
+        ranked = kept or ranked  # never show an empty page because of rejections
     message = None
     if ctx.temperature < OUTERWEAR_REQUIRED_BELOW and not any(i.category == "outerwear" for i in items):
         message = i18n.t("cold_no_outer", lang)
-    return RecommendationResult(select_diverse(ranked, n), message, len(candidates))
+    shown = [_explained(o, ctx, lang) for o in select_diverse(ranked, n)]
+    return RecommendationResult(shown, message, len(candidates))

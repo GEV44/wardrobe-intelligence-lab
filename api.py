@@ -175,7 +175,7 @@ class ShopOut(BaseModel):
     gain: float
     score_with_product: float
     current_best: float
-    occasions_improved: int = Field(ge=0, le=4)
+    occasions_improved: int = Field(ge=0, le=6, description="situations (of 6) this product improves")
     pairs_with: list[str]
 
 

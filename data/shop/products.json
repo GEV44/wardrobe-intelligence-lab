@@ -8,6 +8,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p11128.jpg"
 },
 {
@@ -19,7 +20,20 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p14659.jpg"
+},
+{
+"id": "p14939",
+"name": "Status Quo Men Solid Beige Shorts",
+"category": "bottom",
+"article": "Shorts",
+"color": "beige",
+"style": "casual",
+"warmth": 1,
+"formality": 1,
+"gender": "men",
+"image": "img/p14939.jpg"
 },
 {
 "id": "p23089",
@@ -30,6 +44,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p23089.jpg"
 },
 {
@@ -41,6 +56,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p27614.jpg"
 },
 {
@@ -52,6 +68,7 @@
 "style": "casual",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p27623.jpg"
 },
 {
@@ -63,6 +80,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p39808.jpg"
 },
 {
@@ -74,6 +92,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p44289.jpg"
 },
 {
@@ -85,6 +104,7 @@
 "style": "casual",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p51377.jpg"
 },
 {
@@ -96,6 +116,7 @@
 "style": "casual",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p51382.jpg"
 },
 {
@@ -107,18 +128,8 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p56822.jpg"
-},
-{
-"id": "p8946",
-"name": "Indigo Nation Men ID Printed Beige Trousers",
-"category": "bottom",
-"article": "Trousers",
-"color": "beige",
-"style": "smart",
-"warmth": 3,
-"formality": 4,
-"image": "img/p8946.jpg"
 },
 {
 "id": "p10257",
@@ -129,6 +140,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p10257.jpg"
 },
 {
@@ -140,6 +152,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p10259.jpg"
 },
 {
@@ -151,6 +164,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p11324.jpg"
 },
 {
@@ -162,6 +176,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p14695.jpg"
 },
 {
@@ -173,18 +188,8 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p15118.jpg"
-},
-{
-"id": "p15748",
-"name": "Highlander Men Classic Chinos Black Trousers",
-"category": "bottom",
-"article": "Trousers",
-"color": "black",
-"style": "smart",
-"warmth": 3,
-"formality": 4,
-"image": "img/p15748.jpg"
 },
 {
 "id": "p18005",
@@ -195,6 +200,7 @@
 "style": "streetwear",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p18005.jpg"
 },
 {
@@ -206,18 +212,8 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p21379.jpg"
-},
-{
-"id": "p26154",
-"name": "John Miller Men Black Trousers",
-"category": "bottom",
-"article": "Trousers",
-"color": "black",
-"style": "classic",
-"warmth": 3,
-"formality": 4,
-"image": "img/p26154.jpg"
 },
 {
 "id": "p29780",
@@ -228,18 +224,20 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p29780.jpg"
 },
 {
-"id": "p30604",
-"name": "Nike Men Classic Jersey Black Track Pants",
+"id": "p30098",
+"name": "Flying Machine Men Washed Black Jeans",
 "category": "bottom",
-"article": "Track Pants",
+"article": "Jeans",
 "color": "black",
-"style": "streetwear",
+"style": "casual",
 "warmth": 2,
 "formality": 1,
-"image": "img/p30604.jpg"
+"gender": "men",
+"image": "img/p30098.jpg"
 },
 {
 "id": "p33815",
@@ -250,6 +248,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p33815.jpg"
 },
 {
@@ -261,6 +260,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p39381.jpg"
 },
 {
@@ -272,6 +272,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p39388.jpg"
 },
 {
@@ -283,6 +284,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p44912.jpg"
 },
 {
@@ -294,6 +296,7 @@
 "style": "streetwear",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p4787.jpg"
 },
 {
@@ -305,6 +308,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p48380.jpg"
 },
 {
@@ -316,29 +320,8 @@
 "style": "casual",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p58571.jpg"
-},
-{
-"id": "p11129",
-"name": "Urban Yoga Men Solid Blue Track Pants",
-"category": "bottom",
-"article": "Track Pants",
-"color": "blue",
-"style": "streetwear",
-"warmth": 2,
-"formality": 1,
-"image": "img/p11129.jpg"
-},
-{
-"id": "p11340",
-"name": "Lee Men Blue Chicago Fit Jeans",
-"category": "bottom",
-"article": "Jeans",
-"color": "blue",
-"style": "casual",
-"warmth": 2,
-"formality": 1,
-"image": "img/p11340.jpg"
 },
 {
 "id": "p11349",
@@ -349,6 +332,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p11349.jpg"
 },
 {
@@ -360,6 +344,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p12538.jpg"
 },
 {
@@ -371,6 +356,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p1607.jpg"
 },
 {
@@ -382,6 +368,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p1608.jpg"
 },
 {
@@ -393,6 +380,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p16508.jpg"
 },
 {
@@ -404,6 +392,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p18198.jpg"
 },
 {
@@ -415,6 +404,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p39386.jpg"
 },
 {
@@ -426,6 +416,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p44315.jpg"
 },
 {
@@ -437,6 +428,7 @@
 "style": "streetwear",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p5451.jpg"
 },
 {
@@ -448,6 +440,7 @@
 "style": "casual",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p54924.jpg"
 },
 {
@@ -459,6 +452,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p10261.jpg"
 },
 {
@@ -470,6 +464,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p15111.jpg"
 },
 {
@@ -481,6 +476,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p15127.jpg"
 },
 {
@@ -492,7 +488,20 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p16614.jpg"
+},
+{
+"id": "p16623",
+"name": "Probase Men Solid Brown Trouser",
+"category": "bottom",
+"article": "Trousers",
+"color": "brown",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "men",
+"image": "img/p16623.jpg"
 },
 {
 "id": "p26508",
@@ -503,18 +512,8 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p26508.jpg"
-},
-{
-"id": "p29852",
-"name": "Basics Men Dark Brown Trousers",
-"category": "bottom",
-"article": "Trousers",
-"color": "brown",
-"style": "classic",
-"warmth": 3,
-"formality": 4,
-"image": "img/p29852.jpg"
 },
 {
 "id": "p44925",
@@ -525,6 +524,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p44925.jpg"
 },
 {
@@ -536,6 +536,7 @@
 "style": "casual",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p51378.jpg"
 },
 {
@@ -547,6 +548,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p8834.jpg"
 },
 {
@@ -558,6 +560,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p11268.jpg"
 },
 {
@@ -569,6 +572,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p13780.jpg"
 },
 {
@@ -580,6 +584,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p15128.jpg"
 },
 {
@@ -591,6 +596,7 @@
 "style": "casual",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p27624.jpg"
 },
 {
@@ -602,6 +608,7 @@
 "style": "casual",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p54925.jpg"
 },
 {
@@ -613,6 +620,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p7070.jpg"
 },
 {
@@ -624,6 +632,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p14694.jpg"
 },
 {
@@ -635,6 +644,7 @@
 "style": "casual",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p48460.jpg"
 },
 {
@@ -646,6 +656,7 @@
 "style": "streetwear",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p6566.jpg"
 },
 {
@@ -657,6 +668,7 @@
 "style": "casual",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p6977.jpg"
 },
 {
@@ -668,6 +680,7 @@
 "style": "streetwear",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p7557.jpg"
 },
 {
@@ -679,18 +692,8 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p8835.jpg"
-},
-{
-"id": "p14657",
-"name": "Probase Men Solid DK.Grey Trousers",
-"category": "bottom",
-"article": "Trousers",
-"color": "grey",
-"style": "smart",
-"warmth": 3,
-"formality": 4,
-"image": "img/p14657.jpg"
 },
 {
 "id": "p15129",
@@ -701,6 +704,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p15129.jpg"
 },
 {
@@ -712,6 +716,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p16368.jpg"
 },
 {
@@ -723,6 +728,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p17623.jpg"
 },
 {
@@ -734,6 +740,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p21586.jpg"
 },
 {
@@ -745,6 +752,7 @@
 "style": "streetwear",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p22590.jpg"
 },
 {
@@ -756,6 +764,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p23088.jpg"
 },
 {
@@ -767,18 +776,8 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p26152.jpg"
-},
-{
-"id": "p26155",
-"name": "John Miller Men Striped Grey Trousers",
-"category": "bottom",
-"article": "Trousers",
-"color": "grey",
-"style": "classic",
-"warmth": 3,
-"formality": 4,
-"image": "img/p26155.jpg"
 },
 {
 "id": "p26163",
@@ -789,6 +788,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p26163.jpg"
 },
 {
@@ -800,6 +800,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p26164.jpg"
 },
 {
@@ -811,6 +812,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p27622.jpg"
 },
 {
@@ -822,18 +824,8 @@
 "style": "casual",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p27625.jpg"
-},
-{
-"id": "p29690",
-"name": "Indigo Nation Men Check Charcoal Shorts",
-"category": "bottom",
-"article": "Shorts",
-"color": "grey",
-"style": "casual",
-"warmth": 1,
-"formality": 1,
-"image": "img/p29690.jpg"
 },
 {
 "id": "p34203",
@@ -844,18 +836,8 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p34203.jpg"
-},
-{
-"id": "p34250",
-"name": "Proline Charcoal Grey Shorts",
-"category": "bottom",
-"article": "Shorts",
-"color": "grey",
-"style": "streetwear",
-"warmth": 1,
-"formality": 1,
-"image": "img/p34250.jpg"
 },
 {
 "id": "p43044",
@@ -866,6 +848,7 @@
 "style": "casual",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p43044.jpg"
 },
 {
@@ -877,6 +860,7 @@
 "style": "casual",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p51379.jpg"
 },
 {
@@ -888,6 +872,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p7133.jpg"
 },
 {
@@ -899,6 +884,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p8947.jpg"
 },
 {
@@ -910,6 +896,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p10258.jpg"
 },
 {
@@ -921,18 +908,8 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p11348.jpg"
-},
-{
-"id": "p14714",
-"name": "Genesis Men Solid Navy Blue Trousers",
-"category": "bottom",
-"article": "Trousers",
-"color": "navy",
-"style": "classic",
-"warmth": 3,
-"formality": 4,
-"image": "img/p14714.jpg"
 },
 {
 "id": "p15749",
@@ -943,6 +920,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p15749.jpg"
 },
 {
@@ -954,6 +932,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p17624.jpg"
 },
 {
@@ -965,6 +944,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p18197.jpg"
 },
 {
@@ -976,6 +956,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p22369.jpg"
 },
 {
@@ -987,6 +968,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p23042.jpg"
 },
 {
@@ -998,6 +980,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p23072.jpg"
 },
 {
@@ -1009,18 +992,8 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p34204.jpg"
-},
-{
-"id": "p41346",
-"name": "Wrangler Men Navy Blue Texas Jeans",
-"category": "bottom",
-"article": "Jeans",
-"color": "navy",
-"style": "casual",
-"warmth": 2,
-"formality": 1,
-"image": "img/p41346.jpg"
 },
 {
 "id": "p41695",
@@ -1031,6 +1004,7 @@
 "style": "casual",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p41695.jpg"
 },
 {
@@ -1042,18 +1016,8 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p44581.jpg"
-},
-{
-"id": "p5456",
-"name": "Nike Men's Basic Woven Med Blue Short",
-"category": "bottom",
-"article": "Shorts",
-"color": "navy",
-"style": "streetwear",
-"warmth": 1,
-"formality": 1,
-"image": "img/p5456.jpg"
 },
 {
 "id": "p5458",
@@ -1064,6 +1028,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p5458.jpg"
 },
 {
@@ -1075,6 +1040,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p56849.jpg"
 },
 {
@@ -1086,6 +1052,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p7134.jpg"
 },
 {
@@ -1097,6 +1064,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p8881.jpg"
 },
 {
@@ -1108,6 +1076,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p8948.jpg"
 },
 {
@@ -1119,6 +1088,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p12222.jpg"
 },
 {
@@ -1130,6 +1100,7 @@
 "style": "casual",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p14937.jpg"
 },
 {
@@ -1141,6 +1112,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p16059.jpg"
 },
 {
@@ -1152,6 +1124,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p16061.jpg"
 },
 {
@@ -1163,18 +1136,8 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p26822.jpg"
-},
-{
-"id": "p29677",
-"name": "Indigo Nation Men Olive Trousers",
-"category": "bottom",
-"article": "Trousers",
-"color": "olive",
-"style": "smart",
-"warmth": 3,
-"formality": 4,
-"image": "img/p29677.jpg"
 },
 {
 "id": "p31439",
@@ -1185,6 +1148,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p31439.jpg"
 },
 {
@@ -1196,6 +1160,7 @@
 "style": "casual",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p7895.jpg"
 },
 {
@@ -1207,6 +1172,7 @@
 "style": "casual",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p43045.jpg"
 },
 {
@@ -1218,6 +1184,7 @@
 "style": "casual",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p12671.jpg"
 },
 {
@@ -1229,6 +1196,7 @@
 "style": "streetwear",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p1591.jpg"
 },
 {
@@ -1240,6 +1208,7 @@
 "style": "casual",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p44922.jpg"
 },
 {
@@ -1251,18 +1220,8 @@
 "style": "casual",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p49959.jpg"
-},
-{
-"id": "p12670",
-"name": "Probase Men Check White Shorts",
-"category": "bottom",
-"article": "Shorts",
-"color": "white",
-"style": "casual",
-"warmth": 1,
-"formality": 1,
-"image": "img/p12670.jpg"
 },
 {
 "id": "p21382",
@@ -1273,6 +1232,7 @@
 "style": "casual",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p21382.jpg"
 },
 {
@@ -1284,18 +1244,8 @@
 "style": "streetwear",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p2192.jpg"
-},
-{
-"id": "p28515",
-"name": "Nike Men Woven White Shorts",
-"category": "bottom",
-"article": "Shorts",
-"color": "white",
-"style": "streetwear",
-"warmth": 1,
-"formality": 1,
-"image": "img/p28515.jpg"
 },
 {
 "id": "p30453",
@@ -1306,6 +1256,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p30453.jpg"
 },
 {
@@ -1317,6 +1268,7 @@
 "style": "streetwear",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p32426.jpg"
 },
 {
@@ -1328,6 +1280,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p39380.jpg"
 },
 {
@@ -1339,6 +1292,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p44913.jpg"
 },
 {
@@ -1350,6 +1304,7 @@
 "style": "streetwear",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p7687.jpg"
 },
 {
@@ -1361,6 +1316,7 @@
 "style": "casual",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p9782.jpg"
 },
 {
@@ -1372,6 +1328,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p9892.jpg"
 },
 {
@@ -1383,18 +1340,8 @@
 "style": "casual",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p17153.jpg"
-},
-{
-"id": "p13994",
-"name": "Nike Men Solid Black Jackets",
-"category": "outerwear",
-"article": "Jackets",
-"color": "black",
-"style": "streetwear",
-"warmth": 4,
-"formality": 2,
-"image": "img/p13994.jpg"
 },
 {
 "id": "p14322",
@@ -1405,6 +1352,7 @@
 "style": "streetwear",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p14322.jpg"
 },
 {
@@ -1416,6 +1364,7 @@
 "style": "streetwear",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p15007.jpg"
 },
 {
@@ -1427,6 +1376,7 @@
 "style": "casual",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p15322.jpg"
 },
 {
@@ -1438,6 +1388,7 @@
 "style": "casual",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p15464.jpg"
 },
 {
@@ -1449,6 +1400,7 @@
 "style": "streetwear",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p15603.jpg"
 },
 {
@@ -1460,18 +1412,8 @@
 "style": "casual",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p17152.jpg"
-},
-{
-"id": "p18522",
-"name": "C Vox Men Solid 1349 Black Jacket",
-"category": "outerwear",
-"article": "Jackets",
-"color": "black",
-"style": "casual",
-"warmth": 4,
-"formality": 2,
-"image": "img/p18522.jpg"
 },
 {
 "id": "p18523",
@@ -1482,6 +1424,7 @@
 "style": "casual",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p18523.jpg"
 },
 {
@@ -1493,6 +1436,7 @@
 "style": "streetwear",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p4461.jpg"
 },
 {
@@ -1504,6 +1448,7 @@
 "style": "streetwear",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p12808.jpg"
 },
 {
@@ -1515,6 +1460,7 @@
 "style": "streetwear",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p14000.jpg"
 },
 {
@@ -1526,18 +1472,8 @@
 "style": "streetwear",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p15009.jpg"
-},
-{
-"id": "p15012",
-"name": "ADIDAS Men Solid Blue Jackets",
-"category": "outerwear",
-"article": "Jackets",
-"color": "blue",
-"style": "streetwear",
-"warmth": 4,
-"formality": 2,
-"image": "img/p15012.jpg"
 },
 {
 "id": "p19246",
@@ -1548,18 +1484,8 @@
 "style": "casual",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p19246.jpg"
-},
-{
-"id": "p20790",
-"name": "Basics Men Blue Washed Jacket",
-"category": "outerwear",
-"article": "Jackets",
-"color": "blue",
-"style": "casual",
-"warmth": 4,
-"formality": 2,
-"image": "img/p20790.jpg"
 },
 {
 "id": "p6504",
@@ -1570,6 +1496,7 @@
 "style": "casual",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p6504.jpg"
 },
 {
@@ -1581,6 +1508,7 @@
 "style": "casual",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p6783.jpg"
 },
 {
@@ -1592,6 +1520,7 @@
 "style": "casual",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p9771.jpg"
 },
 {
@@ -1603,6 +1532,7 @@
 "style": "streetwear",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p9947.jpg"
 },
 {
@@ -1614,6 +1544,7 @@
 "style": "casual",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p59131.jpg"
 },
 {
@@ -1625,6 +1556,7 @@
 "style": "casual",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p15465.jpg"
 },
 {
@@ -1636,6 +1568,7 @@
 "style": "casual",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p19744.jpg"
 },
 {
@@ -1647,6 +1580,7 @@
 "style": "casual",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p15323.jpg"
 },
 {
@@ -1658,6 +1592,7 @@
 "style": "streetwear",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p15620.jpg"
 },
 {
@@ -1669,6 +1604,7 @@
 "style": "streetwear",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p1579.jpg"
 },
 {
@@ -1680,18 +1616,8 @@
 "style": "casual",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p59122.jpg"
-},
-{
-"id": "p6478",
-"name": "ADIDAS Men Top Grey Jacket",
-"category": "outerwear",
-"article": "Jackets",
-"color": "grey",
-"style": "casual",
-"warmth": 4,
-"formality": 2,
-"image": "img/p6478.jpg"
 },
 {
 "id": "p14309",
@@ -1702,6 +1628,7 @@
 "style": "casual",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p14309.jpg"
 },
 {
@@ -1713,6 +1640,7 @@
 "style": "streetwear",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p16190.jpg"
 },
 {
@@ -1724,6 +1652,7 @@
 "style": "streetwear",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p1662.jpg"
 },
 {
@@ -1735,6 +1664,7 @@
 "style": "casual",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p17154.jpg"
 },
 {
@@ -1746,6 +1676,7 @@
 "style": "streetwear",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p17904.jpg"
 },
 {
@@ -1757,6 +1688,7 @@
 "style": "casual",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p19855.jpg"
 },
 {
@@ -1768,6 +1700,7 @@
 "style": "streetwear",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p22608.jpg"
 },
 {
@@ -1779,6 +1712,7 @@
 "style": "casual",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p59115.jpg"
 },
 {
@@ -1790,7 +1724,20 @@
 "style": "casual",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p18201.jpg"
+},
+{
+"id": "p27525",
+"name": "Scullers Men Olive Jacket",
+"category": "outerwear",
+"article": "Jackets",
+"color": "olive",
+"style": "casual",
+"warmth": 4,
+"formality": 2,
+"gender": "men",
+"image": "img/p27525.jpg"
 },
 {
 "id": "p59112",
@@ -1801,6 +1748,7 @@
 "style": "casual",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p59112.jpg"
 },
 {
@@ -1812,18 +1760,8 @@
 "style": "casual",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p59124.jpg"
-},
-{
-"id": "p1530",
-"name": "Puma Men Ferrari Track Jacket",
-"category": "outerwear",
-"article": "Jackets",
-"color": "red",
-"style": "streetwear",
-"warmth": 4,
-"formality": 2,
-"image": "img/p1530.jpg"
 },
 {
 "id": "p15626",
@@ -1834,6 +1772,7 @@
 "style": "streetwear",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p15626.jpg"
 },
 {
@@ -1845,6 +1784,7 @@
 "style": "streetwear",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p16196.jpg"
 },
 {
@@ -1856,6 +1796,7 @@
 "style": "casual",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p18512.jpg"
 },
 {
@@ -1867,6 +1808,7 @@
 "style": "streetwear",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p28540.jpg"
 },
 {
@@ -1878,6 +1820,7 @@
 "style": "casual",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p6785.jpg"
 },
 {
@@ -1889,6 +1832,7 @@
 "style": "streetwear",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p7686.jpg"
 },
 {
@@ -1900,6 +1844,7 @@
 "style": "streetwear",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p15006.jpg"
 },
 {
@@ -1911,6 +1856,7 @@
 "style": "streetwear",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p15008.jpg"
 },
 {
@@ -1922,6 +1868,7 @@
 "style": "casual",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p1584.jpg"
 },
 {
@@ -1933,6 +1880,7 @@
 "style": "streetwear",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p1758.jpg"
 },
 {
@@ -1944,6 +1892,7 @@
 "style": "casual",
 "warmth": 4,
 "formality": 2,
+"gender": "men",
 "image": "img/p6477.jpg"
 },
 {
@@ -1955,6 +1904,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p19387.jpg"
 },
 {
@@ -1966,6 +1916,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p35725.jpg"
 },
 {
@@ -1977,6 +1928,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 2,
+"gender": "men",
 "image": "img/p39310.jpg"
 },
 {
@@ -1988,18 +1940,8 @@
 "style": "casual",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p41866.jpg"
-},
-{
-"id": "p44520",
-"name": "Coolers Men Khaki Sandals",
-"category": "shoes",
-"article": "Sandals",
-"color": "beige",
-"style": "casual",
-"warmth": 1,
-"formality": 1,
-"image": "img/p44520.jpg"
 },
 {
 "id": "p49495",
@@ -2010,6 +1952,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 2,
+"gender": "men",
 "image": "img/p49495.jpg"
 },
 {
@@ -2021,6 +1964,7 @@
 "style": "casual",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p57501.jpg"
 },
 {
@@ -2032,18 +1976,8 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p10268.jpg"
-},
-{
-"id": "p11940",
-"name": "Ganuchi Men Casual Black Sandals",
-"category": "shoes",
-"article": "Sandals",
-"color": "black",
-"style": "casual",
-"warmth": 1,
-"formality": 1,
-"image": "img/p11940.jpg"
 },
 {
 "id": "p12958",
@@ -2054,6 +1988,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p12958.jpg"
 },
 {
@@ -2065,18 +2000,8 @@
 "style": "casual",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p12967.jpg"
-},
-{
-"id": "p16154",
-"name": "Enroute Men Leather Black Formal Shoes",
-"category": "shoes",
-"article": "Formal Shoes",
-"color": "black",
-"style": "classic",
-"warmth": 3,
-"formality": 4,
-"image": "img/p16154.jpg"
 },
 {
 "id": "p17416",
@@ -2087,6 +2012,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p17416.jpg"
 },
 {
@@ -2098,6 +2024,7 @@
 "style": "smart",
 "warmth": 2,
 "formality": 2,
+"gender": "men",
 "image": "img/p20715.jpg"
 },
 {
@@ -2109,6 +2036,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p21083.jpg"
 },
 {
@@ -2120,6 +2048,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 2,
+"gender": "men",
 "image": "img/p22198.jpg"
 },
 {
@@ -2131,6 +2060,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p23247.jpg"
 },
 {
@@ -2142,6 +2072,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p33702.jpg"
 },
 {
@@ -2153,6 +2084,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p33705.jpg"
 },
 {
@@ -2164,6 +2096,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p41439.jpg"
 },
 {
@@ -2175,6 +2108,7 @@
 "style": "casual",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p44528.jpg"
 },
 {
@@ -2186,6 +2120,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p4524.jpg"
 },
 {
@@ -2197,6 +2132,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p59435.jpg"
 },
 {
@@ -2208,6 +2144,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p9036.jpg"
 },
 {
@@ -2219,6 +2156,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 2,
+"gender": "men",
 "image": "img/p9204.jpg"
 },
 {
@@ -2230,18 +2168,8 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p12956.jpg"
-},
-{
-"id": "p12969",
-"name": "ADIDAS Men Snova Glide Blue Sports Shoes",
-"category": "shoes",
-"article": "Sports Shoes",
-"color": "blue",
-"style": "streetwear",
-"warmth": 2,
-"formality": 1,
-"image": "img/p12969.jpg"
 },
 {
 "id": "p19772",
@@ -2252,18 +2180,8 @@
 "style": "casual",
 "warmth": 2,
 "formality": 2,
+"gender": "men",
 "image": "img/p19772.jpg"
-},
-{
-"id": "p20695",
-"name": "Buckaroo Men Bello Blue Casual Shoes",
-"category": "shoes",
-"article": "Casual Shoes",
-"color": "blue",
-"style": "casual",
-"warmth": 2,
-"formality": 2,
-"image": "img/p20695.jpg"
 },
 {
 "id": "p2828",
@@ -2274,6 +2192,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 2,
+"gender": "men",
 "image": "img/p2828.jpg"
 },
 {
@@ -2285,6 +2204,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p34835.jpg"
 },
 {
@@ -2296,6 +2216,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p4523.jpg"
 },
 {
@@ -2307,6 +2228,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 2,
+"gender": "men",
 "image": "img/p49461.jpg"
 },
 {
@@ -2318,6 +2240,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 2,
+"gender": "men",
 "image": "img/p5898.jpg"
 },
 {
@@ -2329,6 +2252,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p6626.jpg"
 },
 {
@@ -2340,6 +2264,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p10633.jpg"
 },
 {
@@ -2351,6 +2276,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p1653.jpg"
 },
 {
@@ -2362,18 +2288,8 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p17732.jpg"
-},
-{
-"id": "p19329",
-"name": "Puma Men Standpunkt Brown Casual Shoes",
-"category": "shoes",
-"article": "Casual Shoes",
-"color": "brown",
-"style": "casual",
-"warmth": 2,
-"formality": 2,
-"image": "img/p19329.jpg"
 },
 {
 "id": "p20709",
@@ -2384,6 +2300,7 @@
 "style": "smart",
 "warmth": 2,
 "formality": 2,
+"gender": "men",
 "image": "img/p20709.jpg"
 },
 {
@@ -2395,6 +2312,7 @@
 "style": "smart",
 "warmth": 2,
 "formality": 2,
+"gender": "men",
 "image": "img/p20714.jpg"
 },
 {
@@ -2406,6 +2324,7 @@
 "style": "casual",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p22153.jpg"
 },
 {
@@ -2417,6 +2336,7 @@
 "style": "casual",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p33648.jpg"
 },
 {
@@ -2428,6 +2348,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p33703.jpg"
 },
 {
@@ -2439,6 +2360,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 2,
+"gender": "men",
 "image": "img/p39943.jpg"
 },
 {
@@ -2450,6 +2372,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p42088.jpg"
 },
 {
@@ -2461,6 +2384,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p44406.jpg"
 },
 {
@@ -2472,6 +2396,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p45604.jpg"
 },
 {
@@ -2483,18 +2408,8 @@
 "style": "casual",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p47198.jpg"
-},
-{
-"id": "p50777",
-"name": "Clarks Men Dino Limit Brown Formal Shoes",
-"category": "shoes",
-"article": "Formal Shoes",
-"color": "brown",
-"style": "classic",
-"warmth": 3,
-"formality": 4,
-"image": "img/p50777.jpg"
 },
 {
 "id": "p7390",
@@ -2505,6 +2420,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p7390.jpg"
 },
 {
@@ -2516,29 +2432,8 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p9038.jpg"
-},
-{
-"id": "p9121",
-"name": "Puma Men Yacht L Brown Casual Shoes",
-"category": "shoes",
-"article": "Sports Shoes",
-"color": "brown",
-"style": "streetwear",
-"warmth": 2,
-"formality": 1,
-"image": "img/p9121.jpg"
-},
-{
-"id": "p11912",
-"name": "Franco Leone Men Casual Maroon Sandals",
-"category": "shoes",
-"article": "Sandals",
-"color": "burgundy",
-"style": "casual",
-"warmth": 1,
-"formality": 1,
-"image": "img/p11912.jpg"
 },
 {
 "id": "p36131",
@@ -2549,6 +2444,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 2,
+"gender": "men",
 "image": "img/p36131.jpg"
 },
 {
@@ -2560,6 +2456,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 2,
+"gender": "men",
 "image": "img/p49469.jpg"
 },
 {
@@ -2571,6 +2468,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 2,
+"gender": "men",
 "image": "img/p49492.jpg"
 },
 {
@@ -2582,6 +2480,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 2,
+"gender": "men",
 "image": "img/p9091.jpg"
 },
 {
@@ -2593,18 +2492,8 @@
 "style": "casual",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p11941.jpg"
-},
-{
-"id": "p13124",
-"name": "Lee Cooper Men Tan Formal Shoes",
-"category": "shoes",
-"article": "Formal Shoes",
-"color": "camel",
-"style": "classic",
-"warmth": 3,
-"formality": 4,
-"image": "img/p13124.jpg"
 },
 {
 "id": "p16163",
@@ -2615,6 +2504,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p16163.jpg"
 },
 {
@@ -2626,6 +2516,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 2,
+"gender": "men",
 "image": "img/p16165.jpg"
 },
 {
@@ -2637,18 +2528,8 @@
 "style": "casual",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p22537.jpg"
-},
-{
-"id": "p26563",
-"name": "Lee Cooper Men Tan Shoes",
-"category": "shoes",
-"article": "Casual Shoes",
-"color": "camel",
-"style": "casual",
-"warmth": 2,
-"formality": 2,
-"image": "img/p26563.jpg"
 },
 {
 "id": "p45575",
@@ -2659,6 +2540,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p45575.jpg"
 },
 {
@@ -2670,6 +2552,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p45592.jpg"
 },
 {
@@ -2681,6 +2564,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p7874.jpg"
 },
 {
@@ -2692,6 +2576,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 2,
+"gender": "men",
 "image": "img/p9031.jpg"
 },
 {
@@ -2703,6 +2588,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 2,
+"gender": "men",
 "image": "img/p22837.jpg"
 },
 {
@@ -2714,18 +2600,8 @@
 "style": "casual",
 "warmth": 2,
 "formality": 2,
+"gender": "men",
 "image": "img/p59944.jpg"
-},
-{
-"id": "p14497",
-"name": "Flying Machine Men Casual Green Casual Shoes",
-"category": "shoes",
-"article": "Casual Shoes",
-"color": "green",
-"style": "casual",
-"warmth": 2,
-"formality": 2,
-"image": "img/p14497.jpg"
 },
 {
 "id": "p1728",
@@ -2736,6 +2612,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p1728.jpg"
 },
 {
@@ -2747,6 +2624,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 2,
+"gender": "men",
 "image": "img/p22536.jpg"
 },
 {
@@ -2758,6 +2636,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 2,
+"gender": "men",
 "image": "img/p24256.jpg"
 },
 {
@@ -2769,6 +2648,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p25422.jpg"
 },
 {
@@ -2780,6 +2660,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 2,
+"gender": "men",
 "image": "img/p49493.jpg"
 },
 {
@@ -2791,6 +2672,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p8083.jpg"
 },
 {
@@ -2802,6 +2684,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 2,
+"gender": "men",
 "image": "img/p9097.jpg"
 },
 {
@@ -2813,18 +2696,8 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p12704.jpg"
-},
-{
-"id": "p13215",
-"name": "ASICS Men Gel Enduro 7 Running Silver Sports Shoes",
-"category": "shoes",
-"article": "Sports Shoes",
-"color": "grey",
-"style": "streetwear",
-"warmth": 2,
-"formality": 1,
-"image": "img/p13215.jpg"
 },
 {
 "id": "p15510",
@@ -2835,6 +2708,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 2,
+"gender": "men",
 "image": "img/p15510.jpg"
 },
 {
@@ -2846,6 +2720,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p15722.jpg"
 },
 {
@@ -2857,6 +2732,7 @@
 "style": "casual",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p19927.jpg"
 },
 {
@@ -2868,6 +2744,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p23882.jpg"
 },
 {
@@ -2879,6 +2756,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p23885.jpg"
 },
 {
@@ -2890,6 +2768,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 2,
+"gender": "men",
 "image": "img/p36130.jpg"
 },
 {
@@ -2901,18 +2780,8 @@
 "style": "casual",
 "warmth": 2,
 "formality": 2,
+"gender": "men",
 "image": "img/p39944.jpg"
-},
-{
-"id": "p39972",
-"name": "GAS Men Grey Campus Casual Shoes",
-"category": "shoes",
-"article": "Casual Shoes",
-"color": "grey",
-"style": "casual",
-"warmth": 2,
-"formality": 2,
-"image": "img/p39972.jpg"
 },
 {
 "id": "p11978",
@@ -2923,6 +2792,7 @@
 "style": "casual",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p11978.jpg"
 },
 {
@@ -2934,18 +2804,8 @@
 "style": "casual",
 "warmth": 2,
 "formality": 2,
+"gender": "men",
 "image": "img/p24257.jpg"
-},
-{
-"id": "p24259",
-"name": "Numero Uno Men Navy Blue Shoes",
-"category": "shoes",
-"article": "Casual Shoes",
-"color": "navy",
-"style": "casual",
-"warmth": 2,
-"formality": 2,
-"image": "img/p24259.jpg"
 },
 {
 "id": "p29252",
@@ -2956,6 +2816,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p29252.jpg"
 },
 {
@@ -2967,18 +2828,8 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p31971.jpg"
-},
-{
-"id": "p3688",
-"name": "Lotto Men's Bristol II Navy White Shoe",
-"category": "shoes",
-"article": "Sports Shoes",
-"color": "navy",
-"style": "streetwear",
-"warmth": 2,
-"formality": 1,
-"image": "img/p3688.jpg"
 },
 {
 "id": "p39986",
@@ -2989,6 +2840,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 2,
+"gender": "men",
 "image": "img/p39986.jpg"
 },
 {
@@ -3000,6 +2852,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p43335.jpg"
 },
 {
@@ -3011,6 +2864,7 @@
 "style": "casual",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p46081.jpg"
 },
 {
@@ -3022,6 +2876,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p8529.jpg"
 },
 {
@@ -3033,6 +2888,7 @@
 "style": "casual",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p11947.jpg"
 },
 {
@@ -3044,18 +2900,8 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p22732.jpg"
-},
-{
-"id": "p26531",
-"name": "Gas Men Arunta Olive Casual Shoes",
-"category": "shoes",
-"article": "Casual Shoes",
-"color": "olive",
-"style": "casual",
-"warmth": 2,
-"formality": 2,
-"image": "img/p26531.jpg"
 },
 {
 "id": "p35589",
@@ -3066,6 +2912,7 @@
 "style": "casual",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p35589.jpg"
 },
 {
@@ -3077,6 +2924,7 @@
 "style": "casual",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p41857.jpg"
 },
 {
@@ -3088,7 +2936,20 @@
 "style": "casual",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p43958.jpg"
+},
+{
+"id": "p16239",
+"name": "Crocs Beach Unisex Pink Sandal",
+"category": "shoes",
+"article": "Sandals",
+"color": "pink",
+"style": "casual",
+"warmth": 1,
+"formality": 1,
+"gender": "men",
+"image": "img/p16239.jpg"
 },
 {
 "id": "p4855",
@@ -3099,6 +2960,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 2,
+"gender": "men",
 "image": "img/p4855.jpg"
 },
 {
@@ -3110,6 +2972,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 2,
+"gender": "men",
 "image": "img/p6413.jpg"
 },
 {
@@ -3121,6 +2984,7 @@
 "style": "casual",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p8634.jpg"
 },
 {
@@ -3132,6 +2996,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 2,
+"gender": "men",
 "image": "img/p15517.jpg"
 },
 {
@@ -3143,6 +3008,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p17840.jpg"
 },
 {
@@ -3154,6 +3020,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 2,
+"gender": "men",
 "image": "img/p20894.jpg"
 },
 {
@@ -3165,6 +3032,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 2,
+"gender": "men",
 "image": "img/p26538.jpg"
 },
 {
@@ -3176,6 +3044,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p35713.jpg"
 },
 {
@@ -3187,6 +3056,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 2,
+"gender": "men",
 "image": "img/p4343.jpg"
 },
 {
@@ -3198,18 +3068,8 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p4577.jpg"
-},
-{
-"id": "p4578",
-"name": "Nike Men's Mercurial Gli Red Pink Shoe",
-"category": "shoes",
-"article": "Sports Shoes",
-"color": "red",
-"style": "streetwear",
-"warmth": 2,
-"formality": 1,
-"image": "img/p4578.jpg"
 },
 {
 "id": "p8970",
@@ -3220,6 +3080,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p8970.jpg"
 },
 {
@@ -3231,6 +3092,7 @@
 "style": "casual",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p18495.jpg"
 },
 {
@@ -3242,18 +3104,8 @@
 "style": "casual",
 "warmth": 2,
 "formality": 2,
+"gender": "men",
 "image": "img/p19311.jpg"
-},
-{
-"id": "p22705",
-"name": "Nike Men White Capri II Casual Shoe",
-"category": "shoes",
-"article": "Casual Shoes",
-"color": "white",
-"style": "casual",
-"warmth": 2,
-"formality": 2,
-"image": "img/p22705.jpg"
 },
 {
 "id": "p24250",
@@ -3264,6 +3116,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 2,
+"gender": "men",
 "image": "img/p24250.jpg"
 },
 {
@@ -3275,6 +3128,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p3168.jpg"
 },
 {
@@ -3286,6 +3140,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p33822.jpg"
 },
 {
@@ -3297,18 +3152,8 @@
 "style": "casual",
 "warmth": 2,
 "formality": 2,
+"gender": "men",
 "image": "img/p39988.jpg"
-},
-{
-"id": "p42042",
-"name": "Nike Men Air Relentless 2 MSL White Sports Shoes",
-"category": "shoes",
-"article": "Sports Shoes",
-"color": "white",
-"style": "streetwear",
-"warmth": 2,
-"formality": 1,
-"image": "img/p42042.jpg"
 },
 {
 "id": "p42089",
@@ -3319,6 +3164,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p42089.jpg"
 },
 {
@@ -3330,18 +3176,8 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p6628.jpg"
-},
-{
-"id": "p17702",
-"name": "Vans unisex Authentic Yellow Casual Shoes",
-"category": "shoes",
-"article": "Casual Shoes",
-"color": "yellow",
-"style": "casual",
-"warmth": 2,
-"formality": 2,
-"image": "img/p17702.jpg"
 },
 {
 "id": "p41869",
@@ -3352,6 +3188,7 @@
 "style": "casual",
 "warmth": 1,
 "formality": 1,
+"gender": "men",
 "image": "img/p41869.jpg"
 },
 {
@@ -3363,6 +3200,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 2,
+"gender": "men",
 "image": "img/p42045.jpg"
 },
 {
@@ -3374,6 +3212,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 2,
+"gender": "men",
 "image": "img/p43474.jpg"
 },
 {
@@ -3385,6 +3224,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 2,
+"gender": "men",
 "image": "img/p6799.jpg"
 },
 {
@@ -3396,6 +3236,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p7604.jpg"
 },
 {
@@ -3407,6 +3248,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p13870.jpg"
 },
 {
@@ -3418,18 +3260,8 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p13871.jpg"
-},
-{
-"id": "p20175",
-"name": "Wrangler Men Vintage Khaki Shirt",
-"category": "top",
-"article": "Shirts",
-"color": "beige",
-"style": "smart",
-"warmth": 3,
-"formality": 4,
-"image": "img/p20175.jpg"
 },
 {
 "id": "p22358",
@@ -3440,6 +3272,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p22358.jpg"
 },
 {
@@ -3451,6 +3284,7 @@
 "style": "streetwear",
 "warmth": 4,
 "formality": 1,
+"gender": "men",
 "image": "img/p23137.jpg"
 },
 {
@@ -3462,6 +3296,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p24037.jpg"
 },
 {
@@ -3473,6 +3308,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p31574.jpg"
 },
 {
@@ -3484,18 +3320,8 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p3193.jpg"
-},
-{
-"id": "p37153",
-"name": "Campbell Men Pack of 3 T-shirt",
-"category": "top",
-"article": "Tshirts",
-"color": "beige",
-"style": "casual",
-"warmth": 2,
-"formality": 1,
-"image": "img/p37153.jpg"
 },
 {
 "id": "p51857",
@@ -3506,6 +3332,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p51857.jpg"
 },
 {
@@ -3517,6 +3344,7 @@
 "style": "streetwear",
 "warmth": 4,
 "formality": 1,
+"gender": "men",
 "image": "img/p54913.jpg"
 },
 {
@@ -3528,6 +3356,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p58372.jpg"
 },
 {
@@ -3539,18 +3368,8 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p11143.jpg"
-},
-{
-"id": "p11144",
-"name": "Scullers Men Price Catch Black Shirts",
-"category": "top",
-"article": "Shirts",
-"color": "black",
-"style": "smart",
-"warmth": 3,
-"formality": 4,
-"image": "img/p11144.jpg"
 },
 {
 "id": "p11371",
@@ -3561,6 +3380,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p11371.jpg"
 },
 {
@@ -3572,6 +3392,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p12360.jpg"
 },
 {
@@ -3583,18 +3404,8 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p12500.jpg"
-},
-{
-"id": "p14990",
-"name": "ADIDAS Men Solid Black Sweaters",
-"category": "top",
-"article": "Sweaters",
-"color": "black",
-"style": "minimal",
-"warmth": 4,
-"formality": 3,
-"image": "img/p14990.jpg"
 },
 {
 "id": "p15528",
@@ -3605,18 +3416,8 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p15528.jpg"
-},
-{
-"id": "p16333",
-"name": "Peter England Men Stripes Black Shirt",
-"category": "top",
-"article": "Shirts",
-"color": "black",
-"style": "classic",
-"warmth": 3,
-"formality": 4,
-"image": "img/p16333.jpg"
 },
 {
 "id": "p17198",
@@ -3627,18 +3428,8 @@
 "style": "minimal",
 "warmth": 4,
 "formality": 3,
+"gender": "men",
 "image": "img/p17198.jpg"
-},
-{
-"id": "p17240",
-"name": "U.S. Polo Assn. Men Stripes Black  Polo Tshirt",
-"category": "top",
-"article": "Tshirts",
-"color": "black",
-"style": "casual",
-"warmth": 2,
-"formality": 1,
-"image": "img/p17240.jpg"
 },
 {
 "id": "p21119",
@@ -3649,6 +3440,7 @@
 "style": "minimal",
 "warmth": 4,
 "formality": 3,
+"gender": "men",
 "image": "img/p21119.jpg"
 },
 {
@@ -3660,6 +3452,7 @@
 "style": "streetwear",
 "warmth": 4,
 "formality": 1,
+"gender": "men",
 "image": "img/p2286.jpg"
 },
 {
@@ -3671,6 +3464,7 @@
 "style": "minimal",
 "warmth": 4,
 "formality": 3,
+"gender": "men",
 "image": "img/p23951.jpg"
 },
 {
@@ -3682,6 +3476,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p29321.jpg"
 },
 {
@@ -3693,6 +3488,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p29584.jpg"
 },
 {
@@ -3704,6 +3500,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p38974.jpg"
 },
 {
@@ -3715,6 +3512,7 @@
 "style": "streetwear",
 "warmth": 4,
 "formality": 1,
+"gender": "men",
 "image": "img/p46411.jpg"
 },
 {
@@ -3726,6 +3524,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p5865.jpg"
 },
 {
@@ -3737,6 +3536,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p5891.jpg"
 },
 {
@@ -3748,18 +3548,8 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p6617.jpg"
-},
-{
-"id": "p7952",
-"name": "Puma Men's Knit Polo Black  Polo T-shirt",
-"category": "top",
-"article": "Tshirts",
-"color": "black",
-"style": "streetwear",
-"warmth": 2,
-"formality": 1,
-"image": "img/p7952.jpg"
 },
 {
 "id": "p7964",
@@ -3770,6 +3560,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p7964.jpg"
 },
 {
@@ -3781,6 +3572,7 @@
 "style": "minimal",
 "warmth": 4,
 "formality": 3,
+"gender": "men",
 "image": "img/p8833.jpg"
 },
 {
@@ -3792,6 +3584,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p9804.jpg"
 },
 {
@@ -3803,6 +3596,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p9805.jpg"
 },
 {
@@ -3814,6 +3608,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p12190.jpg"
 },
 {
@@ -3825,6 +3620,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p13846.jpg"
 },
 {
@@ -3836,18 +3632,8 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p14293.jpg"
-},
-{
-"id": "p15912",
-"name": "Black Coffee Men Stripes Blue Shirt",
-"category": "top",
-"article": "Shirts",
-"color": "blue",
-"style": "classic",
-"warmth": 3,
-"formality": 4,
-"image": "img/p15912.jpg"
 },
 {
 "id": "p16357",
@@ -3858,6 +3644,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p16357.jpg"
 },
 {
@@ -3869,18 +3656,8 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p1852.jpg"
-},
-{
-"id": "p18958",
-"name": "United Colors of Benetton Men Stripes Blue Sweater",
-"category": "top",
-"article": "Sweaters",
-"color": "blue",
-"style": "minimal",
-"warmth": 4,
-"formality": 3,
-"image": "img/p18958.jpg"
 },
 {
 "id": "p18969",
@@ -3891,6 +3668,7 @@
 "style": "minimal",
 "warmth": 4,
 "formality": 3,
+"gender": "men",
 "image": "img/p18969.jpg"
 },
 {
@@ -3902,6 +3680,7 @@
 "style": "minimal",
 "warmth": 4,
 "formality": 3,
+"gender": "men",
 "image": "img/p19515.jpg"
 },
 {
@@ -3913,6 +3692,7 @@
 "style": "minimal",
 "warmth": 4,
 "formality": 3,
+"gender": "men",
 "image": "img/p19524.jpg"
 },
 {
@@ -3924,6 +3704,7 @@
 "style": "minimal",
 "warmth": 4,
 "formality": 3,
+"gender": "men",
 "image": "img/p19540.jpg"
 },
 {
@@ -3935,6 +3716,7 @@
 "style": "streetwear",
 "warmth": 4,
 "formality": 1,
+"gender": "men",
 "image": "img/p19547.jpg"
 },
 {
@@ -3946,6 +3728,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p22359.jpg"
 },
 {
@@ -3957,6 +3740,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p22395.jpg"
 },
 {
@@ -3968,6 +3752,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p23028.jpg"
 },
 {
@@ -3979,6 +3764,7 @@
 "style": "streetwear",
 "warmth": 4,
 "formality": 1,
+"gender": "men",
 "image": "img/p23876.jpg"
 },
 {
@@ -3990,18 +3776,8 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p2620.jpg"
-},
-{
-"id": "p30802",
-"name": "Fabindia Men Blue Shirt",
-"category": "top",
-"article": "Shirts",
-"color": "blue",
-"style": "smart",
-"warmth": 3,
-"formality": 4,
-"image": "img/p30802.jpg"
 },
 {
 "id": "p32769",
@@ -4012,18 +3788,8 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p32769.jpg"
-},
-{
-"id": "p4381",
-"name": "Superman Men's Silhouette Light Blue T-shirt",
-"category": "top",
-"article": "Tshirts",
-"color": "blue",
-"style": "casual",
-"warmth": 2,
-"formality": 1,
-"image": "img/p4381.jpg"
 },
 {
 "id": "p44341",
@@ -4034,6 +3800,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p44341.jpg"
 },
 {
@@ -4045,18 +3812,8 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p7503.jpg"
-},
-{
-"id": "p7532",
-"name": "Nike Men's Encourage Blue T-shirt",
-"category": "top",
-"article": "Tshirts",
-"color": "blue",
-"style": "streetwear",
-"warmth": 2,
-"formality": 1,
-"image": "img/p7532.jpg"
 },
 {
 "id": "p9235",
@@ -4067,6 +3824,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p9235.jpg"
 },
 {
@@ -4078,6 +3836,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p9259.jpg"
 },
 {
@@ -4089,18 +3848,8 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p10439.jpg"
-},
-{
-"id": "p12034",
-"name": "Mark Taylor Men Brown Striped Shirts",
-"category": "top",
-"article": "Shirts",
-"color": "brown",
-"style": "classic",
-"warmth": 3,
-"formality": 4,
-"image": "img/p12034.jpg"
 },
 {
 "id": "p12191",
@@ -4111,6 +3860,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p12191.jpg"
 },
 {
@@ -4122,6 +3872,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p14527.jpg"
 },
 {
@@ -4133,6 +3884,7 @@
 "style": "streetwear",
 "warmth": 4,
 "formality": 1,
+"gender": "men",
 "image": "img/p14581.jpg"
 },
 {
@@ -4144,6 +3896,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p14777.jpg"
 },
 {
@@ -4155,6 +3908,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p16501.jpg"
 },
 {
@@ -4166,6 +3920,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p20258.jpg"
 },
 {
@@ -4177,18 +3932,8 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p28807.jpg"
-},
-{
-"id": "p28865",
-"name": "Proline Men Brown Striped Polo T-shirt",
-"category": "top",
-"article": "Tshirts",
-"color": "brown",
-"style": "casual",
-"warmth": 2,
-"formality": 1,
-"image": "img/p28865.jpg"
 },
 {
 "id": "p37794",
@@ -4199,6 +3944,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p37794.jpg"
 },
 {
@@ -4210,6 +3956,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p44348.jpg"
 },
 {
@@ -4221,6 +3968,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p53152.jpg"
 },
 {
@@ -4232,6 +3980,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p56825.jpg"
 },
 {
@@ -4243,18 +3992,8 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p6289.jpg"
-},
-{
-"id": "p9603",
-"name": "Scullers Men Scul Brown Black Shirts",
-"category": "top",
-"article": "Shirts",
-"color": "brown",
-"style": "smart",
-"warmth": 3,
-"formality": 4,
-"image": "img/p9603.jpg"
 },
 {
 "id": "p12278",
@@ -4265,6 +4004,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p12278.jpg"
 },
 {
@@ -4276,6 +4016,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p13877.jpg"
 },
 {
@@ -4287,6 +4028,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p14983.jpg"
 },
 {
@@ -4298,6 +4040,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p15983.jpg"
 },
 {
@@ -4309,29 +4052,8 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p16361.jpg"
-},
-{
-"id": "p17165",
-"name": "U.S. Polo Assn. Men Maroon & White Check Shirt",
-"category": "top",
-"article": "Shirts",
-"color": "burgundy",
-"style": "classic",
-"warmth": 3,
-"formality": 4,
-"image": "img/p17165.jpg"
-},
-{
-"id": "p19182",
-"name": "United Colors Of Benetton Men Maroon Check Shirt",
-"category": "top",
-"article": "Shirts",
-"color": "burgundy",
-"style": "smart",
-"warmth": 3,
-"formality": 4,
-"image": "img/p19182.jpg"
 },
 {
 "id": "p19328",
@@ -4342,18 +4064,8 @@
 "style": "streetwear",
 "warmth": 4,
 "formality": 1,
+"gender": "men",
 "image": "img/p19328.jpg"
-},
-{
-"id": "p20668",
-"name": "Classic Polo Men Striped Maroon Tshirt",
-"category": "top",
-"article": "Tshirts",
-"color": "burgundy",
-"style": "casual",
-"warmth": 2,
-"formality": 1,
-"image": "img/p20668.jpg"
 },
 {
 "id": "p22332",
@@ -4364,6 +4076,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p22332.jpg"
 },
 {
@@ -4375,6 +4088,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p29026.jpg"
 },
 {
@@ -4386,6 +4100,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p31588.jpg"
 },
 {
@@ -4397,6 +4112,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p43507.jpg"
 },
 {
@@ -4408,6 +4124,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p58744.jpg"
 },
 {
@@ -4419,6 +4136,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p9519.jpg"
 },
 {
@@ -4430,6 +4148,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p9656.jpg"
 },
 {
@@ -4441,6 +4160,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p9658.jpg"
 },
 {
@@ -4452,6 +4172,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p12358.jpg"
 },
 {
@@ -4463,6 +4184,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p14712.jpg"
 },
 {
@@ -4474,6 +4196,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p16350.jpg"
 },
 {
@@ -4485,6 +4208,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p16351.jpg"
 },
 {
@@ -4496,6 +4220,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p16932.jpg"
 },
 {
@@ -4507,6 +4232,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p34235.jpg"
 },
 {
@@ -4518,6 +4244,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p54915.jpg"
 },
 {
@@ -4529,18 +4256,8 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p54946.jpg"
-},
-{
-"id": "p7901",
-"name": "Proline Men's Printed Chalk Cream Brown T-shirt",
-"category": "top",
-"article": "Tshirts",
-"color": "cream",
-"style": "casual",
-"warmth": 2,
-"formality": 1,
-"image": "img/p7901.jpg"
 },
 {
 "id": "p11174",
@@ -4551,6 +4268,7 @@
 "style": "minimal",
 "warmth": 4,
 "formality": 3,
+"gender": "men",
 "image": "img/p11174.jpg"
 },
 {
@@ -4562,18 +4280,8 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p12282.jpg"
-},
-{
-"id": "p13758",
-"name": "Belmonte Men Check Green Shirts",
-"category": "top",
-"article": "Shirts",
-"color": "green",
-"style": "classic",
-"warmth": 3,
-"formality": 4,
-"image": "img/p13758.jpg"
 },
 {
 "id": "p14055",
@@ -4584,6 +4292,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p14055.jpg"
 },
 {
@@ -4595,6 +4304,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p15189.jpg"
 },
 {
@@ -4606,6 +4316,7 @@
 "style": "streetwear",
 "warmth": 4,
 "formality": 1,
+"gender": "men",
 "image": "img/p15586.jpg"
 },
 {
@@ -4617,6 +4328,7 @@
 "style": "minimal",
 "warmth": 4,
 "formality": 3,
+"gender": "men",
 "image": "img/p17197.jpg"
 },
 {
@@ -4628,6 +4340,7 @@
 "style": "minimal",
 "warmth": 4,
 "formality": 3,
+"gender": "men",
 "image": "img/p18311.jpg"
 },
 {
@@ -4639,18 +4352,8 @@
 "style": "minimal",
 "warmth": 4,
 "formality": 3,
+"gender": "men",
 "image": "img/p18966.jpg"
-},
-{
-"id": "p19788",
-"name": "U.S. Polo Assn. Men Solid Green Tshirt",
-"category": "top",
-"article": "Tshirts",
-"color": "green",
-"style": "casual",
-"warmth": 2,
-"formality": 1,
-"image": "img/p19788.jpg"
 },
 {
 "id": "p27153",
@@ -4661,6 +4364,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p27153.jpg"
 },
 {
@@ -4672,6 +4376,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p29320.jpg"
 },
 {
@@ -4683,6 +4388,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p30805.jpg"
 },
 {
@@ -4694,6 +4400,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p39344.jpg"
 },
 {
@@ -4705,6 +4412,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p4388.jpg"
 },
 {
@@ -4716,6 +4424,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p4745.jpg"
 },
 {
@@ -4727,6 +4436,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p53761.jpg"
 },
 {
@@ -4738,6 +4448,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p6046.jpg"
 },
 {
@@ -4749,6 +4460,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p7158.jpg"
 },
 {
@@ -4760,18 +4472,8 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p7937.jpg"
-},
-{
-"id": "p7965",
-"name": "Puma Men's Ess Polo Green T-shirt",
-"category": "top",
-"article": "Tshirts",
-"color": "green",
-"style": "streetwear",
-"warmth": 2,
-"formality": 1,
-"image": "img/p7965.jpg"
 },
 {
 "id": "p9251",
@@ -4782,6 +4484,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p9251.jpg"
 },
 {
@@ -4793,6 +4496,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p9258.jpg"
 },
 {
@@ -4804,18 +4508,8 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p10407.jpg"
-},
-{
-"id": "p11116",
-"name": "Indigo Nation Men Solid Grey Shirts",
-"category": "top",
-"article": "Shirts",
-"color": "grey",
-"style": "classic",
-"warmth": 3,
-"formality": 4,
-"image": "img/p11116.jpg"
 },
 {
 "id": "p11117",
@@ -4826,6 +4520,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p11117.jpg"
 },
 {
@@ -4837,29 +4532,20 @@
 "style": "minimal",
 "warmth": 4,
 "formality": 3,
+"gender": "men",
 "image": "img/p11529.jpg"
 },
 {
-"id": "p17199",
-"name": "U.S. Polo Assn. Men Solid Grey Sweater",
+"id": "p13089",
+"name": "ADIDAS Men Lfc Auth Hood Grey Sweatshirts",
 "category": "top",
-"article": "Sweaters",
+"article": "Sweatshirts",
 "color": "grey",
-"style": "minimal",
+"style": "streetwear",
 "warmth": 4,
-"formality": 3,
-"image": "img/p17199.jpg"
-},
-{
-"id": "p17278",
-"name": "U.S. Polo Assn. Men Printed  Steeple Grey Tshirt",
-"category": "top",
-"article": "Tshirts",
-"color": "grey",
-"style": "casual",
-"warmth": 2,
 "formality": 1,
-"image": "img/p17278.jpg"
+"gender": "men",
+"image": "img/p13089.jpg"
 },
 {
 "id": "p1855",
@@ -4870,29 +4556,8 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p1855.jpg"
-},
-{
-"id": "p19146",
-"name": "United Colors of Benetton Men Solid Grey Sweatshirt",
-"category": "top",
-"article": "Sweatshirts",
-"color": "grey",
-"style": "streetwear",
-"warmth": 4,
-"formality": 1,
-"image": "img/p19146.jpg"
-},
-{
-"id": "p19183",
-"name": "United Colors of Benetton Men Check Grey Shirt",
-"category": "top",
-"article": "Shirts",
-"color": "grey",
-"style": "smart",
-"warmth": 3,
-"formality": 4,
-"image": "img/p19183.jpg"
 },
 {
 "id": "p19523",
@@ -4903,6 +4568,7 @@
 "style": "minimal",
 "warmth": 4,
 "formality": 3,
+"gender": "men",
 "image": "img/p19523.jpg"
 },
 {
@@ -4914,6 +4580,7 @@
 "style": "minimal",
 "warmth": 4,
 "formality": 3,
+"gender": "men",
 "image": "img/p19525.jpg"
 },
 {
@@ -4925,6 +4592,7 @@
 "style": "streetwear",
 "warmth": 4,
 "formality": 1,
+"gender": "men",
 "image": "img/p19549.jpg"
 },
 {
@@ -4936,18 +4604,8 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p19719.jpg"
-},
-{
-"id": "p19809",
-"name": "U.S. Polo Assn. Men Striped Grey Sweaters",
-"category": "top",
-"article": "Sweaters",
-"color": "grey",
-"style": "minimal",
-"warmth": 4,
-"formality": 3,
-"image": "img/p19809.jpg"
 },
 {
 "id": "p20202",
@@ -4958,18 +4616,20 @@
 "style": "streetwear",
 "warmth": 4,
 "formality": 1,
+"gender": "men",
 "image": "img/p20202.jpg"
 },
 {
-"id": "p20205",
-"name": "Wrangler Men Flock Print Grey Sweatshirt",
+"id": "p21110",
+"name": "s.Oliver Men Solid Charcoal Sweater",
 "category": "top",
-"article": "Sweatshirts",
+"article": "Sweaters",
 "color": "grey",
-"style": "streetwear",
+"style": "minimal",
 "warmth": 4,
-"formality": 1,
-"image": "img/p20205.jpg"
+"formality": 3,
+"gender": "men",
+"image": "img/p21110.jpg"
 },
 {
 "id": "p33247",
@@ -4980,6 +4640,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p33247.jpg"
 },
 {
@@ -4991,6 +4652,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p37215.jpg"
 },
 {
@@ -5002,6 +4664,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p41605.jpg"
 },
 {
@@ -5013,6 +4676,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p4386.jpg"
 },
 {
@@ -5024,6 +4688,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p43960.jpg"
 },
 {
@@ -5035,6 +4700,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p53759.jpg"
 },
 {
@@ -5046,6 +4712,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p58726.jpg"
 },
 {
@@ -5057,6 +4724,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p7955.jpg"
 },
 {
@@ -5068,29 +4736,8 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p8186.jpg"
-},
-{
-"id": "p10031",
-"name": "Nike Men As Arsenal Co Navy Blue T-Shirts",
-"category": "top",
-"article": "Tshirts",
-"color": "navy",
-"style": "streetwear",
-"warmth": 2,
-"formality": 1,
-"image": "img/p10031.jpg"
-},
-{
-"id": "p10568",
-"name": "Puma Men Knitted Navy Blue Sweater",
-"category": "top",
-"article": "Sweaters",
-"color": "navy",
-"style": "minimal",
-"warmth": 4,
-"formality": 3,
-"image": "img/p10568.jpg"
 },
 {
 "id": "p10859",
@@ -5101,6 +4748,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p10859.jpg"
 },
 {
@@ -5112,6 +4760,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p12247.jpg"
 },
 {
@@ -5123,6 +4772,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p12305.jpg"
 },
 {
@@ -5134,6 +4784,7 @@
 "style": "minimal",
 "warmth": 4,
 "formality": 3,
+"gender": "men",
 "image": "img/p13812.jpg"
 },
 {
@@ -5145,18 +4796,8 @@
 "style": "minimal",
 "warmth": 4,
 "formality": 3,
+"gender": "men",
 "image": "img/p14997.jpg"
-},
-{
-"id": "p15145",
-"name": "Arrow Sport Men Printed Navy Blue Shirts",
-"category": "top",
-"article": "Shirts",
-"color": "navy",
-"style": "smart",
-"warmth": 3,
-"formality": 4,
-"image": "img/p15145.jpg"
 },
 {
 "id": "p15970",
@@ -5167,6 +4808,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p15970.jpg"
 },
 {
@@ -5178,6 +4820,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p16335.jpg"
 },
 {
@@ -5189,6 +4832,7 @@
 "style": "minimal",
 "warmth": 4,
 "formality": 3,
+"gender": "men",
 "image": "img/p17196.jpg"
 },
 {
@@ -5200,6 +4844,7 @@
 "style": "streetwear",
 "warmth": 4,
 "formality": 1,
+"gender": "men",
 "image": "img/p19327.jpg"
 },
 {
@@ -5211,6 +4856,7 @@
 "style": "minimal",
 "warmth": 4,
 "formality": 3,
+"gender": "men",
 "image": "img/p19522.jpg"
 },
 {
@@ -5222,6 +4868,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p2047.jpg"
 },
 {
@@ -5233,6 +4880,7 @@
 "style": "streetwear",
 "warmth": 4,
 "formality": 1,
+"gender": "men",
 "image": "img/p21725.jpg"
 },
 {
@@ -5244,6 +4892,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p24062.jpg"
 },
 {
@@ -5255,6 +4904,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p3533.jpg"
 },
 {
@@ -5266,6 +4916,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p37812.jpg"
 },
 {
@@ -5277,6 +4928,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p41602.jpg"
 },
 {
@@ -5288,18 +4940,8 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p6041.jpg"
-},
-{
-"id": "p7355",
-"name": "Tantra Men's Black Sabbath Navy T-shirt",
-"category": "top",
-"article": "Tshirts",
-"color": "navy",
-"style": "casual",
-"warmth": 2,
-"formality": 1,
-"image": "img/p7355.jpg"
 },
 {
 "id": "p7990",
@@ -5310,6 +4952,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p7990.jpg"
 },
 {
@@ -5321,6 +4964,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p8741.jpg"
 },
 {
@@ -5332,18 +4976,8 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p8779.jpg"
-},
-{
-"id": "p9588",
-"name": "Scullers Men Scul Navy Blue Shirts",
-"category": "top",
-"article": "Shirts",
-"color": "navy",
-"style": "classic",
-"warmth": 3,
-"formality": 4,
-"image": "img/p9588.jpg"
 },
 {
 "id": "p11527",
@@ -5354,6 +4988,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p11527.jpg"
 },
 {
@@ -5365,6 +5000,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p14998.jpg"
 },
 {
@@ -5376,6 +5012,7 @@
 "style": "streetwear",
 "warmth": 4,
 "formality": 1,
+"gender": "men",
 "image": "img/p16444.jpg"
 },
 {
@@ -5387,29 +5024,8 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p19170.jpg"
-},
-{
-"id": "p20009",
-"name": "United Colors of Benetton Olive T-shirt",
-"category": "top",
-"article": "Tshirts",
-"color": "olive",
-"style": "casual",
-"warmth": 2,
-"formality": 1,
-"image": "img/p20009.jpg"
-},
-{
-"id": "p20189",
-"name": "Wrangler Men Wanderers Printed Olive Shirt",
-"category": "top",
-"article": "Shirts",
-"color": "olive",
-"style": "smart",
-"warmth": 3,
-"formality": 4,
-"image": "img/p20189.jpg"
 },
 {
 "id": "p21118",
@@ -5420,6 +5036,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p21118.jpg"
 },
 {
@@ -5431,6 +5048,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p22472.jpg"
 },
 {
@@ -5442,6 +5060,7 @@
 "style": "streetwear",
 "warmth": 4,
 "formality": 1,
+"gender": "men",
 "image": "img/p23139.jpg"
 },
 {
@@ -5453,6 +5072,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p24527.jpg"
 },
 {
@@ -5464,6 +5084,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p46393.jpg"
 },
 {
@@ -5475,6 +5096,7 @@
 "style": "streetwear",
 "warmth": 4,
 "formality": 1,
+"gender": "men",
 "image": "img/p54889.jpg"
 },
 {
@@ -5486,6 +5108,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p58743.jpg"
 },
 {
@@ -5497,18 +5120,8 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p7790.jpg"
-},
-{
-"id": "p10464",
-"name": "Flying Machine Men Mauvemist Pink Tshirts",
-"category": "top",
-"article": "Tshirts",
-"color": "pink",
-"style": "casual",
-"warmth": 2,
-"formality": 1,
-"image": "img/p10464.jpg"
 },
 {
 "id": "p11377",
@@ -5519,6 +5132,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p11377.jpg"
 },
 {
@@ -5530,6 +5144,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p12350.jpg"
 },
 {
@@ -5541,6 +5156,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p13411.jpg"
 },
 {
@@ -5552,6 +5168,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p13416.jpg"
 },
 {
@@ -5563,6 +5180,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p13419.jpg"
 },
 {
@@ -5574,6 +5192,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p2843.jpg"
 },
 {
@@ -5585,6 +5204,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p29789.jpg"
 },
 {
@@ -5596,6 +5216,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p37212.jpg"
 },
 {
@@ -5607,18 +5228,8 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p6280.jpg"
-},
-{
-"id": "p6616",
-"name": "Spykar Men Linen Pink Shirt",
-"category": "top",
-"article": "Shirts",
-"color": "pink",
-"style": "smart",
-"warmth": 3,
-"formality": 4,
-"image": "img/p6616.jpg"
 },
 {
 "id": "p9062",
@@ -5629,18 +5240,8 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p9062.jpg"
-},
-{
-"id": "p9063",
-"name": "Mark Taylor Men Pink Striped Shirt",
-"category": "top",
-"article": "Shirts",
-"color": "pink",
-"style": "classic",
-"warmth": 3,
-"formality": 4,
-"image": "img/p9063.jpg"
 },
 {
 "id": "p9498",
@@ -5651,6 +5252,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p9498.jpg"
 },
 {
@@ -5662,18 +5264,8 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p9660.jpg"
-},
-{
-"id": "p10009",
-"name": "Nike Men Town Round Red Neck T-Shirts",
-"category": "top",
-"article": "Tshirts",
-"color": "red",
-"style": "streetwear",
-"warmth": 2,
-"formality": 1,
-"image": "img/p10009.jpg"
 },
 {
 "id": "p10572",
@@ -5684,6 +5276,7 @@
 "style": "minimal",
 "warmth": 4,
 "formality": 3,
+"gender": "men",
 "image": "img/p10572.jpg"
 },
 {
@@ -5695,6 +5288,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p10602.jpg"
 },
 {
@@ -5706,6 +5300,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p10866.jpg"
 },
 {
@@ -5717,6 +5312,7 @@
 "style": "minimal",
 "warmth": 4,
 "formality": 3,
+"gender": "men",
 "image": "img/p11172.jpg"
 },
 {
@@ -5728,6 +5324,7 @@
 "style": "minimal",
 "warmth": 4,
 "formality": 3,
+"gender": "men",
 "image": "img/p11173.jpg"
 },
 {
@@ -5739,18 +5336,8 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p13426.jpg"
-},
-{
-"id": "p13879",
-"name": "Scullers Men Check Red Shirts",
-"category": "top",
-"article": "Shirts",
-"color": "red",
-"style": "smart",
-"warmth": 3,
-"formality": 4,
-"image": "img/p13879.jpg"
 },
 {
 "id": "p15977",
@@ -5761,6 +5348,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p15977.jpg"
 },
 {
@@ -5772,6 +5360,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p16332.jpg"
 },
 {
@@ -5783,6 +5372,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p16392.jpg"
 },
 {
@@ -5794,6 +5384,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p16530.jpg"
 },
 {
@@ -5805,6 +5396,7 @@
 "style": "minimal",
 "warmth": 4,
 "formality": 3,
+"gender": "men",
 "image": "img/p16691.jpg"
 },
 {
@@ -5816,6 +5408,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p18237.jpg"
 },
 {
@@ -5827,18 +5420,8 @@
 "style": "streetwear",
 "warmth": 4,
 "formality": 1,
+"gender": "men",
 "image": "img/p18863.jpg"
-},
-{
-"id": "p1890",
-"name": "FIFA Mens Essentials Red T-shirt",
-"category": "top",
-"article": "Tshirts",
-"color": "red",
-"style": "casual",
-"warmth": 2,
-"formality": 1,
-"image": "img/p1890.jpg"
 },
 {
 "id": "p38637",
@@ -5849,6 +5432,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p38637.jpg"
 },
 {
@@ -5860,6 +5444,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p4986.jpg"
 },
 {
@@ -5871,6 +5456,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p5434.jpg"
 },
 {
@@ -5882,18 +5468,8 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p8587.jpg"
-},
-{
-"id": "p9250",
-"name": "Mark Taylor Men Red Striped Shirt",
-"category": "top",
-"article": "Shirts",
-"color": "red",
-"style": "classic",
-"warmth": 3,
-"formality": 4,
-"image": "img/p9250.jpg"
 },
 {
 "id": "p9261",
@@ -5904,6 +5480,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p9261.jpg"
 },
 {
@@ -5915,6 +5492,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p9452.jpg"
 },
 {
@@ -5926,18 +5504,8 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p9455.jpg"
-},
-{
-"id": "p10861",
-"name": "Wrangler Men Dirt Riders White T-Shirts",
-"category": "top",
-"article": "Tshirts",
-"color": "white",
-"style": "casual",
-"warmth": 2,
-"formality": 1,
-"image": "img/p10861.jpg"
 },
 {
 "id": "p11175",
@@ -5948,6 +5516,7 @@
 "style": "minimal",
 "warmth": 4,
 "formality": 3,
+"gender": "men",
 "image": "img/p11175.jpg"
 },
 {
@@ -5959,6 +5528,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p11378.jpg"
 },
 {
@@ -5970,6 +5540,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p12367.jpg"
 },
 {
@@ -5981,6 +5552,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p14052.jpg"
 },
 {
@@ -5992,7 +5564,20 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p15187.jpg"
+},
+{
+"id": "p16539",
+"name": "Basics Men White Slim Fit Striped Shirt",
+"category": "top",
+"article": "Shirts",
+"color": "white",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "men",
+"image": "img/p16539.jpg"
 },
 {
 "id": "p20383",
@@ -6003,6 +5588,7 @@
 "style": "minimal",
 "warmth": 4,
 "formality": 3,
+"gender": "men",
 "image": "img/p20383.jpg"
 },
 {
@@ -6014,6 +5600,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p2049.jpg"
 },
 {
@@ -6025,6 +5612,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p2243.jpg"
 },
 {
@@ -6036,6 +5624,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p2275.jpg"
 },
 {
@@ -6047,29 +5636,8 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p25529.jpg"
-},
-{
-"id": "p28639",
-"name": "Nike Men White T-shirt",
-"category": "top",
-"article": "Tshirts",
-"color": "white",
-"style": "streetwear",
-"warmth": 2,
-"formality": 1,
-"image": "img/p28639.jpg"
-},
-{
-"id": "p32767",
-"name": "John Miller Men Striped White Shirt",
-"category": "top",
-"article": "Shirts",
-"color": "white",
-"style": "classic",
-"warmth": 3,
-"formality": 4,
-"image": "img/p32767.jpg"
 },
 {
 "id": "p43500",
@@ -6080,6 +5648,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p43500.jpg"
 },
 {
@@ -6091,6 +5660,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p53766.jpg"
 },
 {
@@ -6102,6 +5672,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p59297.jpg"
 },
 {
@@ -6113,6 +5684,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p7963.jpg"
 },
 {
@@ -6124,6 +5696,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p9463.jpg"
 },
 {
@@ -6135,6 +5708,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p9464.jpg"
 },
 {
@@ -6146,6 +5720,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p9694.jpg"
 },
 {
@@ -6157,6 +5732,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p10065.jpg"
 },
 {
@@ -6168,6 +5744,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p15174.jpg"
 },
 {
@@ -6179,7 +5756,20 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p15984.jpg"
+},
+{
+"id": "p16792",
+"name": "Highlander Men Check Yellow Shirt",
+"category": "top",
+"article": "Shirts",
+"color": "yellow",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "men",
+"image": "img/p16792.jpg"
 },
 {
 "id": "p17276",
@@ -6190,6 +5780,7 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p17276.jpg"
 },
 {
@@ -6201,6 +5792,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p17537.jpg"
 },
 {
@@ -6212,6 +5804,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p2014.jpg"
 },
 {
@@ -6223,6 +5816,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p26812.jpg"
 },
 {
@@ -6234,6 +5828,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p26815.jpg"
 },
 {
@@ -6245,18 +5840,8 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p30632.jpg"
-},
-{
-"id": "p31586",
-"name": "Mark Taylor Men Printed Yellow T-shirt",
-"category": "top",
-"article": "Tshirts",
-"color": "yellow",
-"style": "casual",
-"warmth": 2,
-"formality": 1,
-"image": "img/p31586.jpg"
 },
 {
 "id": "p3730",
@@ -6267,6 +5852,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p3730.jpg"
 },
 {
@@ -6278,6 +5864,7 @@
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p3731.jpg"
 },
 {
@@ -6289,6 +5876,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p39780.jpg"
 },
 {
@@ -6300,6 +5888,7 @@
 "style": "classic",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p51400.jpg"
 },
 {
@@ -6311,6 +5900,7 @@
 "style": "smart",
 "warmth": 3,
 "formality": 4,
+"gender": "men",
 "image": "img/p51406.jpg"
 },
 {
@@ -6322,17 +5912,5899 @@
 "style": "casual",
 "warmth": 2,
 "formality": 1,
+"gender": "men",
 "image": "img/p6287.jpg"
 },
 {
-"id": "p7672",
-"name": "Puma Men's Canary Lemon Yellow T-shirt",
+"id": "p27903",
+"name": "Scullers For Her Beige Trousers",
+"category": "bottom",
+"article": "Trousers",
+"color": "beige",
+"style": "classic",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p27903.jpg"
+},
+{
+"id": "p27921",
+"name": "Scullers For Her Beige Trousers",
+"category": "bottom",
+"article": "Trousers",
+"color": "beige",
+"style": "classic",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p27921.jpg"
+},
+{
+"id": "p30924",
+"name": "Fabindia Women Printed Beige Ghera Skirt",
+"category": "bottom",
+"article": "Skirts",
+"color": "beige",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p30924.jpg"
+},
+{
+"id": "p34504",
+"name": "Van Heusen Woman Beige Trousers",
+"category": "bottom",
+"article": "Trousers",
+"color": "beige",
+"style": "classic",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p34504.jpg"
+},
+{
+"id": "p41161",
+"name": "Allen Solly Woman Khaki Trousers",
+"category": "bottom",
+"article": "Trousers",
+"color": "beige",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p41161.jpg"
+},
+{
+"id": "p51603",
+"name": "Kraus Jeans Women Beige Trousers",
+"category": "bottom",
+"article": "Trousers",
+"color": "beige",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p51603.jpg"
+},
+{
+"id": "p57137",
+"name": "Elle Women Khaki Trousers",
+"category": "bottom",
+"article": "Trousers",
+"color": "beige",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p57137.jpg"
+},
+{
+"id": "p57215",
+"name": "Kraus Jeans Women Beige Shorts",
+"category": "bottom",
+"article": "Shorts",
+"color": "beige",
+"style": "casual",
+"warmth": 1,
+"formality": 1,
+"gender": "women",
+"image": "img/p57215.jpg"
+},
+{
+"id": "p11520",
+"name": "United Colors of Benetton Women Denim Black Jeans",
+"category": "bottom",
+"article": "Jeans",
+"color": "black",
+"style": "casual",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p11520.jpg"
+},
+{
+"id": "p15340",
+"name": "Nike Women Solid Black Shorts",
+"category": "bottom",
+"article": "Shorts",
+"color": "black",
+"style": "streetwear",
+"warmth": 1,
+"formality": 1,
+"gender": "women",
+"image": "img/p15340.jpg"
+},
+{
+"id": "p2226",
+"name": "ADIDAS Women Black Tracksuit",
+"category": "bottom",
+"article": "Track Pants",
+"color": "black",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p2226.jpg"
+},
+{
+"id": "p22394",
+"name": "ADIDAS Women Ess MF3S  Black Track Pant",
+"category": "bottom",
+"article": "Track Pants",
+"color": "black",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p22394.jpg"
+},
+{
+"id": "p26994",
+"name": "Jealous 21 Women Black Jeans",
+"category": "bottom",
+"article": "Jeans",
+"color": "black",
+"style": "casual",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p26994.jpg"
+},
+{
+"id": "p27911",
+"name": "Scullers For Her Women Black Trousers",
+"category": "bottom",
+"article": "Trousers",
+"color": "black",
+"style": "classic",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p27911.jpg"
+},
+{
+"id": "p28451",
+"name": "Urban Yoga Women Black Track Pants",
+"category": "bottom",
+"article": "Track Pants",
+"color": "black",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p28451.jpg"
+},
+{
+"id": "p30925",
+"name": "Fabindia Women Printed Black Ghera Skirt",
+"category": "bottom",
+"article": "Skirts",
+"color": "black",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p30925.jpg"
+},
+{
+"id": "p43223",
+"name": "United Colors of Benetton Women Black Trouser",
+"category": "bottom",
+"article": "Trousers",
+"color": "black",
+"style": "classic",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p43223.jpg"
+},
+{
+"id": "p43224",
+"name": "United Colors of Benetton Women Black Trouser",
+"category": "bottom",
+"article": "Trousers",
+"color": "black",
+"style": "classic",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p43224.jpg"
+},
+{
+"id": "p44667",
+"name": "Wills Lifestyle Women Black Trousers",
+"category": "bottom",
+"article": "Trousers",
+"color": "black",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p44667.jpg"
+},
+{
+"id": "p51605",
+"name": "Kraus Jeans Women Black Trousers",
+"category": "bottom",
+"article": "Trousers",
+"color": "black",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p51605.jpg"
+},
+{
+"id": "p57136",
+"name": "Elle Women Black Trousers",
+"category": "bottom",
+"article": "Trousers",
+"color": "black",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p57136.jpg"
+},
+{
+"id": "p57139",
+"name": "Elle Women Black Etra Slim Fit Trousers",
+"category": "bottom",
+"article": "Trousers",
+"color": "black",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p57139.jpg"
+},
+{
+"id": "p7193",
+"name": "Jealous 21 Women Black Jegging",
+"category": "bottom",
+"article": "Jeans",
+"color": "black",
+"style": "casual",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p7193.jpg"
+},
+{
+"id": "p7709",
+"name": "Jealous 21 Women's Aaren Black Jegging",
+"category": "bottom",
+"article": "Jeans",
+"color": "black",
+"style": "casual",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p7709.jpg"
+},
+{
+"id": "p11126",
+"name": "Urban Yoga Women Solid Blue Track Pants",
+"category": "bottom",
+"article": "Track Pants",
+"color": "blue",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p11126.jpg"
+},
+{
+"id": "p13514",
+"name": "Palm Tree Women Washed Blue Skirts",
+"category": "bottom",
+"article": "Skirts",
+"color": "blue",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p13514.jpg"
+},
+{
+"id": "p26993",
+"name": "Jealous 21 Women Washed Blue Jeans",
+"category": "bottom",
+"article": "Jeans",
+"color": "blue",
+"style": "casual",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p26993.jpg"
+},
+{
+"id": "p27018",
+"name": "Jealous 21 Women Washed Blue Jeans",
+"category": "bottom",
+"article": "Jeans",
+"color": "blue",
+"style": "casual",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p27018.jpg"
+},
+{
+"id": "p27027",
+"name": "Jealous 21 Women Blue Shorts",
+"category": "bottom",
+"article": "Shorts",
+"color": "blue",
+"style": "casual",
+"warmth": 1,
+"formality": 1,
+"gender": "women",
+"image": "img/p27027.jpg"
+},
+{
+"id": "p28456",
+"name": "Urban Yoga Women Blue Skirt With Leggings",
+"category": "bottom",
+"article": "Skirts",
+"color": "blue",
+"style": "streetwear",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p28456.jpg"
+},
+{
+"id": "p32563",
+"name": "ONLY Women directoire blue Trousers",
+"category": "bottom",
+"article": "Trousers",
+"color": "blue",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p32563.jpg"
+},
+{
+"id": "p3908",
+"name": "Urban Yoga Women's Fitted Yoga Blue Track Pant",
+"category": "bottom",
+"article": "Track Pants",
+"color": "blue",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p3908.jpg"
+},
+{
+"id": "p49636",
+"name": "Mineral Blue & White Skirt",
+"category": "bottom",
+"article": "Skirts",
+"color": "blue",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p49636.jpg"
+},
+{
+"id": "p51499",
+"name": "Denizen Women Blue Jeans",
+"category": "bottom",
+"article": "Jeans",
+"color": "blue",
+"style": "casual",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p51499.jpg"
+},
+{
+"id": "p57088",
+"name": "Elle Women Teal Skirt",
+"category": "bottom",
+"article": "Skirts",
+"color": "blue",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p57088.jpg"
+},
+{
+"id": "p18711",
+"name": "Arrow Woman Printed Brown Skirt",
+"category": "bottom",
+"article": "Skirts",
+"color": "brown",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p18711.jpg"
+},
+{
+"id": "p27917",
+"name": "Scullers For Her Brown Striped Trousers",
+"category": "bottom",
+"article": "Trousers",
+"color": "brown",
+"style": "classic",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p27917.jpg"
+},
+{
+"id": "p27919",
+"name": "Scullers For Her Light Brown Trousers",
+"category": "bottom",
+"article": "Trousers",
+"color": "brown",
+"style": "classic",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p27919.jpg"
+},
+{
+"id": "p27929",
+"name": "Scullers For Her Brown Trousers",
+"category": "bottom",
+"article": "Trousers",
+"color": "brown",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p27929.jpg"
+},
+{
+"id": "p32590",
+"name": "ONLY Women Brown Shorts",
+"category": "bottom",
+"article": "Shorts",
+"color": "brown",
+"style": "casual",
+"warmth": 1,
+"formality": 1,
+"gender": "women",
+"image": "img/p32590.jpg"
+},
+{
+"id": "p39225",
+"name": "Femella Women Heart Print  Brown Trousers",
+"category": "bottom",
+"article": "Trousers",
+"color": "brown",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p39225.jpg"
+},
+{
+"id": "p44666",
+"name": "Wills Lifestyle Women Brown Trousers",
+"category": "bottom",
+"article": "Trousers",
+"color": "brown",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p44666.jpg"
+},
+{
+"id": "p57138",
+"name": "Elle Women Brown Trousers",
+"category": "bottom",
+"article": "Trousers",
+"color": "brown",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p57138.jpg"
+},
+{
+"id": "p7192",
+"name": "Jealous 21 Women Brown Jeggings",
+"category": "bottom",
+"article": "Jeans",
+"color": "brown",
+"style": "casual",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p7192.jpg"
+},
+{
+"id": "p18710",
+"name": "Arrow Woman Printed Tan Skirt",
+"category": "bottom",
+"article": "Skirts",
+"color": "camel",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p18710.jpg"
+},
+{
+"id": "p2110",
+"name": "ADIDAS Women Very Berry Lycra Track Pants",
+"category": "bottom",
+"article": "Track Pants",
+"color": "camel",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p2110.jpg"
+},
+{
+"id": "p3907",
+"name": "Urban Yoga Women's Fitted Yoga Cream Track Pant",
+"category": "bottom",
+"article": "Track Pants",
+"color": "cream",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p3907.jpg"
+},
+{
+"id": "p57092",
+"name": "Elle Women Off White Skirt",
+"category": "bottom",
+"article": "Skirts",
+"color": "cream",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p57092.jpg"
+},
+{
+"id": "p57896",
+"name": "Femella Women Off White Shorts",
+"category": "bottom",
+"article": "Shorts",
+"color": "cream",
+"style": "casual",
+"warmth": 1,
+"formality": 1,
+"gender": "women",
+"image": "img/p57896.jpg"
+},
+{
+"id": "p8496",
+"name": "Forever New Women Cappuccino Cream Skirts",
+"category": "bottom",
+"article": "Skirts",
+"color": "cream",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p8496.jpg"
+},
+{
+"id": "p8497",
+"name": "Forever New Women Cameo Skirt Cream Skirts",
+"category": "bottom",
+"article": "Skirts",
+"color": "cream",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p8497.jpg"
+},
+{
+"id": "p1981",
+"name": "Puma Women's Island Green Shorts",
+"category": "bottom",
+"article": "Shorts",
+"color": "green",
+"style": "casual",
+"warmth": 1,
+"formality": 1,
+"gender": "women",
+"image": "img/p1981.jpg"
+},
+{
+"id": "p57824",
+"name": "United Colors of Benetton Green Trouser",
+"category": "bottom",
+"article": "Trousers",
+"color": "green",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p57824.jpg"
+},
+{
+"id": "p17993",
+"name": "Puma Women Essential Skinny Grey Track Pant",
+"category": "bottom",
+"article": "Track Pants",
+"color": "grey",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p17993.jpg"
+},
+{
+"id": "p2574",
+"name": "Domyos Women's Grey Short",
+"category": "bottom",
+"article": "Shorts",
+"color": "grey",
+"style": "casual",
+"warmth": 1,
+"formality": 1,
+"gender": "women",
+"image": "img/p2574.jpg"
+},
+{
+"id": "p27426",
+"name": "Jockey Women Grey Melange Shorts",
+"category": "bottom",
+"article": "Shorts",
+"color": "grey",
+"style": "casual",
+"warmth": 1,
+"formality": 1,
+"gender": "women",
+"image": "img/p27426.jpg"
+},
+{
+"id": "p27904",
+"name": "Scullers For Her Grey Trousers",
+"category": "bottom",
+"article": "Trousers",
+"color": "grey",
+"style": "classic",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p27904.jpg"
+},
+{
+"id": "p27916",
+"name": "Scullers For Her Grey Trousers",
+"category": "bottom",
+"article": "Trousers",
+"color": "grey",
+"style": "classic",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p27916.jpg"
+},
+{
+"id": "p28450",
+"name": "Urban Yoga Women Grey Track Pants",
+"category": "bottom",
+"article": "Track Pants",
+"color": "grey",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p28450.jpg"
+},
+{
+"id": "p49654",
+"name": "Mineral Women Grey Skirt",
+"category": "bottom",
+"article": "Skirts",
+"color": "grey",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p49654.jpg"
+},
+{
+"id": "p52536",
+"name": "Pepe Jeans Women Grey Jeans",
+"category": "bottom",
+"article": "Jeans",
+"color": "grey",
+"style": "casual",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p52536.jpg"
+},
+{
+"id": "p53750",
+"name": "ADIDAS Women Dark Grey Track Pant",
+"category": "bottom",
+"article": "Track Pants",
+"color": "grey",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p53750.jpg"
+},
+{
+"id": "p7560",
+"name": "Nike Women's Be Strong Grey Track Pant",
+"category": "bottom",
+"article": "Track Pants",
+"color": "grey",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p7560.jpg"
+},
+{
+"id": "p8498",
+"name": "Forever New Women Coral Check Grey Skirts",
+"category": "bottom",
+"article": "Skirts",
+"color": "grey",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p8498.jpg"
+},
+{
+"id": "p17994",
+"name": "Puma Women Essential Skinny Navy Blue Track Pant",
+"category": "bottom",
+"article": "Track Pants",
+"color": "navy",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p17994.jpg"
+},
+{
+"id": "p2572",
+"name": "Domyos Women Navy Blue Track Pants",
+"category": "bottom",
+"article": "Track Pants",
+"color": "navy",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p2572.jpg"
+},
+{
+"id": "p26863",
+"name": "Jealous 21 Women Navy Blue Skirts",
+"category": "bottom",
+"article": "Skirts",
+"color": "navy",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p26863.jpg"
+},
+{
+"id": "p27020",
+"name": "Jealous 21 Women Navy Blue Jeans",
+"category": "bottom",
+"article": "Jeans",
+"color": "navy",
+"style": "casual",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p27020.jpg"
+},
+{
+"id": "p32405",
+"name": "Arrow Woman Navy Blue Trousers",
+"category": "bottom",
+"article": "Trousers",
+"color": "navy",
+"style": "classic",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p32405.jpg"
+},
+{
+"id": "p40371",
+"name": "Tokyo Talkies Women Navy Slim Fit Jeans",
+"category": "bottom",
+"article": "Jeans",
+"color": "navy",
+"style": "casual",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p40371.jpg"
+},
+{
+"id": "p43081",
+"name": "Nike Women Navy Blue Track Pant",
+"category": "bottom",
+"article": "Track Pants",
+"color": "navy",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p43081.jpg"
+},
+{
+"id": "p50949",
+"name": "Lee Women Navy Blue Roxy Fit Jeans",
+"category": "bottom",
+"article": "Jeans",
+"color": "navy",
+"style": "casual",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p50949.jpg"
+},
+{
+"id": "p51497",
+"name": "Denizen Women Navy Blue Jeans",
+"category": "bottom",
+"article": "Jeans",
+"color": "navy",
+"style": "casual",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p51497.jpg"
+},
+{
+"id": "p57089",
+"name": "Elle Women Blue Skirt",
+"category": "bottom",
+"article": "Skirts",
+"color": "navy",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p57089.jpg"
+},
+{
+"id": "p9785",
+"name": "Urban Yoga Women Summer Bottoms Navy Blue Track Pants",
+"category": "bottom",
+"article": "Track Pants",
+"color": "navy",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p9785.jpg"
+},
+{
+"id": "p32562",
+"name": "ONLY Women Olive Trousers",
+"category": "bottom",
+"article": "Trousers",
+"color": "olive",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p32562.jpg"
+},
+{
+"id": "p48495",
+"name": "French Connection Women Olive Trousers",
+"category": "bottom",
+"article": "Trousers",
+"color": "olive",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p48495.jpg"
+},
+{
+"id": "p15341",
+"name": "Nike Women Solid Pink Shorts",
+"category": "bottom",
+"article": "Shorts",
+"color": "pink",
+"style": "streetwear",
+"warmth": 1,
+"formality": 1,
+"gender": "women",
+"image": "img/p15341.jpg"
+},
+{
+"id": "p28460",
+"name": "Urban Yoga Women Pink Shorts",
+"category": "bottom",
+"article": "Shorts",
+"color": "pink",
+"style": "streetwear",
+"warmth": 1,
+"formality": 1,
+"gender": "women",
+"image": "img/p28460.jpg"
+},
+{
+"id": "p32591",
+"name": "ONLY Women Pink Skirt",
+"category": "bottom",
+"article": "Skirts",
+"color": "pink",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p32591.jpg"
+},
+{
+"id": "p4774",
+"name": "ADIDAS Women 3S Pink Track Pants",
+"category": "bottom",
+"article": "Track Pants",
+"color": "pink",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p4774.jpg"
+},
+{
+"id": "p49655",
+"name": "Mineral Pink & Green Skirt",
+"category": "bottom",
+"article": "Skirts",
+"color": "pink",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p49655.jpg"
+},
+{
+"id": "p6532",
+"name": "Nike Women's Border Pink Skirt",
+"category": "bottom",
+"article": "Skirts",
+"color": "pink",
+"style": "streetwear",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p6532.jpg"
+},
+{
+"id": "p8499",
+"name": "Forever New Women Blossom  Pink Printed Skirt",
+"category": "bottom",
+"article": "Skirts",
+"color": "pink",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p8499.jpg"
+},
+{
+"id": "p32252",
+"name": "Fabindia Women Red Skirts",
+"category": "bottom",
+"article": "Skirts",
+"color": "red",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p32252.jpg"
+},
+{
+"id": "p32903",
+"name": "Allen Solly Women Red Shorts",
+"category": "bottom",
+"article": "Shorts",
+"color": "red",
+"style": "casual",
+"warmth": 1,
+"formality": 1,
+"gender": "women",
+"image": "img/p32903.jpg"
+},
+{
+"id": "p7695",
+"name": "Urban Yoga Women's Bij Red Track Pant",
+"category": "bottom",
+"article": "Track Pants",
+"color": "red",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p7695.jpg"
+},
+{
+"id": "p21431",
+"name": "Roxy Women White Shorts",
+"category": "bottom",
+"article": "Shorts",
+"color": "white",
+"style": "casual",
+"warmth": 1,
+"formality": 1,
+"gender": "women",
+"image": "img/p21431.jpg"
+},
+{
+"id": "p5761",
+"name": "Jealous 21 Women's Pink Shorts",
+"category": "bottom",
+"article": "Shorts",
+"color": "white",
+"style": "casual",
+"warmth": 1,
+"formality": 1,
+"gender": "women",
+"image": "img/p5761.jpg"
+},
+{
+"id": "p5788",
+"name": "Jealous 21 Women's Checkered Pink White Short",
+"category": "bottom",
+"article": "Shorts",
+"color": "white",
+"style": "casual",
+"warmth": 1,
+"formality": 1,
+"gender": "women",
+"image": "img/p5788.jpg"
+},
+{
+"id": "p5789",
+"name": "Jealous 21 Women's Blue White Checkered Short",
+"category": "bottom",
+"article": "Shorts",
+"color": "white",
+"style": "casual",
+"warmth": 1,
+"formality": 1,
+"gender": "women",
+"image": "img/p5789.jpg"
+},
+{
+"id": "p30923",
+"name": "Fabindia Women Printed Mustard Skirt",
+"category": "bottom",
+"article": "Skirts",
+"color": "yellow",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p30923.jpg"
+},
+{
+"id": "p57087",
+"name": "Elle Women Yellow Skirt",
+"category": "bottom",
+"article": "Skirts",
+"color": "yellow",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p57087.jpg"
+},
+{
+"id": "p57993",
+"name": "Latin Quarters Women Beige Dress",
+"category": "dress",
+"article": "Dresses",
+"color": "beige",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p57993.jpg"
+},
+{
+"id": "p58489",
+"name": "Tonga Women Beige Dress",
+"category": "dress",
+"article": "Dresses",
+"color": "beige",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p58489.jpg"
+},
+{
+"id": "p25971",
+"name": "Femella Women Black Dress",
+"category": "dress",
+"article": "Dresses",
+"color": "black",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p25971.jpg"
+},
+{
+"id": "p26934",
+"name": "Jealous 21 Women Black Dress",
+"category": "dress",
+"article": "Dresses",
+"color": "black",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p26934.jpg"
+},
+{
+"id": "p57995",
+"name": "Latin Quarters Women & White Black Dress",
+"category": "dress",
+"article": "Dresses",
+"color": "black",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p57995.jpg"
+},
+{
+"id": "p59986",
+"name": "Avirate Women Black Dress",
+"category": "dress",
+"article": "Dresses",
+"color": "black",
+"style": "smart",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p59986.jpg"
+},
+{
+"id": "p6873",
+"name": "Forever New Women's Top Black Dress",
+"category": "dress",
+"article": "Dresses",
+"color": "black",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p6873.jpg"
+},
+{
+"id": "p38836",
+"name": "Latin Quarters Women Blue Dress",
+"category": "dress",
+"article": "Dresses",
+"color": "blue",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p38836.jpg"
+},
+{
+"id": "p46271",
+"name": "109F Blue A-Line Dress",
+"category": "dress",
+"article": "Dresses",
+"color": "blue",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p46271.jpg"
+},
+{
+"id": "p49630",
+"name": "Mineral Blue Dress",
+"category": "dress",
+"article": "Dresses",
+"color": "blue",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p49630.jpg"
+},
+{
+"id": "p51465",
+"name": "Tonga Women Teal Dress",
+"category": "dress",
+"article": "Dresses",
+"color": "blue",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p51465.jpg"
+},
+{
+"id": "p57994",
+"name": "Latin Quarters Women Brown Printed Dress",
+"category": "dress",
+"article": "Dresses",
+"color": "brown",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p57994.jpg"
+},
+{
+"id": "p34581",
+"name": "Tonga Women Maroon Dress",
+"category": "dress",
+"article": "Dresses",
+"color": "burgundy",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p34581.jpg"
+},
+{
+"id": "p18896",
+"name": "Arrow Woman Solid Cream Dress",
+"category": "dress",
+"article": "Dresses",
+"color": "cream",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p18896.jpg"
+},
+{
+"id": "p34588",
+"name": "Tonga Women Cream Dress",
+"category": "dress",
+"article": "Dresses",
+"color": "cream",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p34588.jpg"
+},
+{
+"id": "p43648",
+"name": "ONLY Women Cream A-Line Dress",
+"category": "dress",
+"article": "Dresses",
+"color": "cream",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p43648.jpg"
+},
+{
+"id": "p49631",
+"name": "Mineral Cream Dress",
+"category": "dress",
+"article": "Dresses",
+"color": "cream",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p49631.jpg"
+},
+{
+"id": "p43676",
+"name": "French Connection Women Mint Green Dress",
+"category": "dress",
+"article": "Dresses",
+"color": "green",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p43676.jpg"
+},
+{
+"id": "p48486",
+"name": "French Connection Women Green Dress",
+"category": "dress",
+"article": "Dresses",
+"color": "green",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p48486.jpg"
+},
+{
+"id": "p58002",
+"name": "Latin Quarters Women Green Printed Dress",
+"category": "dress",
+"article": "Dresses",
+"color": "green",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p58002.jpg"
+},
+{
+"id": "p10406",
+"name": "United Colors of Benetton Women Solid Grey Dresses",
+"category": "dress",
+"article": "Dresses",
+"color": "grey",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p10406.jpg"
+},
+{
+"id": "p43509",
+"name": "French Connection Women Grey Melange Dress",
+"category": "dress",
+"article": "Dresses",
+"color": "grey",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p43509.jpg"
+},
+{
+"id": "p54971",
+"name": "Femella Women Grey Dress",
+"category": "dress",
+"article": "Dresses",
+"color": "grey",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p54971.jpg"
+},
+{
+"id": "p58493",
+"name": "Tonga Women Grey Dress",
+"category": "dress",
+"article": "Dresses",
+"color": "grey",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p58493.jpg"
+},
+{
+"id": "p38830",
+"name": "Latin Quarters Women Navy Blue Printed Dress",
+"category": "dress",
+"article": "Dresses",
+"color": "navy",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p38830.jpg"
+},
+{
+"id": "p40431",
+"name": "Tonga Women Navy Blue Dress",
+"category": "dress",
+"article": "Dresses",
+"color": "navy",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p40431.jpg"
+},
+{
+"id": "p43677",
+"name": "French Connection Navy Blue Dress",
+"category": "dress",
+"article": "Dresses",
+"color": "navy",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p43677.jpg"
+},
+{
+"id": "p59973",
+"name": "Avirate Women Navy Blue Dress",
+"category": "dress",
+"article": "Dresses",
+"color": "navy",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p59973.jpg"
+},
+{
+"id": "p38839",
+"name": "Latin Quarters Women Black Printed Dress",
+"category": "dress",
+"article": "Dresses",
+"color": "olive",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p38839.jpg"
+},
+{
+"id": "p58492",
+"name": "Tonga Women Olive Dress",
+"category": "dress",
+"article": "Dresses",
+"color": "olive",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p58492.jpg"
+},
+{
+"id": "p33225",
+"name": "Sepia Women Pink Dress",
+"category": "dress",
+"article": "Dresses",
+"color": "pink",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p33225.jpg"
+},
+{
+"id": "p38837",
+"name": "Latin Quarters Women Pink Printed Dress",
+"category": "dress",
+"article": "Dresses",
+"color": "pink",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p38837.jpg"
+},
+{
+"id": "p38838",
+"name": "Latin Quarters Women Pink & Black Printed Dress",
+"category": "dress",
+"article": "Dresses",
+"color": "pink",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p38838.jpg"
+},
+{
+"id": "p54976",
+"name": "Femella Women Pink Dress",
+"category": "dress",
+"article": "Dresses",
+"color": "pink",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p54976.jpg"
+},
+{
+"id": "p33199",
+"name": "Sepia Women Printed Red Dress",
+"category": "dress",
+"article": "Dresses",
+"color": "red",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p33199.jpg"
+},
+{
+"id": "p37198",
+"name": "United Colors of Benetton Women Check Red Dress",
+"category": "dress",
+"article": "Dresses",
+"color": "red",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p37198.jpg"
+},
+{
+"id": "p46277",
+"name": "109F Red & White A-Line Dress",
+"category": "dress",
+"article": "Dresses",
+"color": "red",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p46277.jpg"
+},
+{
+"id": "p48467",
+"name": "French Connection Women Red Dress",
+"category": "dress",
+"article": "Dresses",
+"color": "red",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p48467.jpg"
+},
+{
+"id": "p13472",
+"name": "United Colors of Benetton Women Solid White Dress",
+"category": "dress",
+"article": "Dresses",
+"color": "white",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p13472.jpg"
+},
+{
+"id": "p43508",
+"name": "French Connection Women Navy Blue Striped Dress",
+"category": "dress",
+"article": "Dresses",
+"color": "white",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p43508.jpg"
+},
+{
+"id": "p48525",
+"name": "French Connection Women White & Blue  Striped Dress",
+"category": "dress",
+"article": "Dresses",
+"color": "white",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p48525.jpg"
+},
+{
+"id": "p7306",
+"name": "UCB Women's Sleeveless Off White Dress",
+"category": "dress",
+"article": "Dresses",
+"color": "white",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p7306.jpg"
+},
+{
+"id": "p59897",
+"name": "Femella Women Yellow Dress",
+"category": "dress",
+"article": "Dresses",
+"color": "yellow",
+"style": "classic",
+"warmth": 2,
+"formality": 3,
+"gender": "women",
+"image": "img/p59897.jpg"
+},
+{
+"id": "p17911",
+"name": "Nike Women Sptcas Black Jacket",
+"category": "outerwear",
+"article": "Jackets",
+"color": "black",
+"style": "casual",
+"warmth": 4,
+"formality": 2,
+"gender": "women",
+"image": "img/p17911.jpg"
+},
+{
+"id": "p18524",
+"name": "C Vox Women Solid 1351 Black Jacket",
+"category": "outerwear",
+"article": "Jackets",
+"color": "black",
+"style": "casual",
+"warmth": 4,
+"formality": 2,
+"gender": "women",
+"image": "img/p18524.jpg"
+},
+{
+"id": "p19342",
+"name": "United Colors of Benetton Women Solid Black Jacket",
+"category": "outerwear",
+"article": "Jackets",
+"color": "black",
+"style": "casual",
+"warmth": 4,
+"formality": 2,
+"gender": "women",
+"image": "img/p19342.jpg"
+},
+{
+"id": "p6886",
+"name": "Forever New Women Puff Sleeve Tux Black Jacket",
+"category": "outerwear",
+"article": "Jackets",
+"color": "black",
+"style": "casual",
+"warmth": 4,
+"formality": 2,
+"gender": "women",
+"image": "img/p6886.jpg"
+},
+{
+"id": "p13995",
+"name": "Nike Women Solid Blue Jackets",
+"category": "outerwear",
+"article": "Jackets",
+"color": "blue",
+"style": "streetwear",
+"warmth": 4,
+"formality": 2,
+"gender": "women",
+"image": "img/p13995.jpg"
+},
+{
+"id": "p20376",
+"name": "Urban Yoga Women Solid Blue Jacket",
+"category": "outerwear",
+"article": "Jackets",
+"color": "blue",
+"style": "casual",
+"warmth": 4,
+"formality": 2,
+"gender": "women",
+"image": "img/p20376.jpg"
+},
+{
+"id": "p57068",
+"name": "Elle Women Navy Blue Jacket",
+"category": "outerwear",
+"article": "Jackets",
+"color": "blue",
+"style": "casual",
+"warmth": 4,
+"formality": 2,
+"gender": "women",
+"image": "img/p57068.jpg"
+},
+{
+"id": "p6887",
+"name": "Forever New Women Indigo Wash Blue Jacket",
+"category": "outerwear",
+"article": "Jackets",
+"color": "blue",
+"style": "casual",
+"warmth": 4,
+"formality": 2,
+"gender": "women",
+"image": "img/p6887.jpg"
+},
+{
+"id": "p8477",
+"name": "Forever New Women Washed Blue Jacket",
+"category": "outerwear",
+"article": "Jackets",
+"color": "blue",
+"style": "casual",
+"warmth": 4,
+"formality": 2,
+"gender": "women",
+"image": "img/p8477.jpg"
+},
+{
+"id": "p30906",
+"name": "Fabindia Women Reversible Jacket",
+"category": "outerwear",
+"article": "Jackets",
+"color": "burgundy",
+"style": "casual",
+"warmth": 4,
+"formality": 2,
+"gender": "women",
+"image": "img/p30906.jpg"
+},
+{
+"id": "p6889",
+"name": "Forever New Women Stone Cream Jacket",
+"category": "outerwear",
+"article": "Jackets",
+"color": "cream",
+"style": "casual",
+"warmth": 4,
+"formality": 2,
+"gender": "women",
+"image": "img/p6889.jpg"
+},
+{
+"id": "p57067",
+"name": "Elle Women Green Retro Jacket",
+"category": "outerwear",
+"article": "Jackets",
+"color": "green",
+"style": "casual",
+"warmth": 4,
+"formality": 2,
+"gender": "women",
+"image": "img/p57067.jpg"
+},
+{
+"id": "p18957",
+"name": "United Colors of Benetton Women Solid Grey Knitted Jacket",
+"category": "outerwear",
+"article": "Jackets",
+"color": "grey",
+"style": "casual",
+"warmth": 4,
+"formality": 2,
+"gender": "women",
+"image": "img/p18957.jpg"
+},
+{
+"id": "p18961",
+"name": "United Colors of Benetton Women Solid Grey Jacket",
+"category": "outerwear",
+"article": "Jackets",
+"color": "grey",
+"style": "casual",
+"warmth": 4,
+"formality": 2,
+"gender": "women",
+"image": "img/p18961.jpg"
+},
+{
+"id": "p27846",
+"name": "Scullers For Her Charcoal Blazer",
+"category": "outerwear",
+"article": "Blazers",
+"color": "grey",
+"style": "classic",
+"warmth": 3,
+"formality": 5,
+"gender": "women",
+"image": "img/p27846.jpg"
+},
+{
+"id": "p57069",
+"name": "Elle Women Charcoal Waistcoat",
+"category": "outerwear",
+"article": "Jackets",
+"color": "grey",
+"style": "casual",
+"warmth": 4,
+"formality": 2,
+"gender": "women",
+"image": "img/p57069.jpg"
+},
+{
+"id": "p12807",
+"name": "Nike Women Hood Pink Jackets",
+"category": "outerwear",
+"article": "Jackets",
+"color": "pink",
+"style": "streetwear",
+"warmth": 4,
+"formality": 2,
+"gender": "women",
+"image": "img/p12807.jpg"
+},
+{
+"id": "p15039",
+"name": "ADIDAS Women Stripes Pink Jackets",
+"category": "outerwear",
+"article": "Jackets",
+"color": "pink",
+"style": "casual",
+"warmth": 4,
+"formality": 2,
+"gender": "women",
+"image": "img/p15039.jpg"
+},
+{
+"id": "p20377",
+"name": "Urban Yoga Women Solid Pink Jacket",
+"category": "outerwear",
+"article": "Jackets",
+"color": "pink",
+"style": "casual",
+"warmth": 4,
+"formality": 2,
+"gender": "women",
+"image": "img/p20377.jpg"
+},
+{
+"id": "p8785",
+"name": "Lotto Women Cathy Pink Jacket",
+"category": "outerwear",
+"article": "Jackets",
+"color": "pink",
+"style": "casual",
+"warmth": 4,
+"formality": 2,
+"gender": "women",
+"image": "img/p8785.jpg"
+},
+{
+"id": "p19004",
+"name": "ADIDAS Originals Women Firebird Red Jacket",
+"category": "outerwear",
+"article": "Jackets",
+"color": "red",
+"style": "casual",
+"warmth": 4,
+"formality": 2,
+"gender": "women",
+"image": "img/p19004.jpg"
+},
+{
+"id": "p1584",
+"name": "Domyos Unisex Feather-light Jacket",
+"category": "outerwear",
+"article": "Jackets",
+"color": "white",
+"style": "casual",
+"warmth": 4,
+"formality": 2,
+"gender": "women",
+"image": "img/p1584.jpg"
+},
+{
+"id": "p15258",
+"name": "ADIDAS Originals Women Concord Round Beige Casual Shoes",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "beige",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p15258.jpg"
+},
+{
+"id": "p18548",
+"name": "Catwalk Women  Beige Casual Shoes",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "beige",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p18548.jpg"
+},
+{
+"id": "p19032",
+"name": "Catwalk Women Beige Spectator Shoes",
+"category": "shoes",
+"article": "Flats",
+"color": "beige",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p19032.jpg"
+},
+{
+"id": "p20783",
+"name": "Carlton London  Women Casual Beige Sandals",
+"category": "shoes",
+"article": "Flats",
+"color": "beige",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p20783.jpg"
+},
+{
+"id": "p22304",
+"name": "Inc. 5 Women Casual Beige Heels",
+"category": "shoes",
+"article": "Heels",
+"color": "beige",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p22304.jpg"
+},
+{
+"id": "p22501",
+"name": "Catwalk Women Beige Casual Shoes",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "beige",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p22501.jpg"
+},
+{
+"id": "p22702",
+"name": "Nike Women Beige Dunk High Casual Shoes",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "beige",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p22702.jpg"
+},
+{
+"id": "p45408",
+"name": "Rocia Women Beige & Brown Sandals",
+"category": "shoes",
+"article": "Flats",
+"color": "beige",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p45408.jpg"
+},
+{
+"id": "p47597",
+"name": "Portia Women Beige Wedges",
+"category": "shoes",
+"article": "Heels",
+"color": "beige",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p47597.jpg"
+},
+{
+"id": "p5351",
+"name": "Quechua Arpenaz Sandal 50 L Beige",
+"category": "shoes",
+"article": "Sports Shoes",
+"color": "beige",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p5351.jpg"
+},
+{
+"id": "p54120",
+"name": "Rocia Women Beige Flats",
+"category": "shoes",
+"article": "Flats",
+"color": "beige",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p54120.jpg"
+},
+{
+"id": "p54129",
+"name": "Rocia Women Beige Flats",
+"category": "shoes",
+"article": "Heels",
+"color": "beige",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p54129.jpg"
+},
+{
+"id": "p54142",
+"name": "Rocia Women Beige Sandals",
+"category": "shoes",
+"article": "Heels",
+"color": "beige",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p54142.jpg"
+},
+{
+"id": "p14431",
+"name": "Enroute Women Casual Black Flats",
+"category": "shoes",
+"article": "Heels",
+"color": "black",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p14431.jpg"
+},
+{
+"id": "p2629",
+"name": "Carlton London Women Four Strapped Black Sandal",
+"category": "shoes",
+"article": "Flats",
+"color": "black",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p2629.jpg"
+},
+{
+"id": "p34455",
+"name": "Rocia Women Black Shoes",
+"category": "shoes",
+"article": "Heels",
+"color": "black",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p34455.jpg"
+},
+{
+"id": "p34651",
+"name": "Fila Women Top Fuel Black Sports Shoes",
+"category": "shoes",
+"article": "Sports Shoes",
+"color": "black",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p34651.jpg"
+},
+{
+"id": "p42027",
+"name": "ADIDAS Women Sukoi Black Sports Shoes",
+"category": "shoes",
+"article": "Sports Shoes",
+"color": "black",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p42027.jpg"
+},
+{
+"id": "p42270",
+"name": "Vans Unisex Black & Grey Classic Shoes",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "black",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p42270.jpg"
+},
+{
+"id": "p43367",
+"name": "Reebok Women Black Casual Shoes",
+"category": "shoes",
+"article": "Flats",
+"color": "black",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p43367.jpg"
+},
+{
+"id": "p44510",
+"name": "Converse Unisex Black Shoes",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "black",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p44510.jpg"
+},
+{
+"id": "p45409",
+"name": "Rocia Women Black & Brown Sandals",
+"category": "shoes",
+"article": "Flats",
+"color": "black",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p45409.jpg"
+},
+{
+"id": "p4548",
+"name": "Nike Women Sweet AC Black Shoe",
+"category": "shoes",
+"article": "Sports Shoes",
+"color": "black",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p4548.jpg"
+},
+{
+"id": "p54118",
+"name": "Rocia Women Black Flats",
+"category": "shoes",
+"article": "Heels",
+"color": "black",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p54118.jpg"
+},
+{
+"id": "p54127",
+"name": "Rocia Women Black Heels",
+"category": "shoes",
+"article": "Heels",
+"color": "black",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p54127.jpg"
+},
+{
+"id": "p5460",
+"name": "Nike Women's Double Team Lite Black Shoe",
+"category": "shoes",
+"article": "Sports Shoes",
+"color": "black",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p5460.jpg"
+},
+{
+"id": "p59051",
+"name": "Carlton London Women Black & Gold Toned Flats",
+"category": "shoes",
+"article": "Flats",
+"color": "black",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p59051.jpg"
+},
+{
+"id": "p6422",
+"name": "Lotto Unisex Canvas Black Grey Shoe",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "black",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p6422.jpg"
+},
+{
+"id": "p6425",
+"name": "Lotto Unisex Canvas Black Check Shoe",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "black",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p6425.jpg"
+},
+{
+"id": "p10096",
+"name": "Reebok Women Reeflex Run Blue Sports Shoes",
+"category": "shoes",
+"article": "Sports Shoes",
+"color": "blue",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p10096.jpg"
+},
+{
+"id": "p14352",
+"name": "Catwalk Women Blue Flats",
+"category": "shoes",
+"article": "Flats",
+"color": "blue",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p14352.jpg"
+},
+{
+"id": "p18547",
+"name": "Catwalk Women  Blue Casual Shoes",
+"category": "shoes",
+"article": "Flats",
+"color": "blue",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p18547.jpg"
+},
+{
+"id": "p22500",
+"name": "Catwalk Women Blue Casual Shoes",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "blue",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p22500.jpg"
+},
+{
+"id": "p27074",
+"name": "Catwalk Women Blue Casual Flats",
+"category": "shoes",
+"article": "Flats",
+"color": "blue",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p27074.jpg"
+},
+{
+"id": "p39896",
+"name": "ADIDAS Women Blue Adi Light Sports Shoes",
+"category": "shoes",
+"article": "Sports Shoes",
+"color": "blue",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p39896.jpg"
+},
+{
+"id": "p4579",
+"name": "Nike Women Zoo Blue Shoe",
+"category": "shoes",
+"article": "Sports Shoes",
+"color": "blue",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p4579.jpg"
+},
+{
+"id": "p47630",
+"name": "Carlton London Women Blue Shoes",
+"category": "shoes",
+"article": "Flats",
+"color": "blue",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p47630.jpg"
+},
+{
+"id": "p53138",
+"name": "Catwalk Women Blue Heels",
+"category": "shoes",
+"article": "Heels",
+"color": "blue",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p53138.jpg"
+},
+{
+"id": "p53139",
+"name": "Catwalk Women Blue & White Sandals",
+"category": "shoes",
+"article": "Heels",
+"color": "blue",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p53139.jpg"
+},
+{
+"id": "p56876",
+"name": "HM Women Blue Heels",
+"category": "shoes",
+"article": "Heels",
+"color": "blue",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p56876.jpg"
+},
+{
+"id": "p59056",
+"name": "Carlton London Women Blue & Cream Shoes",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "blue",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p59056.jpg"
+},
+{
+"id": "p6412",
+"name": "Lotto Unisex Canvas Blue Shoe",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "blue",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p6412.jpg"
+},
+{
+"id": "p7595",
+"name": "Nike Women Ten Blue White Shoe",
+"category": "shoes",
+"article": "Sports Shoes",
+"color": "blue",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p7595.jpg"
+},
+{
+"id": "p8172",
+"name": "Catwalk Women Slim Casual Beige Wedges",
+"category": "shoes",
+"article": "Heels",
+"color": "blue",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p8172.jpg"
+},
+{
+"id": "p9096",
+"name": "Converse Unisex Ct As Star Chevron Hi Blue Casual Shoes",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "blue",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p9096.jpg"
+},
+{
+"id": "p10292",
+"name": "Clarks Women Brown Leather Heels",
+"category": "shoes",
+"article": "Heels",
+"color": "brown",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p10292.jpg"
+},
+{
+"id": "p13042",
+"name": "Inc 5 Women Brown Heels",
+"category": "shoes",
+"article": "Flats",
+"color": "brown",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p13042.jpg"
+},
+{
+"id": "p13087",
+"name": "Timberland Unisex Casual Brown Casual Shoes",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "brown",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p13087.jpg"
+},
+{
+"id": "p13366",
+"name": "Timberland Women Femmes Brown Casual Shoes",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "brown",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p13366.jpg"
+},
+{
+"id": "p21740",
+"name": "Vans Unisex Authentic Lo Pro Brown Casual Shoes",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "brown",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p21740.jpg"
+},
+{
+"id": "p22539",
+"name": "Inc.5  Women Grey Flats",
+"category": "shoes",
+"article": "Heels",
+"color": "brown",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p22539.jpg"
+},
+{
+"id": "p2872",
+"name": "Catwalk Women Leather Flats",
+"category": "shoes",
+"article": "Heels",
+"color": "brown",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p2872.jpg"
+},
+{
+"id": "p2886",
+"name": "Catwalk Women Leather Brown Flats",
+"category": "shoes",
+"article": "Flats",
+"color": "brown",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p2886.jpg"
+},
+{
+"id": "p53130",
+"name": "Catwalk Women Brown Sandals",
+"category": "shoes",
+"article": "Flats",
+"color": "brown",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p53130.jpg"
+},
+{
+"id": "p53137",
+"name": "Catwalk Women Brown Sandals",
+"category": "shoes",
+"article": "Flats",
+"color": "brown",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p53137.jpg"
+},
+{
+"id": "p56870",
+"name": "HM Women Brown Shoes",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "brown",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p56870.jpg"
+},
+{
+"id": "p57303",
+"name": "Rocia Women Brown Wedges",
+"category": "shoes",
+"article": "Heels",
+"color": "brown",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p57303.jpg"
+},
+{
+"id": "p13045",
+"name": "Inc 5 Women Casual Maroon Sandals",
+"category": "shoes",
+"article": "Flats",
+"color": "burgundy",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p13045.jpg"
+},
+{
+"id": "p17704",
+"name": "Vans unisex Old Skool Red Casual Shoes",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "burgundy",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p17704.jpg"
+},
+{
+"id": "p45400",
+"name": "Rocia Women Maroon Sandals",
+"category": "shoes",
+"article": "Flats",
+"color": "burgundy",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p45400.jpg"
+},
+{
+"id": "p45783",
+"name": "Senorita Women Maroon Sandals",
+"category": "shoes",
+"article": "Heels",
+"color": "burgundy",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p45783.jpg"
+},
+{
+"id": "p47538",
+"name": "Portia Women Maroon Flats",
+"category": "shoes",
+"article": "Flats",
+"color": "burgundy",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p47538.jpg"
+},
+{
+"id": "p47624",
+"name": "Portia Women Maroon Flats",
+"category": "shoes",
+"article": "Heels",
+"color": "burgundy",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p47624.jpg"
+},
+{
+"id": "p54116",
+"name": "Rocia Women Maroon Sandals",
+"category": "shoes",
+"article": "Heels",
+"color": "burgundy",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p54116.jpg"
+},
+{
+"id": "p56950",
+"name": "HM Women Maroon Sandals",
+"category": "shoes",
+"article": "Heels",
+"color": "burgundy",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p56950.jpg"
+},
+{
+"id": "p13361",
+"name": "Timberland Women Femmes Tan Casual Shoes",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "camel",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p13361.jpg"
+},
+{
+"id": "p17020",
+"name": "Rocia Women Casual Tan Sandal",
+"category": "shoes",
+"article": "Flats",
+"color": "camel",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p17020.jpg"
+},
+{
+"id": "p17677",
+"name": "Catwalk Women Weaved Strap Tan Flats",
+"category": "shoes",
+"article": "Heels",
+"color": "camel",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p17677.jpg"
+},
+{
+"id": "p18546",
+"name": "Catwalk Women Tan Heels",
+"category": "shoes",
+"article": "Heels",
+"color": "camel",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p18546.jpg"
+},
+{
+"id": "p19033",
+"name": "Catwalk Women Mary Jane Tan Casual Shoes",
+"category": "shoes",
+"article": "Flats",
+"color": "camel",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p19033.jpg"
+},
+{
+"id": "p35803",
+"name": "Enroute Women Tan Flats",
+"category": "shoes",
+"article": "Heels",
+"color": "camel",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p35803.jpg"
+},
+{
+"id": "p46599",
+"name": "Catwalk Women Tan Heels",
+"category": "shoes",
+"article": "Heels",
+"color": "camel",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p46599.jpg"
+},
+{
+"id": "p17489",
+"name": "Rockport Women Beige Flats",
+"category": "shoes",
+"article": "Flats",
+"color": "cream",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p17489.jpg"
+},
+{
+"id": "p46825",
+"name": "Catwalk Women Off-White and Blue Pumps",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "cream",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p46825.jpg"
+},
+{
+"id": "p47641",
+"name": "Carlton London Women Cream Shoes",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "cream",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p47641.jpg"
+},
+{
+"id": "p50784",
+"name": "Clarks Women Cream Coloured Onslow Beat Leather Wedges",
+"category": "shoes",
+"article": "Heels",
+"color": "cream",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p50784.jpg"
+},
+{
+"id": "p7594",
+"name": "Nike Women's Air Max Peach Cream Shoe",
+"category": "shoes",
+"article": "Sports Shoes",
+"color": "cream",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p7594.jpg"
+},
+{
+"id": "p1728",
+"name": "Newfeel Unisex Green Sports Shoes",
+"category": "shoes",
+"article": "Sports Shoes",
+"color": "green",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p1728.jpg"
+},
+{
+"id": "p23878",
+"name": "Fila Women Sleeker Green Check Casual Shoes",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "green",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p23878.jpg"
+},
+{
+"id": "p34833",
+"name": "ADIDAS Women Sweep Green Sandals",
+"category": "shoes",
+"article": "Flats",
+"color": "green",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p34833.jpg"
+},
+{
+"id": "p35378",
+"name": "Senorita Women Green Flats",
+"category": "shoes",
+"article": "Heels",
+"color": "green",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p35378.jpg"
+},
+{
+"id": "p36136",
+"name": "Nike Women Free Run+ 3 Green Sports Shoes",
+"category": "shoes",
+"article": "Sports Shoes",
+"color": "green",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p36136.jpg"
+},
+{
+"id": "p4140",
+"name": "Skechers Women Green Shoe",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "green",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p4140.jpg"
+},
+{
+"id": "p45796",
+"name": "Senorita Women Green Sandals",
+"category": "shoes",
+"article": "Flats",
+"color": "green",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p45796.jpg"
+},
+{
+"id": "p46590",
+"name": "Catwalk Women Green Heels",
+"category": "shoes",
+"article": "Heels",
+"color": "green",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p46590.jpg"
+},
+{
+"id": "p47590",
+"name": "Portia Women Green Sandals",
+"category": "shoes",
+"article": "Heels",
+"color": "green",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p47590.jpg"
+},
+{
+"id": "p50172",
+"name": "Rocia Women Multi- Coloured Shoes",
+"category": "shoes",
+"article": "Flats",
+"color": "green",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p50172.jpg"
+},
+{
+"id": "p53732",
+"name": "Puma Women Green Supersuede Eco Casual Shoes",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "green",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p53732.jpg"
+},
+{
+"id": "p57011",
+"name": "HM Women Green Flats",
+"category": "shoes",
+"article": "Flats",
+"color": "green",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p57011.jpg"
+},
+{
+"id": "p57853",
+"name": "Catwalk Women Green Flats",
+"category": "shoes",
+"article": "Heels",
+"color": "green",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p57853.jpg"
+},
+{
+"id": "p9097",
+"name": "Converse Unisex Ct AsAll Star 08 Hi Green Casual Shoes",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "green",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p9097.jpg"
+},
+{
+"id": "p11496",
+"name": "Catwalk Women Gun Metal Grey Flats",
+"category": "shoes",
+"article": "Heels",
+"color": "grey",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p11496.jpg"
+},
+{
+"id": "p11518",
+"name": "Catwalk Women Gun Metal Grey Heels",
+"category": "shoes",
+"article": "Heels",
+"color": "grey",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p11518.jpg"
+},
+{
+"id": "p13212",
+"name": "ASICS Women Gel Spree Running Grey Sports Shoes",
+"category": "shoes",
+"article": "Sports Shoes",
+"color": "grey",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p13212.jpg"
+},
+{
+"id": "p17684",
+"name": "Catwalk Women Ballerina Grey Casual Shoe",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "grey",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p17684.jpg"
+},
+{
+"id": "p18600",
+"name": "Puma Women Roque Grey Sandals",
+"category": "shoes",
+"article": "Flats",
+"color": "grey",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p18600.jpg"
+},
+{
+"id": "p22734",
+"name": "Nike Women Grey Lunarglide +3 Sports Shoes",
+"category": "shoes",
+"article": "Sports Shoes",
+"color": "grey",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p22734.jpg"
+},
+{
+"id": "p2880",
+"name": "Catwalk Women Leather Formal Grey Heels",
+"category": "shoes",
+"article": "Heels",
+"color": "grey",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p2880.jpg"
+},
+{
+"id": "p31941",
+"name": "Nike Women Air Rift Grey Shoes",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "grey",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p31941.jpg"
+},
+{
+"id": "p43356",
+"name": "Reebok Women Charcoal Grey Fuel Techno Sports Shoes",
+"category": "shoes",
+"article": "Sports Shoes",
+"color": "grey",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p43356.jpg"
+},
+{
+"id": "p43957",
+"name": "Puma Women Grey Techno Ind Sandals",
+"category": "shoes",
+"article": "Sandals",
+"color": "grey",
+"style": "casual",
+"warmth": 1,
+"formality": 1,
+"gender": "women",
+"image": "img/p43957.jpg"
+},
+{
+"id": "p4512",
+"name": "Lotto Women Osaka Grey Violet Shoe",
+"category": "shoes",
+"article": "Sports Shoes",
+"color": "grey",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p4512.jpg"
+},
+{
+"id": "p45401",
+"name": "Rocia Women Grey Sandals",
+"category": "shoes",
+"article": "Flats",
+"color": "grey",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p45401.jpg"
+},
+{
+"id": "p46583",
+"name": "Catwalk Women Grey Sandals",
+"category": "shoes",
+"article": "Flats",
+"color": "grey",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p46583.jpg"
+},
+{
+"id": "p46613",
+"name": "Catwalk Women Multi Coloured Sandals",
+"category": "shoes",
+"article": "Heels",
+"color": "grey",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p46613.jpg"
+},
+{
+"id": "p4742",
+"name": "Numero Uno Women NY Grey Blue Shoe",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "grey",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p4742.jpg"
+},
+{
+"id": "p6391",
+"name": "Lotto Women Sofia Pink Black Floater",
+"category": "shoes",
+"article": "Flats",
+"color": "grey",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p6391.jpg"
+},
+{
+"id": "p12814",
+"name": "Puma Unisex 917 Lo Navy Blue Casual Shoes",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "navy",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p12814.jpg"
+},
+{
+"id": "p13641",
+"name": "Carlton London Women Casual Navy Flats",
+"category": "shoes",
+"article": "Heels",
+"color": "navy",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p13641.jpg"
+},
+{
+"id": "p14396",
+"name": "Enroute Women Casual Navy Flats",
+"category": "shoes",
+"article": "Heels",
+"color": "navy",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p14396.jpg"
+},
+{
+"id": "p24668",
+"name": "Converse Unisex Neon Print Navy Blue Casual Shoes",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "navy",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p24668.jpg"
+},
+{
+"id": "p32809",
+"name": "iPanema Women Ritmos Navy Blue Flats",
+"category": "shoes",
+"article": "Heels",
+"color": "navy",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p32809.jpg"
+},
+{
+"id": "p34834",
+"name": "ADIDAS Women Ranger Navy Blue Sports Shoes",
+"category": "shoes",
+"article": "Sports Shoes",
+"color": "navy",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p34834.jpg"
+},
+{
+"id": "p41723",
+"name": "Catwalk Women Navy Blue Heels",
+"category": "shoes",
+"article": "Heels",
+"color": "navy",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p41723.jpg"
+},
+{
+"id": "p43366",
+"name": "Reebok Women Navy Blue Casual Shoes",
+"category": "shoes",
+"article": "Flats",
+"color": "navy",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p43366.jpg"
+},
+{
+"id": "p57467",
+"name": "Puma Unisex 917 Lo CVS Navy Blue Shoes",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "navy",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p57467.jpg"
+},
+{
+"id": "p5864",
+"name": "Converse Chuck Taylor All Star Unisex Navy Blue & Red Shoe",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "navy",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p5864.jpg"
+},
+{
+"id": "p31977",
+"name": "Nike Women Lunarswift +3 Olive Sports Shoes",
+"category": "shoes",
+"article": "Sports Shoes",
+"color": "olive",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p31977.jpg"
+},
+{
+"id": "p4028",
+"name": "ADIDAS Unisex High Can Oak Olive Shoes",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "olive",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p4028.jpg"
+},
+{
+"id": "p41724",
+"name": "Catwalk Women Olive Heels",
+"category": "shoes",
+"article": "Heels",
+"color": "olive",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p41724.jpg"
+},
+{
+"id": "p45352",
+"name": "Cobblerz Women Olive Green Sandals",
+"category": "shoes",
+"article": "Heels",
+"color": "olive",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p45352.jpg"
+},
+{
+"id": "p45362",
+"name": "Cobblerz Women Olive Green Sandals",
+"category": "shoes",
+"article": "Heels",
+"color": "olive",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p45362.jpg"
+},
+{
+"id": "p15269",
+"name": "ADIDAS Originals Women Concord Round Pink Casual Shoes",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "pink",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p15269.jpg"
+},
+{
+"id": "p15511",
+"name": "Rockport Women Jeanie Thong Chain Pink Flats",
+"category": "shoes",
+"article": "Heels",
+"color": "pink",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p15511.jpg"
+},
+{
+"id": "p17679",
+"name": "Catwalk Women Buckel Pink Flats",
+"category": "shoes",
+"article": "Heels",
+"color": "pink",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p17679.jpg"
+},
+{
+"id": "p32190",
+"name": "ADIDAS Women Duramo Pink Sports Shoes",
+"category": "shoes",
+"article": "Sports Shoes",
+"color": "pink",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p32190.jpg"
+},
+{
+"id": "p32848",
+"name": "Grendha Women Romance Pink Flats",
+"category": "shoes",
+"article": "Flats",
+"color": "pink",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p32848.jpg"
+},
+{
+"id": "p35782",
+"name": "Enroute Women Pink Flats",
+"category": "shoes",
+"article": "Heels",
+"color": "pink",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p35782.jpg"
+},
+{
+"id": "p36137",
+"name": "Nike Women Free Run Pink Sports Shoes",
+"category": "shoes",
+"article": "Sports Shoes",
+"color": "pink",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p36137.jpg"
+},
+{
+"id": "p3842",
+"name": "Crocs Women Lady Bubblegum Pink Sandal",
+"category": "shoes",
+"article": "Flats",
+"color": "pink",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p3842.jpg"
+},
+{
+"id": "p39577",
+"name": "Catwalk Women Pink Flats",
+"category": "shoes",
+"article": "Heels",
+"color": "pink",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p39577.jpg"
+},
+{
+"id": "p4631",
+"name": "ADIDAS Women Libria  Pink Flats",
+"category": "shoes",
+"article": "Flats",
+"color": "pink",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p4631.jpg"
+},
+{
+"id": "p4855",
+"name": "Newfeel Unisex Pink Grey Shoes",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "pink",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p4855.jpg"
+},
+{
+"id": "p49577",
+"name": "Catwalk Women Pink Shoes",
+"category": "shoes",
+"article": "Flats",
+"color": "pink",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p49577.jpg"
+},
+{
+"id": "p5373",
+"name": "Quechua Women Forclaz 50 Jr 10 Pink Shoes",
+"category": "shoes",
+"article": "Sports Shoes",
+"color": "pink",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p5373.jpg"
+},
+{
+"id": "p6413",
+"name": "Lotto Unisex Canvas Pink Shoe",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "pink",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p6413.jpg"
+},
+{
+"id": "p6643",
+"name": "Nike Women's Transform III IN Black Pink Shoe",
+"category": "shoes",
+"article": "Sports Shoes",
+"color": "pink",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p6643.jpg"
+},
+{
+"id": "p8574",
+"name": "Crocs Dora Boots Pink Sandals",
+"category": "shoes",
+"article": "Sandals",
+"color": "pink",
+"style": "casual",
+"warmth": 1,
+"formality": 1,
+"gender": "women",
+"image": "img/p8574.jpg"
+},
+{
+"id": "p10269",
+"name": "Clarks Women Silvi Spice Raspberry Leather Red Flats",
+"category": "shoes",
+"article": "Flats",
+"color": "red",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p10269.jpg"
+},
+{
+"id": "p13555",
+"name": "Carlton London Women Casual Red Casual Shoes",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "red",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p13555.jpg"
+},
+{
+"id": "p18541",
+"name": "Catwalk Women  Red Casual Shoe",
+"category": "shoes",
+"article": "Flats",
+"color": "red",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p18541.jpg"
+},
+{
+"id": "p2626",
+"name": "Carlton London Women Red Wedge Sandal",
+"category": "shoes",
+"article": "Flats",
+"color": "red",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p2626.jpg"
+},
+{
+"id": "p33086",
+"name": "Catwalk Women Red Flats",
+"category": "shoes",
+"article": "Heels",
+"color": "red",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p33086.jpg"
+},
+{
+"id": "p39583",
+"name": "Catwalk Women Red Flats",
+"category": "shoes",
+"article": "Heels",
+"color": "red",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p39583.jpg"
+},
+{
+"id": "p44658",
+"name": "Vans Unisex Red Old Skool Shoes",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "red",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p44658.jpg"
+},
+{
+"id": "p46615",
+"name": "Catwalk Women Red Flats",
+"category": "shoes",
+"article": "Heels",
+"color": "red",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p46615.jpg"
+},
+{
+"id": "p4743",
+"name": "Numero Uno Women Dna Red Shoe",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "red",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p4743.jpg"
+},
+{
+"id": "p49608",
+"name": "Catwalk Women Red Shoes",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "red",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p49608.jpg"
+},
+{
+"id": "p56882",
+"name": "HM Women Red Heels",
+"category": "shoes",
+"article": "Heels",
+"color": "red",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p56882.jpg"
+},
+{
+"id": "p11517",
+"name": "Catwalk Women Lifestyle White Shoes",
+"category": "shoes",
+"article": "Heels",
+"color": "white",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p11517.jpg"
+},
+{
+"id": "p12702",
+"name": "Nike Women Capri White Casual Shoes",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "white",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p12702.jpg"
+},
+{
+"id": "p12703",
+"name": "Nike Women Downshifter White Sports Shoes",
+"category": "shoes",
+"article": "Sports Shoes",
+"color": "white",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p12703.jpg"
+},
+{
+"id": "p13473",
+"name": "Rocia Women White Heels",
+"category": "shoes",
+"article": "Flats",
+"color": "white",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p13473.jpg"
+},
+{
+"id": "p14409",
+"name": "Enroute Women Casual White Heels",
+"category": "shoes",
+"article": "Heels",
+"color": "white",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p14409.jpg"
+},
+{
+"id": "p17016",
+"name": "Rocia Women Casual White Sandal",
+"category": "shoes",
+"article": "Flats",
+"color": "white",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p17016.jpg"
+},
+{
+"id": "p34859",
+"name": "Vans Unisex Classic Slip-On White Shoes",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "white",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p34859.jpg"
+},
+{
+"id": "p3505",
+"name": "ADIDAS Women Adi Light White Fresh Shoe",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "white",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p3505.jpg"
+},
+{
+"id": "p4147",
+"name": "Nike Women Glide White Grey Shoe",
+"category": "shoes",
+"article": "Sports Shoes",
+"color": "white",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p4147.jpg"
+},
+{
+"id": "p4149",
+"name": "Nike Women Free White Pink Shoe",
+"category": "shoes",
+"article": "Sports Shoes",
+"color": "white",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p4149.jpg"
+},
+{
+"id": "p43882",
+"name": "Puma Women El Rey Slipon Stripes Wns White Flats",
+"category": "shoes",
+"article": "Flats",
+"color": "white",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p43882.jpg"
+},
+{
+"id": "p47539",
+"name": "Portia Women White Flats",
+"category": "shoes",
+"article": "Flats",
+"color": "white",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p47539.jpg"
+},
+{
+"id": "p47555",
+"name": "Portia Women White Heels",
+"category": "shoes",
+"article": "Heels",
+"color": "white",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p47555.jpg"
+},
+{
+"id": "p49600",
+"name": "Catwalk Women White Flats",
+"category": "shoes",
+"article": "Heels",
+"color": "white",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p49600.jpg"
+},
+{
+"id": "p6672",
+"name": "Nike Women Dunk Skinny White Red Shoe",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "white",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p6672.jpg"
+},
+{
+"id": "p6681",
+"name": "Nike Women's Izanami White Blue Shoe",
+"category": "shoes",
+"article": "Sports Shoes",
+"color": "white",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p6681.jpg"
+},
+{
+"id": "p13552",
+"name": "Carlton London Women Yellow Flat Shoes",
+"category": "shoes",
+"article": "Flats",
+"color": "yellow",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p13552.jpg"
+},
+{
+"id": "p14438",
+"name": "Enroute Women Casual Yellow Heels",
+"category": "shoes",
+"article": "Heels",
+"color": "yellow",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p14438.jpg"
+},
+{
+"id": "p15267",
+"name": "ADIDAS Originals Women SL 72 Yellow Casual Shoes",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "yellow",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p15267.jpg"
+},
+{
+"id": "p17018",
+"name": "Rocia Women Casual yellow Sandal",
+"category": "shoes",
+"article": "Flats",
+"color": "yellow",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p17018.jpg"
+},
+{
+"id": "p17702",
+"name": "Vans unisex Authentic Yellow Casual Shoes",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "yellow",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p17702.jpg"
+},
+{
+"id": "p33108",
+"name": "Catwalk Women Yellow Flats",
+"category": "shoes",
+"article": "Heels",
+"color": "yellow",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p33108.jpg"
+},
+{
+"id": "p35802",
+"name": "Enroute Women Mustard Flats",
+"category": "shoes",
+"article": "Heels",
+"color": "yellow",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p35802.jpg"
+},
+{
+"id": "p4170",
+"name": "Reebok Women Zig Sonic Yellow and Grey Sports Shoes",
+"category": "shoes",
+"article": "Sports Shoes",
+"color": "yellow",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p4170.jpg"
+},
+{
+"id": "p45399",
+"name": "Rocia Women Yellow Sandals",
+"category": "shoes",
+"article": "Flats",
+"color": "yellow",
+"style": "minimal",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p45399.jpg"
+},
+{
+"id": "p56960",
+"name": "HM Women Yellow Flats",
+"category": "shoes",
+"article": "Heels",
+"color": "yellow",
+"style": "classic",
+"warmth": 2,
+"formality": 4,
+"gender": "women",
+"image": "img/p56960.jpg"
+},
+{
+"id": "p6799",
+"name": "Converse Unisex Yellow Canvas Shoe",
+"category": "shoes",
+"article": "Casual Shoes",
+"color": "yellow",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p6799.jpg"
+},
+{
+"id": "p21174",
+"name": "s.Oliver Women Stripes Beige Top",
+"category": "top",
+"article": "Tops",
+"color": "beige",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p21174.jpg"
+},
+{
+"id": "p24543",
+"name": "Mother Earth Women Beige Printed Top",
+"category": "top",
+"article": "Tops",
+"color": "beige",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p24543.jpg"
+},
+{
+"id": "p33986",
+"name": "Femella Women Printed Beige Shirt",
+"category": "top",
+"article": "Shirts",
+"color": "beige",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p33986.jpg"
+},
+{
+"id": "p39718",
+"name": "Arrow Woman Beige Top",
+"category": "top",
+"article": "Tops",
+"color": "beige",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p39718.jpg"
+},
+{
+"id": "p39719",
+"name": "Arrow Woman Beige Top",
+"category": "top",
+"article": "Tops",
+"color": "beige",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p39719.jpg"
+},
+{
+"id": "p11385",
+"name": "United Colors Of Benetton Women Light Winter Black Sweatshirts",
+"category": "top",
+"article": "Sweatshirts",
+"color": "black",
+"style": "streetwear",
+"warmth": 4,
+"formality": 1,
+"gender": "women",
+"image": "img/p11385.jpg"
+},
+{
+"id": "p15037",
+"name": "ADIDAS Women Check Black Sweaters",
+"category": "top",
+"article": "Sweaters",
+"color": "black",
+"style": "minimal",
+"warmth": 4,
+"formality": 3,
+"gender": "women",
+"image": "img/p15037.jpg"
+},
+{
+"id": "p17514",
+"name": "Jealous 21 Women Solid Black Sweater",
+"category": "top",
+"article": "Sweaters",
+"color": "black",
+"style": "minimal",
+"warmth": 4,
+"formality": 3,
+"gender": "women",
+"image": "img/p17514.jpg"
+},
+{
+"id": "p18891",
+"name": "Arrow Woman Tyra Black & White Striped Shirt",
+"category": "top",
+"article": "Shirts",
+"color": "black",
+"style": "classic",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p18891.jpg"
+},
+{
+"id": "p19726",
+"name": "United Colors of Benetton Women Solid Black Shirt",
+"category": "top",
+"article": "Shirts",
+"color": "black",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p19726.jpg"
+},
+{
+"id": "p20308",
+"name": "Jealous 21 Women Solid Black Sweater",
+"category": "top",
+"article": "Sweaters",
+"color": "black",
+"style": "minimal",
+"warmth": 4,
+"formality": 3,
+"gender": "women",
+"image": "img/p20308.jpg"
+},
+{
+"id": "p20347",
+"name": "Scullers For Her Women Solid Black Sweater",
+"category": "top",
+"article": "Sweaters",
+"color": "black",
+"style": "minimal",
+"warmth": 4,
+"formality": 3,
+"gender": "women",
+"image": "img/p20347.jpg"
+},
+{
+"id": "p2078",
+"name": "ADIDAS Women Fitted Black T-shirt",
+"category": "top",
+"article": "Tshirts",
+"color": "black",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p2078.jpg"
+},
+{
+"id": "p21145",
+"name": "s.Oliver Women Printed Black Shirt",
+"category": "top",
+"article": "Shirts",
+"color": "black",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p21145.jpg"
+},
+{
+"id": "p2244",
+"name": "ADIDAS Women's Black T-shirt",
+"category": "top",
+"article": "Tshirts",
+"color": "black",
+"style": "casual",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p2244.jpg"
+},
+{
+"id": "p2288",
+"name": "Nike Women Black T-shirt",
+"category": "top",
+"article": "Tshirts",
+"color": "black",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p2288.jpg"
+},
+{
+"id": "p32597",
+"name": "ONLY Women Black Top",
+"category": "top",
+"article": "Tops",
+"color": "black",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p32597.jpg"
+},
+{
+"id": "p33993",
+"name": "Femella Women Black Shirt",
+"category": "top",
+"article": "Shirts",
+"color": "black",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p33993.jpg"
+},
+{
+"id": "p3502",
+"name": "ADIDAS Women's Black T-shirt",
+"category": "top",
+"article": "Tshirts",
+"color": "black",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p3502.jpg"
+},
+{
+"id": "p3534",
+"name": "Myntra Women's I Want You Black T-shirt",
+"category": "top",
+"article": "Tshirts",
+"color": "black",
+"style": "casual",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p3534.jpg"
+},
+{
+"id": "p3701",
+"name": "Tantra Women Flower Heart Black Long T-shirt",
+"category": "top",
+"article": "Tshirts",
+"color": "black",
+"style": "casual",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p3701.jpg"
+},
+{
+"id": "p7151",
+"name": "Scullers For Her Women Rivited Check Black Shirts",
+"category": "top",
+"article": "Shirts",
+"color": "black",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p7151.jpg"
+},
+{
+"id": "p11714",
+"name": "Lee Women Check Blue Shirts",
+"category": "top",
+"article": "Shirts",
+"color": "blue",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p11714.jpg"
+},
+{
+"id": "p12609",
+"name": "Jealous 21 Women Solid Blue Sweaters",
+"category": "top",
+"article": "Sweaters",
+"color": "blue",
+"style": "minimal",
+"warmth": 4,
+"formality": 3,
+"gender": "women",
+"image": "img/p12609.jpg"
+},
+{
+"id": "p15036",
+"name": "ADIDAS Women Stripes Blue Sweaters",
+"category": "top",
+"article": "Sweaters",
+"color": "blue",
+"style": "minimal",
+"warmth": 4,
+"formality": 3,
+"gender": "women",
+"image": "img/p15036.jpg"
+},
+{
+"id": "p1809",
+"name": "Decathlon Profilter Women Blue T-shirt",
+"category": "top",
+"article": "Tshirts",
+"color": "blue",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p1809.jpg"
+},
+{
+"id": "p1986",
+"name": "ADIDAS Womens Blue V Neck T-shirt",
+"category": "top",
+"article": "Tshirts",
+"color": "blue",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p1986.jpg"
+},
+{
+"id": "p20232",
+"name": "Wrangler Women Felt Blue Sweater",
+"category": "top",
+"article": "Sweaters",
+"color": "blue",
+"style": "minimal",
+"warmth": 4,
+"formality": 3,
+"gender": "women",
+"image": "img/p20232.jpg"
+},
+{
+"id": "p20306",
+"name": "Jealous 21 Women Solid Blue Sweater",
+"category": "top",
+"article": "Sweaters",
+"color": "blue",
+"style": "minimal",
+"warmth": 4,
+"formality": 3,
+"gender": "women",
+"image": "img/p20306.jpg"
+},
+{
+"id": "p2289",
+"name": "Nike Women Blue T-shirt",
+"category": "top",
+"article": "Tshirts",
+"color": "blue",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p2289.jpg"
+},
+{
+"id": "p26369",
+"name": "Arrow Woman Blue Shirt",
+"category": "top",
+"article": "Shirts",
+"color": "blue",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p26369.jpg"
+},
+{
+"id": "p26958",
+"name": "Jealous 21 Women Teal Shirt",
+"category": "top",
+"article": "Shirts",
+"color": "blue",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p26958.jpg"
+},
+{
+"id": "p27878",
+"name": "Scullers For Her Women White Printed Shirt",
+"category": "top",
+"article": "Shirts",
+"color": "blue",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p27878.jpg"
+},
+{
+"id": "p27879",
+"name": "Scullers For Her Women Blue Top",
+"category": "top",
+"article": "Tops",
+"color": "blue",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p27879.jpg"
+},
+{
+"id": "p27884",
+"name": "Scullers For Her Blue Shirt",
+"category": "top",
+"article": "Shirts",
+"color": "blue",
+"style": "classic",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p27884.jpg"
+},
+{
+"id": "p27885",
+"name": "Scullers For Her Blue Shirt",
+"category": "top",
+"article": "Shirts",
+"color": "blue",
+"style": "classic",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p27885.jpg"
+},
+{
+"id": "p31782",
+"name": "Lee Women Paula Blue Top",
+"category": "top",
+"article": "Tops",
+"color": "blue",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p31782.jpg"
+},
+{
+"id": "p34496",
+"name": "Van Heusen Woman Blue Shirt",
+"category": "top",
+"article": "Shirts",
+"color": "blue",
+"style": "classic",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p34496.jpg"
+},
+{
+"id": "p37223",
+"name": "United Colors of Benetton Women Blue Top",
+"category": "top",
+"article": "Tops",
+"color": "blue",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p37223.jpg"
+},
+{
+"id": "p39727",
+"name": "Arrow Woman Blue Shirt",
+"category": "top",
+"article": "Shirts",
+"color": "blue",
+"style": "classic",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p39727.jpg"
+},
+{
+"id": "p43538",
+"name": "French Connection Women Blue Top",
+"category": "top",
+"article": "Tops",
+"color": "blue",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p43538.jpg"
+},
+{
+"id": "p6534",
+"name": "Nike Women's Border Blue T-shirt",
+"category": "top",
+"article": "Tshirts",
+"color": "blue",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p6534.jpg"
+},
+{
+"id": "p18726",
+"name": "Arrow Woman Venetia Brown Sweater",
+"category": "top",
+"article": "Sweaters",
+"color": "brown",
+"style": "minimal",
+"warmth": 4,
+"formality": 3,
+"gender": "women",
+"image": "img/p18726.jpg"
+},
+{
+"id": "p27445",
+"name": "Jockey Women Coffee Brown T-shirt",
+"category": "top",
+"article": "Tshirts",
+"color": "brown",
+"style": "casual",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p27445.jpg"
+},
+{
+"id": "p34001",
+"name": "Femella Women Brown Top",
+"category": "top",
+"article": "Tops",
+"color": "brown",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p34001.jpg"
+},
+{
+"id": "p37283",
+"name": "Tantra Women Brown Fight Peace T-shirt",
+"category": "top",
+"article": "Tshirts",
+"color": "brown",
+"style": "casual",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p37283.jpg"
+},
+{
+"id": "p4781",
+"name": "ADIDAS Women's Balance Brown T-shirt",
+"category": "top",
+"article": "Tshirts",
+"color": "brown",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p4781.jpg"
+},
+{
+"id": "p51462",
+"name": "Tonga Women Brown Top",
+"category": "top",
+"article": "Tops",
+"color": "brown",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p51462.jpg"
+},
+{
+"id": "p12793",
+"name": "Nike Women Blue Grafitti Maroon Tshirts",
+"category": "top",
+"article": "Tshirts",
+"color": "burgundy",
+"style": "casual",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p12793.jpg"
+},
+{
+"id": "p14723",
+"name": "Scullers For Her Women Casual Shirt Maroon Shirts",
+"category": "top",
+"article": "Shirts",
+"color": "burgundy",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p14723.jpg"
+},
+{
+"id": "p18899",
+"name": "Arrow Woman Igor Maroon Top",
+"category": "top",
+"article": "Tops",
+"color": "burgundy",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p18899.jpg"
+},
+{
+"id": "p20300",
+"name": "Jealous 21 Women Solid Maroon Sweater",
+"category": "top",
+"article": "Sweaters",
+"color": "burgundy",
+"style": "minimal",
+"warmth": 4,
+"formality": 3,
+"gender": "women",
+"image": "img/p20300.jpg"
+},
+{
+"id": "p26950",
+"name": "Jealous 21 Women Printed Maroon T-shirt",
+"category": "top",
+"article": "Tshirts",
+"color": "burgundy",
+"style": "casual",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p26950.jpg"
+},
+{
+"id": "p54940",
+"name": "Do u speak green Women Burgundy T-shirt",
+"category": "top",
+"article": "Tshirts",
+"color": "burgundy",
+"style": "casual",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p54940.jpg"
+},
+{
+"id": "p36240",
+"name": "W Women Tan Kurti",
+"category": "top",
+"article": "Tops",
+"color": "camel",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p36240.jpg"
+},
+{
+"id": "p41098",
+"name": "Allen Solly Woman Cream Top",
+"category": "top",
+"article": "Tops",
+"color": "cream",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p41098.jpg"
+},
+{
+"id": "p43531",
+"name": "French Connection Women Off White Top",
+"category": "top",
+"article": "Tops",
+"color": "cream",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p43531.jpg"
+},
+{
+"id": "p46276",
+"name": "109F Women Cream Printed Top",
+"category": "top",
+"article": "Tops",
+"color": "cream",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p46276.jpg"
+},
+{
+"id": "p58513",
+"name": "Tonga Women Maroon Top",
+"category": "top",
+"article": "Tops",
+"color": "cream",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p58513.jpg"
+},
+{
+"id": "p11370",
+"name": "United Colors Of Benetton Women Light Wintersweat Green Sweatshirts",
+"category": "top",
+"article": "Sweatshirts",
+"color": "green",
+"style": "streetwear",
+"warmth": 4,
+"formality": 1,
+"gender": "women",
+"image": "img/p11370.jpg"
+},
+{
+"id": "p25527",
+"name": "Wrangler Women Stella Green Shirt",
+"category": "top",
+"article": "Shirts",
+"color": "green",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p25527.jpg"
+},
+{
+"id": "p41385",
+"name": "Wrangler Women Green Candy Shirt",
+"category": "top",
+"article": "Shirts",
+"color": "green",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p41385.jpg"
+},
+{
+"id": "p42215",
+"name": "Sepia Women Teal Top",
+"category": "top",
+"article": "Tops",
+"color": "green",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p42215.jpg"
+},
+{
+"id": "p43080",
+"name": "Nike Womens Moss Green Top",
+"category": "top",
+"article": "Tops",
+"color": "green",
+"style": "streetwear",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p43080.jpg"
+},
+{
+"id": "p43631",
+"name": "Vero Moda Women Green Shirt",
+"category": "top",
+"article": "Shirts",
+"color": "green",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p43631.jpg"
+},
+{
+"id": "p4772",
+"name": "ADIDAS Women's Blue Polo T-shirt",
+"category": "top",
+"article": "Tshirts",
+"color": "green",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p4772.jpg"
+},
+{
+"id": "p49653",
+"name": "Mineral Women Green Top",
+"category": "top",
+"article": "Tops",
+"color": "green",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p49653.jpg"
+},
+{
+"id": "p6024",
+"name": "UCB Women's Boat Neck Chest Print Green T-shirt",
+"category": "top",
+"article": "Tshirts",
+"color": "green",
+"style": "casual",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p6024.jpg"
+},
+{
+"id": "p6274",
+"name": "UCB Women's Crystal Benetton Green T-shirt",
+"category": "top",
+"article": "Tshirts",
+"color": "green",
+"style": "casual",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p6274.jpg"
+},
+{
+"id": "p11376",
+"name": "United Colors Of Benetton Women Light Winter Grey Tops",
+"category": "top",
+"article": "Tops",
+"color": "grey",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p11376.jpg"
+},
+{
+"id": "p11382",
+"name": "United Colors Of Benetton Women Light Winter Grey T-Shirts",
+"category": "top",
+"article": "Tshirts",
+"color": "grey",
+"style": "casual",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p11382.jpg"
+},
+{
+"id": "p15038",
+"name": "ADIDAS Women Stripes Grey Sweaters",
+"category": "top",
+"article": "Sweaters",
+"color": "grey",
+"style": "minimal",
+"warmth": 4,
+"formality": 3,
+"gender": "women",
+"image": "img/p15038.jpg"
+},
+{
+"id": "p19005",
+"name": "ADIDAS Originals Women F Sleek Trf Grey Sweatshirt",
+"category": "top",
+"article": "Sweatshirts",
+"color": "grey",
+"style": "streetwear",
+"warmth": 4,
+"formality": 1,
+"gender": "women",
+"image": "img/p19005.jpg"
+},
+{
+"id": "p20091",
+"name": "United Colors of Benetton Women Grey Sweater",
+"category": "top",
+"article": "Sweaters",
+"color": "grey",
+"style": "minimal",
+"warmth": 4,
+"formality": 3,
+"gender": "women",
+"image": "img/p20091.jpg"
+},
+{
+"id": "p20379",
+"name": "Urban Yoga Women Printed Grey Sweatshirt",
+"category": "top",
+"article": "Sweatshirts",
+"color": "grey",
+"style": "streetwear",
+"warmth": 4,
+"formality": 1,
+"gender": "women",
+"image": "img/p20379.jpg"
+},
+{
+"id": "p21173",
+"name": "s.Oliver Women Grey Shirt",
+"category": "top",
+"article": "Shirts",
+"color": "grey",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p21173.jpg"
+},
+{
+"id": "p21464",
+"name": "Roxy Women Grey Sweater",
+"category": "top",
+"article": "Sweaters",
+"color": "grey",
+"style": "minimal",
+"warmth": 4,
+"formality": 3,
+"gender": "women",
+"image": "img/p21464.jpg"
+},
+{
+"id": "p21476",
+"name": "Roxy Women Grey Printed Sweatshirt",
+"category": "top",
+"article": "Sweatshirts",
+"color": "grey",
+"style": "streetwear",
+"warmth": 4,
+"formality": 1,
+"gender": "women",
+"image": "img/p21476.jpg"
+},
+{
+"id": "p21602",
+"name": "Roxy Women Grey Striped Sweater",
+"category": "top",
+"article": "Sweaters",
+"color": "grey",
+"style": "minimal",
+"warmth": 4,
+"formality": 3,
+"gender": "women",
+"image": "img/p21602.jpg"
+},
+{
+"id": "p28530",
+"name": "Nike Women Sprinter Grey T-shirt",
+"category": "top",
+"article": "Tshirts",
+"color": "grey",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p28530.jpg"
+},
+{
+"id": "p32392",
+"name": "Arrow Woman Grey Shirt",
+"category": "top",
+"article": "Shirts",
+"color": "grey",
+"style": "classic",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p32392.jpg"
+},
+{
+"id": "p32395",
+"name": "Arrow Woman Grey Shirt",
+"category": "top",
+"article": "Shirts",
+"color": "grey",
+"style": "classic",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p32395.jpg"
+},
+{
+"id": "p40668",
+"name": "Lee Women Grey Glorious Shirt",
+"category": "top",
+"article": "Shirts",
+"color": "grey",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p40668.jpg"
+},
+{
+"id": "p41194",
+"name": "Allen Solly Woman Grey Shirt",
+"category": "top",
+"article": "Shirts",
+"color": "grey",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p41194.jpg"
+},
+{
+"id": "p58514",
+"name": "Tonga Women Grey Top",
+"category": "top",
+"article": "Tops",
+"color": "grey",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p58514.jpg"
+},
+{
+"id": "p9835",
+"name": "Little Miss Women Printed Grey T-shirt",
+"category": "top",
+"article": "Tshirts",
+"color": "grey",
+"style": "casual",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p9835.jpg"
+},
+{
+"id": "p18727",
+"name": "Arrow Woman Venetia Navy Blue Sweater",
+"category": "top",
+"article": "Sweaters",
+"color": "navy",
+"style": "minimal",
+"warmth": 4,
+"formality": 3,
+"gender": "women",
+"image": "img/p18727.jpg"
+},
+{
+"id": "p21127",
+"name": "s.Oliver Women Printed Navy Blue Top",
+"category": "top",
+"article": "Tops",
+"color": "navy",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p21127.jpg"
+},
+{
+"id": "p22630",
+"name": "Nike Women Printed Navy Blue T-shirt",
+"category": "top",
+"article": "Tshirts",
+"color": "navy",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p22630.jpg"
+},
+{
+"id": "p25528",
+"name": "Wrangler Women Salena Navy Blue Check Shirt",
+"category": "top",
+"article": "Shirts",
+"color": "navy",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p25528.jpg"
+},
+{
+"id": "p26967",
+"name": "Jealous 21 Women Check Navy Blue Top",
+"category": "top",
+"article": "Tops",
+"color": "navy",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p26967.jpg"
+},
+{
+"id": "p27848",
+"name": "Scullers For Her Navy Blue T-shirt",
+"category": "top",
+"article": "Tshirts",
+"color": "navy",
+"style": "casual",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p27848.jpg"
+},
+{
+"id": "p27877",
+"name": "Scullers For Her Women Printed Navy Blue Shirt",
+"category": "top",
+"article": "Shirts",
+"color": "navy",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p27877.jpg"
+},
+{
+"id": "p31785",
+"name": "Lee Women Katie Navy Blue Top",
+"category": "top",
+"article": "Tops",
+"color": "navy",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p31785.jpg"
+},
+{
+"id": "p40669",
+"name": "Lee Women Navy Blue Printed Shirt",
+"category": "top",
+"article": "Shirts",
+"color": "navy",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p40669.jpg"
+},
+{
+"id": "p18750",
+"name": "Arrow Woman Hallie Olive Shirt",
+"category": "top",
+"article": "Shirts",
+"color": "olive",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p18750.jpg"
+},
+{
+"id": "p19577",
+"name": "United Colors of Benetton Women Solid Olive Top",
+"category": "top",
+"article": "Tops",
+"color": "olive",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p19577.jpg"
+},
+{
+"id": "p19639",
+"name": "United Colors of Benetton Women Solid Olive Sweatshirt",
+"category": "top",
+"article": "Sweatshirts",
+"color": "olive",
+"style": "streetwear",
+"warmth": 4,
+"formality": 1,
+"gender": "women",
+"image": "img/p19639.jpg"
+},
+{
+"id": "p27882",
+"name": "Scullers For Her Olive Shirt",
+"category": "top",
+"article": "Shirts",
+"color": "olive",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p27882.jpg"
+},
+{
+"id": "p39729",
+"name": "Arrow Woman Olive Top",
+"category": "top",
+"article": "Tops",
+"color": "olive",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p39729.jpg"
+},
+{
+"id": "p51464",
+"name": "Tonga Women Olive Top",
+"category": "top",
+"article": "Tops",
+"color": "olive",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p51464.jpg"
+},
+{
+"id": "p57107",
+"name": "Elle Women Green Essentials Top",
+"category": "top",
+"article": "Tops",
+"color": "olive",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p57107.jpg"
+},
+{
+"id": "p12531",
+"name": "Puma Women Solid Pink Sweatshirts",
+"category": "top",
+"article": "Sweatshirts",
+"color": "pink",
+"style": "streetwear",
+"warmth": 4,
+"formality": 1,
+"gender": "women",
+"image": "img/p12531.jpg"
+},
+{
+"id": "p13961",
+"name": "Jealous 21 Women Solid Pink Sweaters",
+"category": "top",
+"article": "Sweaters",
+"color": "pink",
+"style": "minimal",
+"warmth": 4,
+"formality": 3,
+"gender": "women",
+"image": "img/p13961.jpg"
+},
+{
+"id": "p15030",
+"name": "ADIDAS Women Stripes Pink Sweaters",
+"category": "top",
+"article": "Sweaters",
+"color": "pink",
+"style": "minimal",
+"warmth": 4,
+"formality": 3,
+"gender": "women",
+"image": "img/p15030.jpg"
+},
+{
+"id": "p15031",
+"name": "ADIDAS Women Stripes Pink Sweaters",
+"category": "top",
+"article": "Sweaters",
+"color": "pink",
+"style": "minimal",
+"warmth": 4,
+"formality": 3,
+"gender": "women",
+"image": "img/p15031.jpg"
+},
+{
+"id": "p15370",
+"name": "Urban Yoga Women Solid Pink Sweatshirts",
+"category": "top",
+"article": "Sweatshirts",
+"color": "pink",
+"style": "streetwear",
+"warmth": 4,
+"formality": 1,
+"gender": "women",
+"image": "img/p15370.jpg"
+},
+{
+"id": "p1609",
+"name": "Reebok Women Boat-Neck Wildberry Sweatshirt",
+"category": "top",
+"article": "Sweatshirts",
+"color": "pink",
+"style": "streetwear",
+"warmth": 4,
+"formality": 1,
+"gender": "women",
+"image": "img/p1609.jpg"
+},
+{
+"id": "p20346",
+"name": "Scullers For Her Women Solid Pink Sweater",
+"category": "top",
+"article": "Sweaters",
+"color": "pink",
+"style": "minimal",
+"warmth": 4,
+"formality": 3,
+"gender": "women",
+"image": "img/p20346.jpg"
+},
+{
+"id": "p26366",
+"name": "Arrow Woman Pink Shirt",
+"category": "top",
+"article": "Shirts",
+"color": "pink",
+"style": "classic",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p26366.jpg"
+},
+{
+"id": "p26959",
+"name": "Jealous 21 Women Pink Shirt",
+"category": "top",
+"article": "Shirts",
+"color": "pink",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p26959.jpg"
+},
+{
+"id": "p28469",
+"name": "Urban Yoga Women Printed Pink T-shirt",
+"category": "top",
+"article": "Tshirts",
+"color": "pink",
+"style": "casual",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p28469.jpg"
+},
+{
+"id": "p3954",
+"name": "Jealous 21 Women's Pink T-shirt",
+"category": "top",
+"article": "Tshirts",
+"color": "pink",
+"style": "casual",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p3954.jpg"
+},
+{
+"id": "p39728",
+"name": "Arrow Woman Women Pink Shirt",
+"category": "top",
+"article": "Shirts",
+"color": "pink",
+"style": "classic",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p39728.jpg"
+},
+{
+"id": "p41384",
+"name": "Wrangler Women Pink Shirt",
+"category": "top",
+"article": "Shirts",
+"color": "pink",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p41384.jpg"
+},
+{
+"id": "p42248",
+"name": "Sepia Women Pink Top",
+"category": "top",
+"article": "Tops",
+"color": "pink",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p42248.jpg"
+},
+{
+"id": "p42366",
+"name": "Flying Machine Women Multicoloured Printed Shirt",
+"category": "top",
+"article": "Shirts",
+"color": "pink",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p42366.jpg"
+},
+{
+"id": "p43305",
+"name": "United Colors of Benetton Women Pink Shirt",
+"category": "top",
+"article": "Shirts",
+"color": "pink",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p43305.jpg"
+},
+{
+"id": "p57100",
+"name": "Elle Women Dark Pink Top",
+"category": "top",
+"article": "Tops",
+"color": "pink",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p57100.jpg"
+},
+{
+"id": "p7504",
+"name": "Nike Women's Smash Pink T-shirt",
+"category": "top",
+"article": "Tshirts",
+"color": "pink",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p7504.jpg"
+},
+{
+"id": "p11039",
+"name": "Jealous 21 Women Check Red Shirt",
+"category": "top",
+"article": "Shirts",
+"color": "red",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p11039.jpg"
+},
+{
+"id": "p11724",
+"name": "Lee Women Check Red Shirts",
+"category": "top",
+"article": "Shirts",
+"color": "red",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p11724.jpg"
+},
+{
+"id": "p18200",
+"name": "Jealous 21 Women Stripes Red Sweater",
+"category": "top",
+"article": "Sweaters",
+"color": "red",
+"style": "minimal",
+"warmth": 4,
+"formality": 3,
+"gender": "women",
+"image": "img/p18200.jpg"
+},
+{
+"id": "p19003",
+"name": "ADIDAS Originals Women Trefoil Hoodie Red Sweatshirt",
+"category": "top",
+"article": "Sweatshirts",
+"color": "red",
+"style": "streetwear",
+"warmth": 4,
+"formality": 1,
+"gender": "women",
+"image": "img/p19003.jpg"
+},
+{
+"id": "p1988",
+"name": "ADIDAS Womens Red Tank T-shirt",
+"category": "top",
+"article": "Tshirts",
+"color": "red",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p1988.jpg"
+},
+{
+"id": "p20233",
+"name": "Wrangler Women Felt Grey Sweater",
+"category": "top",
+"article": "Sweaters",
+"color": "red",
+"style": "minimal",
+"warmth": 4,
+"formality": 3,
+"gender": "women",
+"image": "img/p20233.jpg"
+},
+{
+"id": "p21129",
+"name": "s.Oliver Women Printed Red Top",
+"category": "top",
+"article": "Tops",
+"color": "red",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p21129.jpg"
+},
+{
+"id": "p21465",
+"name": "Roxy Women Red Sweater",
+"category": "top",
+"article": "Sweaters",
+"color": "red",
+"style": "minimal",
+"warmth": 4,
+"formality": 3,
+"gender": "women",
+"image": "img/p21465.jpg"
+},
+{
+"id": "p26368",
+"name": "Arrow Woman Red Shirt",
+"category": "top",
+"article": "Shirts",
+"color": "red",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p26368.jpg"
+},
+{
+"id": "p32654",
+"name": "Nike Women Sphere Red T-shirt",
+"category": "top",
+"article": "Tshirts",
+"color": "red",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p32654.jpg"
+},
+{
+"id": "p35985",
+"name": "Flying Machine Women Poppy Red T-shirt",
+"category": "top",
+"article": "Tshirts",
+"color": "red",
+"style": "casual",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p35985.jpg"
+},
+{
+"id": "p3953",
+"name": "Jealous 21 Women's Red Peace T-shirt",
+"category": "top",
+"article": "Tshirts",
+"color": "red",
+"style": "casual",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p3953.jpg"
+},
+{
+"id": "p41408",
+"name": "Wrangler Women Red Stay Gold Tee Top",
+"category": "top",
+"article": "Tops",
+"color": "red",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p41408.jpg"
+},
+{
+"id": "p5147",
+"name": "Wrangler Women Ditsy Polka Red Shirt",
+"category": "top",
+"article": "Shirts",
+"color": "red",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p5147.jpg"
+},
+{
+"id": "p10007",
+"name": "Nike Women As Trophy Swo White T-Shirts",
+"category": "top",
+"article": "Tshirts",
+"color": "white",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p10007.jpg"
+},
+{
+"id": "p11447",
+"name": "United Colors of Benetton Women Light Winter White Sweater",
+"category": "top",
+"article": "Sweaters",
+"color": "white",
+"style": "minimal",
+"warmth": 4,
+"formality": 3,
+"gender": "women",
+"image": "img/p11447.jpg"
+},
+{
+"id": "p14323",
+"name": "ADIDAS Women Stripes White Sweaters",
+"category": "top",
+"article": "Sweaters",
+"color": "white",
+"style": "minimal",
+"warmth": 4,
+"formality": 3,
+"gender": "women",
+"image": "img/p14323.jpg"
+},
+{
+"id": "p22392",
+"name": "ADIDAS Women Whalf Striper White Top",
+"category": "top",
+"article": "Tops",
+"color": "white",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p22392.jpg"
+},
+{
+"id": "p2245",
+"name": "ADIDAS Women White Polo T-shirt",
+"category": "top",
+"article": "Tshirts",
+"color": "white",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p2245.jpg"
+},
+{
+"id": "p2484",
+"name": "Puma Women Spagetti White Top",
+"category": "top",
+"article": "Tshirts",
+"color": "white",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p2484.jpg"
+},
+{
+"id": "p27870",
+"name": "Scullers For Her Women White Striped Shirt",
+"category": "top",
+"article": "Shirts",
+"color": "white",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p27870.jpg"
+},
+{
+"id": "p27871",
+"name": "Scullers For Her Striped White Shirt",
+"category": "top",
+"article": "Shirts",
+"color": "white",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p27871.jpg"
+},
+{
+"id": "p27876",
+"name": "Scullers For Her Printed White Shirt",
+"category": "top",
+"article": "Shirts",
+"color": "white",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p27876.jpg"
+},
+{
+"id": "p39726",
+"name": "Arrow Woman White Shirt",
+"category": "top",
+"article": "Shirts",
+"color": "white",
+"style": "classic",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p39726.jpg"
+},
+{
+"id": "p41401",
+"name": "Wrangler Women White Smocked Top",
+"category": "top",
+"article": "Tops",
+"color": "white",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p41401.jpg"
+},
+{
+"id": "p51452",
+"name": "Tonga Women White & Pink Top",
+"category": "top",
+"article": "Tops",
+"color": "white",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p51452.jpg"
+},
+{
+"id": "p54979",
+"name": "Femella Women White Printed Shirt",
+"category": "top",
+"article": "Shirts",
+"color": "white",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p54979.jpg"
+},
+{
+"id": "p7194",
+"name": "Jealous 21 Women's BFF Printed White Top",
+"category": "top",
+"article": "Tops",
+"color": "white",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p7194.jpg"
+},
+{
+"id": "p7482",
+"name": "Nike Women's Miler White Blue T-shirt",
+"category": "top",
+"article": "Tshirts",
+"color": "white",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p7482.jpg"
+},
+{
+"id": "p13444",
+"name": "United Colors of Benetton Women Printed Yellow Tops",
+"category": "top",
+"article": "Tops",
+"color": "yellow",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p13444.jpg"
+},
+{
+"id": "p1994",
+"name": "Puma Women's Powergirls T-shirt",
 "category": "top",
 "article": "Tshirts",
 "color": "yellow",
 "style": "streetwear",
 "warmth": 2,
 "formality": 1,
-"image": "img/p7672.jpg"
+"gender": "women",
+"image": "img/p1994.jpg"
+},
+{
+"id": "p22599",
+"name": "Nike Women Yellow T-shirt",
+"category": "top",
+"article": "Tshirts",
+"color": "yellow",
+"style": "streetwear",
+"warmth": 2,
+"formality": 1,
+"gender": "women",
+"image": "img/p22599.jpg"
+},
+{
+"id": "p25542",
+"name": "Wrangler Women Striper Tank Yellow Top",
+"category": "top",
+"article": "Tops",
+"color": "yellow",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p25542.jpg"
+},
+{
+"id": "p40376",
+"name": "Tokyo Talkies Women Yellow Top",
+"category": "top",
+"article": "Tops",
+"color": "yellow",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p40376.jpg"
+},
+{
+"id": "p40385",
+"name": "Tokyo Talkies Women Yellow Top",
+"category": "top",
+"article": "Tops",
+"color": "yellow",
+"style": "casual",
+"warmth": 2,
+"formality": 2,
+"gender": "women",
+"image": "img/p40385.jpg"
+},
+{
+"id": "p44675",
+"name": "Wills Lifestyle Women Yellow Shirt",
+"category": "top",
+"article": "Shirts",
+"color": "yellow",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p44675.jpg"
+},
+{
+"id": "p5107",
+"name": "Wrangler Women Holly Checks Shirt",
+"category": "top",
+"article": "Shirts",
+"color": "yellow",
+"style": "smart",
+"warmth": 3,
+"formality": 4,
+"gender": "women",
+"image": "img/p5107.jpg"
 }
 ]

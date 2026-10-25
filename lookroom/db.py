@@ -16,14 +16,14 @@ from .models import Context, Item
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_USER = "demo"
-SCHEMA_VERSION = 2
+SCHEMA_VERSION = 3
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS wardrobe_items (
     user_id TEXT NOT NULL,
     id TEXT NOT NULL,
     name TEXT NOT NULL,
-    category TEXT NOT NULL CHECK (category IN ('top','bottom','shoes','outerwear')),
+    category TEXT NOT NULL CHECK (category IN ('top','bottom','dress','shoes','outerwear')),
     color TEXT NOT NULL,
     style TEXT NOT NULL,
     warmth INTEGER NOT NULL CHECK (warmth BETWEEN 1 AND 5),
@@ -46,6 +46,10 @@ CREATE TABLE IF NOT EXISTS outfit_feedback (
     created_at TEXT NOT NULL
 );
 CREATE INDEX IF NOT EXISTS idx_feedback_user ON outfit_feedback(user_id, created_at);
+CREATE TABLE IF NOT EXISTS user_profile (
+    user_id TEXT PRIMARY KEY,
+    preset TEXT NOT NULL DEFAULT 'men'    -- which sample wardrobe the user started from
+);
 CREATE TABLE IF NOT EXISTS llm_usage (
     day TEXT PRIMARY KEY,                -- UTC date, global spend guard
     calls INTEGER NOT NULL DEFAULT 0
@@ -86,7 +90,8 @@ def init_db() -> None:
         conn.execute("PRAGMA journal_mode=WAL")  # concurrent readers while one session writes
         if conn.execute("PRAGMA user_version").fetchone()[0] < SCHEMA_VERSION:
             # Demo database: pre-tenancy layouts are rebuilt (documented in ARCHITECTURE.md).
-            conn.executescript("DROP TABLE IF EXISTS wardrobe_items; DROP TABLE IF EXISTS outfit_feedback;")
+            conn.executescript("DROP TABLE IF EXISTS wardrobe_items; DROP TABLE IF EXISTS outfit_feedback; "
+                               "DROP TABLE IF EXISTS user_profile;")
             conn.execute(f"PRAGMA user_version = {SCHEMA_VERSION}")
         conn.executescript(SCHEMA)
 
@@ -184,6 +189,35 @@ def item_preferences(user_id: str = DEFAULT_USER) -> dict[str, int]:
 def clear_feedback(user_id: str = DEFAULT_USER) -> int:
     with connect() as conn:
         return conn.execute("DELETE FROM outfit_feedback WHERE user_id = ?", (user_id,)).rowcount
+
+
+def disliked_outfits(user_id: str = DEFAULT_USER) -> set[tuple[str, ...]]:
+    """Exact outfit combinations this user rejected (net votes < 0)."""
+    with connect() as conn:
+        rows = conn.execute("SELECT item_ids, SUM(vote) AS net FROM outfit_feedback WHERE user_id = ? "
+                            "GROUP BY item_ids HAVING net < 0", (user_id,)).fetchall()
+    return {tuple(json.loads(r["item_ids"])) for r in rows}
+
+
+def get_preset(user_id: str) -> str | None:
+    with connect() as conn:
+        row = conn.execute("SELECT preset FROM user_profile WHERE user_id = ?", (user_id,)).fetchone()
+    return row["preset"] if row else None
+
+
+def set_preset(user_id: str, preset: str) -> None:
+    with connect() as conn:
+        conn.execute("INSERT INTO user_profile (user_id, preset) VALUES (?, ?) "
+                     "ON CONFLICT(user_id) DO UPDATE SET preset = excluded.preset", (user_id, preset))
+
+
+def delete_all_items(user_id: str) -> list[str]:
+    """Remove every wardrobe item of a user; returns uploaded image paths to clean up."""
+    with connect() as conn:
+        paths = [r[0] for r in conn.execute(
+            "SELECT image_path FROM wardrobe_items WHERE user_id = ? AND is_seed = 0", (user_id,)) if r[0]]
+        conn.execute("DELETE FROM wardrobe_items WHERE user_id = ?", (user_id,))
+    return paths
 
 
 def try_consume_llm_call(daily_cap: int) -> bool:

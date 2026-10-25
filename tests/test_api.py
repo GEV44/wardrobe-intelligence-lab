@@ -2,6 +2,7 @@ import pytest
 from fastapi.testclient import TestClient
 
 from api import app, RecommendationsOut
+from lookroom import seed
 
 
 @pytest.fixture
@@ -12,9 +13,9 @@ def client(isolated_data):
 
 def test_health_and_wardrobe(client):
     h = client.get("/health").json()
-    assert h["status"] == "ok" and h["items"] == 14 and isinstance(h["vision_available"], bool)
+    assert h["status"] == "ok" and h["items"] == len(seed.load_demo_items()) and isinstance(h["vision_available"], bool)
     items = client.get("/wardrobe").json()
-    assert len(items) == 14 and {"id", "category", "warmth"} <= set(items[0])
+    assert len(items) == len(seed.load_demo_items()) and {"id", "category", "warmth"} <= set(items[0])
 
 
 def test_recommendations_schema(client):

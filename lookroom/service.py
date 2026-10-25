@@ -6,7 +6,7 @@ import re
 import uuid
 
 from . import db, images, recommender, seed
-from .models import REQUIRED_CATEGORIES, Context, Item, validate_item
+from .models import DISPLAY_ORDER, Context, Item, is_valid_outfit, validate_item
 
 VOTES = {"like": 1, "dislike": -1}
 _USER_RE = re.compile(r"^[A-Za-z0-9_-]{1,40}$")
@@ -21,14 +21,26 @@ def new_user_id() -> str:
     return uuid.uuid4().hex[:12]
 
 
-def ensure_ready(user_id: str = db.DEFAULT_USER) -> None:
+def ensure_ready(user_id: str = db.DEFAULT_USER, preset: str | None = None) -> None:
     db.init_db()
-    seed.ensure_user(user_id)
+    seed.ensure_user(user_id, preset)
 
 
-def get_recommendations(ctx: Context, user_id: str = db.DEFAULT_USER,
-                        lang: str = "en") -> recommender.RecommendationResult:
-    return recommender.recommend(db.list_items(user_id), ctx, db.item_preferences(user_id), lang=lang)
+def current_preset(user_id: str) -> str:
+    return db.get_preset(user_id) or seed.DEFAULT_PRESET
+
+
+def switch_preset(user_id: str, preset: str) -> dict:
+    """Replace the user's wardrobe with another sample wardrobe (clears feedback and uploads)."""
+    return seed.reset_demo(user_id, preset=preset)
+
+
+def get_recommendations(ctx: Context, user_id: str = db.DEFAULT_USER, lang: str = "en",
+                        skip: set[tuple[str, ...]] | None = None) -> recommender.RecommendationResult:
+    """Rejected outfits (disliked, or skipped with "Show another") never come back as-is."""
+    exclude = db.disliked_outfits(user_id) | (skip or set())
+    return recommender.recommend(db.list_items(user_id), ctx, db.item_preferences(user_id), lang=lang,
+                                 exclude=exclude)
 
 
 def score_items(item_ids: list[str], ctx: Context, user_id: str = db.DEFAULT_USER,
@@ -37,8 +49,7 @@ def score_items(item_ids: list[str], ctx: Context, user_id: str = db.DEFAULT_USE
     found = db.get_items(item_ids, user_id)
     if len(found) != len(set(item_ids)):
         return None
-    order = {c: i for i, c in enumerate((*REQUIRED_CATEGORIES, "outerwear"))}
-    items = tuple(sorted(found.values(), key=lambda it: order[it.category]))
+    items = tuple(sorted(found.values(), key=lambda it: DISPLAY_ORDER[it.category]))
     return recommender.score_outfit(items, ctx, db.item_preferences(user_id), lang)
 
 
@@ -52,9 +63,8 @@ def record_feedback(item_ids: list[str], vote: str, ctx: Context, user_id: str =
     missing = [i for i in ids if i not in found]
     if missing:
         raise LookupError(f"Unknown item ids: {', '.join(missing)}")
-    cats = [found[i].category for i in ids]
-    if sorted(set(cats)) != sorted(cats) or not set(REQUIRED_CATEGORIES) <= set(cats):
-        raise ValueError("An outfit needs exactly one top, bottom and shoes (outerwear optional)")
+    if not is_valid_outfit([found[i].category for i in ids]):
+        raise ValueError("An outfit needs one top, bottom and shoes, or one dress and shoes (outerwear optional)")
     before = score_items(ids, ctx, user_id)
     fid = db.add_feedback(ids, VOTES[vote], ctx, before.score if before else None, user_id)
     after = score_items(ids, ctx, user_id)
@@ -122,7 +132,7 @@ def taste_vector(user_id: str = db.DEFAULT_USER):
 def shop_suggestions(ctx: Context, user_id: str = db.DEFAULT_USER, n: int = 6) -> list[dict]:
     from . import shop
     return shop.suggestions(db.list_items(user_id), ctx, db.item_preferences(user_id), n=n,
-                            taste=taste_vector(user_id))
+                            taste=taste_vector(user_id), gender=seed.PRESET_GENDER.get(current_preset(user_id)))
 
 
 def similar_in_shop(item_id: str, user_id: str = db.DEFAULT_USER, k: int = 4) -> list[dict]:

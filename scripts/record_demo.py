@@ -59,7 +59,7 @@ def smooth_scroll(page: Page, dy: int, steps: int = 12) -> None:
 
 
 def tab(page: Page, name: str) -> None:
-    loc = page.locator('[data-testid="stTab"]').filter(has_text=name).first
+    loc = page.locator('.st-key-mainnav button').filter(has_text=name).first
     loc.scroll_into_view_if_needed()
     loc.click(force=True)  # Streamlit's sticky header can overlap after scrolling
     page.wait_for_timeout(900)
@@ -89,7 +89,7 @@ def walkthrough(page: Page) -> None:
     caption(page, "Feedback loop: Dislike today's look ...", 1.5)
     page.locator('button:has-text("Dislike")').first.click(force=True)
     page.wait_for_timeout(2500)
-    caption(page, "... the score drops and the ranking re-orders (bounded adaptation, max ±7.5 pts)", 4.5)
+    caption(page, "... a different look from the same wardrobe replaces it; the signal is bounded (max ±7.5 pts)", 4.5)
 
     tab(page, "How it learns")
     caption(page, "How it learns: before/after ranking, learned item signals, the exact formula", 3.5)
@@ -104,9 +104,9 @@ def walkthrough(page: Page) -> None:
     smooth_scroll(page, -450)
 
     tab(page, "Shop the gap")
-    caption(page, "Shop the gap: 576 real catalog products tested against the wardrobe by the same engine", 4.5)
+    caption(page, "Shop the gap: 984 real products tested against the wardrobe across 6 situations", 4.5)
     smooth_scroll(page, 500)
-    caption(page, "Each suggestion shows its score gain, versatility and what it pairs with", 3.5)
+    caption(page, "Biggest gap first: its best look, the score gain and how many strong looks it unlocks", 3.5)
     smooth_scroll(page, -500)
 
     tab(page, "AI Stylist")
@@ -132,6 +132,15 @@ def walkthrough(page: Page) -> None:
     page.wait_for_timeout(3000)
     caption(page, "Validated, re-encoded, stored under a UUID name in the user's private workspace", 3.5)
     smooth_scroll(page, -3000, 12)
+
+    caption(page, "Switch to the women's wardrobe: dresses become a full outfit shape", 1.5)
+    page.locator('.st-key-preset_sel button').filter(has_text="Women").first.click(force=True)
+    page.wait_for_timeout(6000)
+    tab(page, "Today")
+    page.wait_for_timeout(3500)
+    smooth_scroll(page, 400)
+    page.wait_for_timeout(1500)
+    smooth_scroll(page, -400)
 
     caption(page, "Fully localized: English · Armenian · Russian", 1.5)
     for lang, today in (("hy", "Այսօրվա կերպարը"), ("ru", "Образ дня")):
