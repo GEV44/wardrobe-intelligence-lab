@@ -129,3 +129,12 @@ def test_live_claude(seeded, monkeypatch):
     monkeypatch.setenv("LOOKROOM_DISABLE_LLM", "0")
     r = stylist.chat("Dinner date tonight, about 8 degrees, something classic", [], DEFAULT)
     assert r.source == "claude", r.note
+
+
+def test_chat_never_repeats_a_disliked_look(seeded):
+    from lookroom import service
+    msg = "Client meeting tomorrow, about 10 degrees, smart"
+    first = stylist.chat(msg)
+    service.record_feedback(list(first.outfit.key), "dislike", first.context)
+    again = stylist.chat(msg)
+    assert again.outfit is not None and again.outfit.key != first.outfit.key

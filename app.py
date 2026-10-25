@@ -310,7 +310,6 @@ def _auth_form() -> tuple[str, str] | None:
         if st.button(T("auth_guest"), width="stretch", icon=":material/visibility:", key="guest"):
             st.query_params["u"] = guest_id = service.new_user_id()
             return guest_id, ""
-    st.markdown(f'<div class="wil-footer">{html.escape(T("footer"))}</div>', unsafe_allow_html=True)
     return None
 
 
@@ -457,6 +456,20 @@ def on_delete(item_id: str) -> None:
     ss["flash"] = T("removed")
 
 
+def on_chat_dislike(item_ids: list[str], ctx_tuple: tuple, snapshot: list[tuple]) -> None:
+    """Dislike in the chat: record it, then answer straight away with a clearly different look."""
+    on_feedback(item_ids, "dislike", ctx_tuple, snapshot)
+    ctx_ = validate_context(*ctx_tuple)
+    res = service.get_recommendations(ctx_, UID, LANG, skip=ss.get("skip"), avoid=ss.get("rejected", [])[-6:])
+    if not res.outfits:
+        return
+    o = res.outfits[0]
+    ss.setdefault("chat", []).append({
+        "role": "assistant", "source": "rules", "latency_ms": 0, "note": "", "item_ids": list(o.key),
+        "score": o.score, "ctx": ctx_tuple,
+        "content": T("chat_another", names=", ".join(name_of(i) for i in o.items), why=o.explanation)})
+
+
 def queue_prompt(text: str) -> None:
     ss["pending_prompt"] = text
 
@@ -538,7 +551,7 @@ with st.container(border=True, key="ctxbar"):
             city = st.selectbox(T("city"), list(weather.CITIES), index=0, label_visibility="collapsed")
             live = live_weather(city)
             st.caption(T("weather_now", city=city, temp=f"{live['temperature']:g}", cond=live["condition"])
-                       if live else T("weather_off"))
+                       + " · MET Norway" if live else T("weather_off"))  # CC BY 4.0 attribution
     default_temp = int(round(live["temperature"])) if live else 16
     temperature = c3.slider(T("temperature"), -10, 35, max(-10, min(35, default_temp)))
 
@@ -801,7 +814,7 @@ if PAGE == "stylist":
                               icon=":material/thumb_up:", on_click=on_feedback,
                               args=(msg["item_ids"], "like", msg["ctx"], snap))
                     f2.button(T("dislike"), key=f"chat-dislike-{idx}", width="stretch", icon=":material/thumb_down:",
-                              on_click=on_feedback, args=(msg["item_ids"], "dislike", msg["ctx"], snap))
+                              on_click=on_chat_dislike, args=(msg["item_ids"], msg["ctx"], snap))
         prompt = st.chat_input(T("chat_placeholder"))
         prompt = prompt or ss.pop("pending_prompt", None)
         if prompt:
@@ -1045,5 +1058,5 @@ if PAGE == "learn":
                     f'{html.escape(L("style", f["style"]))} · {f["score_at_feedback"] or 0:.1f}/100</div></div></div>'
                     for f in summary["recent"][:8]) + "</div>", unsafe_allow_html=True)
 
-st.markdown(f'<div class="wil-footer">{html.escape(T("footer"))}'
-            + (f'<br>{html.escape(T("footer_tech"))}' if TECH else "") + '</div>', unsafe_allow_html=True)
+if TECH:
+    st.markdown(f'<div class="wil-footer">{html.escape(T("footer_tech"))}</div>', unsafe_allow_html=True)

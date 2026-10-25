@@ -97,18 +97,18 @@ def extract_context(message: str) -> dict | None:
 
 
 def stylist_reply(lang: str, occasion: str, temperature: float, style: str, pieces: list[str], why: str) -> str | None:
-    """2-3 sentence stylist note in English or Russian; None (-> deterministic template) otherwise."""
+    """2-sentence stylist note in English or Russian; None (-> deterministic template) otherwise."""
     if not enabled() or lang not in LANG_NAMES:
         return None
     t0 = time.perf_counter()
     try:
         text = _chat([
-            {"role": "system", "content": f"You are a warm, concise fashion stylist. Write 2-3 sentences in "
+            {"role": "system", "content": f"You are a warm, concise fashion stylist. Write exactly 2 short sentences in "
                                           f"{LANG_NAMES[lang]}. Mention only the given pieces, by their given names. "
                                           "No lists, no markdown, no emojis."},
             {"role": "user", "content": f"Occasion: {occasion}, {temperature:.0f}°C, style {style}. "
                                         f"Outfit: {', '.join(pieces)}. Why it works: {why} /no_think"}],
-            temperature=0.5, max_tokens=150)
+            temperature=0.5, max_tokens=96)  # 2 sentences; every token costs ~0.1 s on a 2-vCPU host
     except Exception:
         return None
     if not text or len(text) < 20 or time.perf_counter() - t0 > 60:

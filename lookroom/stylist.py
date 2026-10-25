@@ -132,7 +132,8 @@ LANGUAGE_NAMES = {"en": "English", "hy": "Armenian (Հայերեն)", "ru": "Rus
 
 
 def _rules_reply(message: str, default: Context, items: list[Item], prefs: dict, note: str | None,
-                 lang: str = "en", use_local_llm: bool = False) -> StylistReply:
+                 lang: str = "en", use_local_llm: bool = False,
+                 exclude: set[tuple[str, ...]] | None = None) -> StylistReply:
     """Engine-chosen outfit. With use_local_llm, a free local model (Qwen3) fills unknown context fields and
     phrases the reply; every LLM step falls back to the deterministic rule/template path."""
     from . import llm
@@ -145,7 +146,7 @@ def _rules_reply(message: str, default: Context, items: list[Item], prefs: dict,
         if len(found) < 3:  # only ask the model for what the keyword rules could not see
             extra = llm.extract_context(message)
     ctx = parse_context(message, default, extra)
-    res = recommender.recommend(items, ctx, prefs, n=1, lang=lang)
+    res = recommender.recommend(items, ctx, prefs, n=1, lang=lang, exclude=exclude)  # never a disliked look
     if not res.outfits:
         return StylistReply(res.message or "", ctx, None, "rules", note=note)
     o = res.outfits[0]
@@ -227,9 +228,10 @@ def chat(message: str, history: list[dict] | None = None, default: Context | Non
     default = default or validate_context("casual", 18, "casual")
     items = db.list_items(user_id)
     prefs = db.item_preferences(user_id)
+    disliked = db.disliked_outfits(user_id)
 
     def rules(note: str | None, local: bool = True) -> StylistReply:
-        return _rules_reply(message, default, items, prefs, note, lang, use_local_llm=local)
+        return _rules_reply(message, default, items, prefs, note, lang, use_local_llm=local, exclude=disliked)
 
     if not message or recommender.missing_categories(items):
         return rules(None, local=False)

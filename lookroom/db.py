@@ -116,6 +116,8 @@ def _cached(fn):
 
 
 def database_url() -> str:
+    if os.environ.get("LOOKROOM_NO_SECRETS") == "1":  # tests / recordings: Streamlit may have exported secrets
+        return ""
     return os.environ.get("DATABASE_URL", "").strip()
 
 

@@ -357,6 +357,8 @@ S: dict[str, dict[str, str]] = {
                "ru": "или"},
     "account": {"en": "Account", "hy": "Հաշիվ",
                "ru": "Аккаунт"},
+    "chat_another": {"en": "No problem, here's something different: {names}. {why}", "hy": "Ոչ մի խնդիր, ահա այլ տարբերակ՝ {names}։ {why}",
+                    "ru": "Без проблем, вот другой вариант: {names}. {why}"},
 }
 
 EXPLAIN: dict[str, dict[str, str]] = {

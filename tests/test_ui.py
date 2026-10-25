@@ -139,3 +139,16 @@ def test_app_recovers_from_stale_modules_after_git_pull(isolated_data, monkeypat
         assert sys.modules["lookroom.models"] is not old and hasattr(sys.modules["lookroom.models"], "DISPLAY_ORDER")
     finally:
         sys.modules.update(saved)
+
+
+def test_chat_dislike_answers_with_a_different_look(isolated_data):
+    at = _guest("tstguest03")
+    at.segmented_control(key="nav").set_value("stylist").run()
+    at.button[[b.label for b in at.button].index("Dinner date, 8°C, classic")].click().run()
+    assert not at.exception
+    first = at.session_state["chat"][-1]["item_ids"]
+    at.button(key="chat-dislike-1").click().run()
+    assert not at.exception
+    reply = at.session_state["chat"][-1]
+    assert reply["role"] == "assistant" and reply["item_ids"] and reply["item_ids"] != first
+    assert len(set(reply["item_ids"]) & set(first)) <= max(len(first), len(reply["item_ids"])) - 2

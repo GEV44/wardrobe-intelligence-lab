@@ -13,6 +13,7 @@ pytestmark = pytest.mark.skipif(not PG, reason="set TEST_DATABASE_URL to run aga
 @pytest.fixture
 def pg(monkeypatch, isolated_data):
     monkeypatch.setenv("DATABASE_URL", PG)
+    monkeypatch.delenv("LOOKROOM_NO_SECRETS", raising=False)
     users: list[str] = []
     yield users
     with db.connect() as conn:  # clean up only what this test created
