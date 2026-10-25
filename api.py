@@ -228,7 +228,7 @@ def plan_week(body: WeekIn, user: str = Depends(current_user)):
 
 
 class TagOut(BaseModel):
-    source: Literal["fashionclip", "heuristic"]
+    source: Literal["probe", "fashionclip", "heuristic"]
     model: str
     background_removed: bool
     category: str | None

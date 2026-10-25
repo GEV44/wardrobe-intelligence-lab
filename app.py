@@ -689,7 +689,7 @@ if PAGE == "wardrobe":
                 pc0, pc1, pc2 = st.columns([1, 1, 3])
                 pc0.image(raw, width=140, caption=T("original"))
                 pc1.image(data, width=140, caption=T("cutout") if removed else T("as_is"))
-                if tags.get("source") == "fashionclip":
+                if tags.get("source") in ("probe", "fashionclip"):
                     conf = tags["confidence"]
                     pc2.markdown(f"**{T('ai_suggests')}:** {html.escape(tags['suggested_name'] or '')}")
                     pc2.markdown(chips([L("category", tags["category"]), L("color", tags["color"]),

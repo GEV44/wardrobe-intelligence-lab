@@ -169,15 +169,29 @@ def remove_item(item_id: str, user_id: str = db.DEFAULT_USER) -> bool:
 
 
 def tag_image(data: bytes) -> dict:
-    """Suggest item attributes for an upload. Route: zero-shot vision model (if installed) -> color heuristic.
+    """Suggest item attributes for an upload. Route: FashionSigLIP embedding + fine-tuned linear-probe heads
+    -> zero-shot vision model -> color heuristic.
 
     Suggestions only: the user confirms them in the form, so a model mistake never silently enters the wardrobe.
     """
-    from . import vision
+    import time
+
+    from . import probe, vision
 
     if len(data) > images.MAX_UPLOAD_BYTES:
         raise images.ImageValidationError("Image is larger than 5 MB.")
     tagger = vision.get_tagger()
+    if tagger is not None and hasattr(tagger, "embed") and probe.available():
+        try:
+            t0 = time.perf_counter()
+            r = probe.predict(tagger.embed(data))
+            warmth, formality = probe.GARMENT_ATTRS.get(r["garment"], (3, 3))
+            return {"source": "probe", "model": r["model"], "category": r["category"], "garment": r["garment"],
+                    "color": r["color"], "style": r["style"], "warmth": warmth, "formality": formality,
+                    "suggested_name": f"{r['color'].title()} {r['garment'].title()}",
+                    "confidence": r["confidence"], "latency_ms": int((time.perf_counter() - t0) * 1000)}
+        except Exception:
+            pass  # fall through to zero-shot
     if tagger is not None:
         try:
             r = tagger.tag(data)

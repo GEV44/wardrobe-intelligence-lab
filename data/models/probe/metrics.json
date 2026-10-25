@@ -1,0 +1,160 @@
+{
+  "date": "2026-10-25",
+  "embedding_model": "Marqo/marqo-fashionSigLIP (int8 ONNX vision tower)",
+  "seed": 7,
+  "cap_per_garment": 250,
+  "n_total": 3249,
+  "n_train": 2600,
+  "n_test": 649,
+  "n_test_color_labeled": 603,
+  "n_test_style_labeled": 644,
+  "train_per_garment": {
+    "casual shoes": 200,
+    "dress": 104,
+    "flats": 134,
+    "formal shoes": 187,
+    "heels": 200,
+    "jacket": 77,
+    "jeans": 152,
+    "sandals": 200,
+    "shirt": 200,
+    "shorts": 126,
+    "skirt": 22,
+    "sports shoes": 200,
+    "sweater": 66,
+    "sweatshirt": 86,
+    "t-shirt": 200,
+    "top": 200,
+    "track pants": 87,
+    "trousers": 159
+  },
+  "test_per_garment": {
+    "casual shoes": 50,
+    "dress": 26,
+    "flats": 34,
+    "formal shoes": 47,
+    "heels": 50,
+    "jacket": 19,
+    "jeans": 38,
+    "sandals": 50,
+    "shirt": 50,
+    "shorts": 31,
+    "skirt": 5,
+    "sports shoes": 50,
+    "sweater": 16,
+    "sweatshirt": 21,
+    "t-shirt": 50,
+    "top": 50,
+    "track pants": 22,
+    "trousers": 40
+  },
+  "test_per_category": {
+    "shoes": 281,
+    "dress": 26,
+    "outerwear": 19,
+    "bottom": 136,
+    "top": 187
+  },
+  "style_classes_trained": [
+    "casual",
+    "classic",
+    "smart",
+    "streetwear"
+  ],
+  "style_note": "'minimal' has no dataset label; style head trained on 4 labeled classes only",
+  "dropped_garment_classes": [
+    "blazer"
+  ],
+  "available_per_garment_in_shards": {
+    "shirt": 1103,
+    "jeans": 190,
+    "track pants": 109,
+    "t-shirt": 2232,
+    "casual shoes": 993,
+    "sandals": 538,
+    "sweatshirt": 107,
+    "formal shoes": 234,
+    "flats": 168,
+    "sports shoes": 688,
+    "shorts": 157,
+    "heels": 444,
+    "top": 535,
+    "dress": 130,
+    "skirt": 27,
+    "blazer": 1,
+    "trousers": 199,
+    "jacket": 96,
+    "sweater": 82
+  },
+  "hyperparameters": {
+    "garment": {
+      "C": 10,
+      "class_weight": null,
+      "val_acc": 0.925
+    },
+    "color": {
+      "C": 10,
+      "class_weight": null,
+      "val_acc": 0.7967,
+      "n_train_labeled": 2408
+    },
+    "style": {
+      "C": 10,
+      "class_weight": "balanced",
+      "val_macro_f1": 0.6632,
+      "n_train_labeled": 2578
+    }
+  },
+  "probe_test": {
+    "category": 0.9953775038520801,
+    "garment": 0.9044684129429892,
+    "garment_macro_f1": 0.9013662148727685,
+    "color": 0.814262023217247,
+    "style": 0.8959627329192547,
+    "style_macro_f1": 0.6497000061497777,
+    "category_excluding_dress": 0.9967897271268058,
+    "category_per_class": {
+      "bottom": 0.9926470588235294,
+      "dress": 0.9615384615384616,
+      "outerwear": 0.9473684210526315,
+      "shoes": 1.0,
+      "top": 1.0
+    }
+  },
+  "zeroshot_test": {
+    "category": 0.9491525423728814,
+    "category_excluding_dress": 0.9887640449438202,
+    "garment_lenient": 0.7395993836671803,
+    "color": 0.7280265339966833,
+    "style": 0.45652173913043476,
+    "category_per_class": {
+      "bottom": 0.9926470588235294,
+      "dress": 0.0,
+      "outerwear": 0.7894736842105263,
+      "shoes": 1.0,
+      "top": 0.9893048128342246
+    }
+  },
+  "probe_garment_per_class_acc": {
+    "casual shoes": 0.82,
+    "dress": 0.9615384615384616,
+    "flats": 0.5882352941176471,
+    "formal shoes": 0.9787234042553191,
+    "heels": 0.72,
+    "jacket": 0.9473684210526315,
+    "jeans": 1.0,
+    "sandals": 0.94,
+    "shirt": 0.98,
+    "shorts": 0.967741935483871,
+    "skirt": 0.6,
+    "sports shoes": 0.88,
+    "sweater": 0.9375,
+    "sweatshirt": 0.9523809523809523,
+    "t-shirt": 0.96,
+    "top": 0.98,
+    "track pants": 0.9090909090909091,
+    "trousers": 0.95
+  },
+  "zeroshot_garment_rule": "lenient: zero-shot label counted correct if it maps into acceptable probe-space garments (ZS_GARMENT_OK); zero-shot vocabulary has no dress class and no formal/casual shoe split",
+  "probe_npz_bytes": 108570
+}

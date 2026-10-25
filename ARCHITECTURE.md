@@ -13,7 +13,7 @@ Both front doors call the same `service` functions, so no recommendation logic i
 ## AI layer: model routing and fallback (implemented)
 | Capability | Primary | Fallback | Guardrail |
 |---|---|---|---|
-| Upload tagging | Marqo FashionSigLIP int8 ONNX (precomputed text embeddings), then FashionCLIP int8 ONNX | Pillow dominant-color heuristic | Results are suggestions pre-filled into a form. The user confirms them, so a model error never writes silently. |
+| Upload tagging | Marqo FashionSigLIP int8 ONNX embedding + fine-tuned linear-probe heads (`lookroom/probe.py`), then SigLIP zero-shot (precomputed text embeddings), then FashionCLIP int8 ONNX | Pillow dominant-color heuristic | Results are suggestions pre-filled into a form. The user confirms them, so a model error never writes silently. |
 | Product cut-out | Classical border flood-fill (~50 ms) on plain backdrops | Original photo; BiRefNet-lite only if `LOOKROOM_BGREMOVE_ONLINE=1` | Routed by **latency budget**: BiRefNet measured ~45 s and ~4 GB per image on 2 threads, so it runs offline (catalog curation) |
 | Live context | MET Norway weather, cached until `Expires` | Manual temperature slider | 4 s timeout, identifying User-Agent, ≤4-decimal coordinates per their terms |
 | Catalog curation (offline) | Openverse CC0/PD/CC BY → FashionCLIP ranking → cut-out | Generated illustration if no confident photo | Any photo likely showing a person is rejected; credits are recorded |
