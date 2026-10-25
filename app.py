@@ -2,15 +2,43 @@
 from __future__ import annotations
 
 import html
+import importlib.util
 import logging
 import os
+import sys
 from contextlib import contextmanager
 
 import streamlit as st
 
-from lookroom import db, i18n, images, seed, service, stylist, weather
-from lookroom.models import CATEGORIES, COLORS, DISPLAY_ORDER, OCCASIONS, STYLES, validate_context
-from lookroom.recommender import PREFERENCE_SCALE, WEIGHTS
+
+def _own_modules() -> list[tuple[str, str]]:
+    return [(n, str(m.__file__)) for n, m in list(sys.modules.items())
+            if (n == "lookroom" or n.startswith("lookroom.")) and getattr(m, "__file__", None)]
+
+
+def _drop_stale_modules() -> None:
+    """Streamlit Cloud keeps imported modules across a `git pull`; re-import lookroom if its source changed."""
+    for name, src in _own_modules():
+        if not os.path.exists(src):
+            continue
+        seen = getattr(sys.modules[name], "_wil_mtime", None)
+        if seen is None:  # imported before this guard existed: compare with its compiled .pyc
+            pyc = importlib.util.cache_from_source(src)
+            seen = os.path.getmtime(pyc) if os.path.exists(pyc) else os.path.getmtime(src)
+        if os.path.getmtime(src) > seen:
+            for n, _ in _own_modules():
+                sys.modules.pop(n, None)
+            return
+
+
+_drop_stale_modules()
+from lookroom import db, i18n, images, seed, service, stylist, weather  # noqa: E402
+from lookroom.models import CATEGORIES, COLORS, DISPLAY_ORDER, OCCASIONS, STYLES, validate_context  # noqa: E402
+from lookroom.recommender import PREFERENCE_SCALE, WEIGHTS  # noqa: E402
+
+for _n, _src in _own_modules():
+    if os.path.exists(_src) and not hasattr(sys.modules[_n], "_wil_mtime"):
+        setattr(sys.modules[_n], "_wil_mtime", os.path.getmtime(_src))
 
 st.set_page_config(page_title="Wardrobe Intelligence Lab", page_icon=":material/checkroom:", layout="wide",
                    initial_sidebar_state="expanded")

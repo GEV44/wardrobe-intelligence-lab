@@ -33,3 +33,21 @@ def test_app_languages(isolated_data, lang, headline):
     at.run()
     assert not at.exception
     assert headline in _md(at)
+
+
+def test_app_recovers_from_stale_modules_after_git_pull(isolated_data, monkeypatch):
+    """Streamlit Cloud keeps old modules in memory after a push; the app must re-import them, not crash."""
+    import sys
+    import types
+
+    import lookroom.models as real
+    old = types.ModuleType("lookroom.models")  # the pre-pull models.py: no DISPLAY_ORDER yet
+    old.__file__, old._wil_mtime = real.__file__, 0.0
+    saved = {n: m for n, m in sys.modules.items() if n == "lookroom" or n.startswith("lookroom.")}
+    monkeypatch.setitem(sys.modules, "lookroom.models", old)
+    try:
+        at = AppTest.from_file(APP, default_timeout=90).run()
+        assert not at.exception
+        assert sys.modules["lookroom.models"] is not old and hasattr(sys.modules["lookroom.models"], "DISPLAY_ORDER")
+    finally:
+        sys.modules.update(saved)
