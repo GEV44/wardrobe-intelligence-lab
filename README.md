@@ -1,6 +1,8 @@
 # Wardrobe Intelligence Lab
 *A LookRoom-inspired AI stylist MVP. Independent concept demo, not affiliated with LookRoom.ai.*
 
+**Live demo:** https://wardrobe-intelligence-lab.streamlit.app (free hosting; it wakes up in about 1 minute if it has been idle).
+
 It implements the full loop: **context → wardrobe → AI decision → action → feedback → deeper personalization**, with real garment photos, pretrained models and three languages (English · Հայերեն · Русский).
 
 ## What it does
