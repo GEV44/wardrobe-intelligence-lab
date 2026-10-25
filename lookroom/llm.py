@@ -10,16 +10,19 @@ from __future__ import annotations
 
 import json
 import os
+import sys
 import threading
 import time
+import types
 
 REPO = os.environ.get("LOOKROOM_LLM_REPO", "unsloth/Qwen3-1.7B-GGUF")
 FILE = os.environ.get("LOOKROOM_LLM_FILE", "Qwen3-1.7B-Q4_K_M.gguf")
 LABEL = "Qwen3-1.7B (local, Apache-2.0)"
 
-_lock = threading.Lock()        # llama.cpp contexts are not thread-safe: one generation at a time
-_llm = None
-_error: str | None = None
+# Process-wide (outlives app.py re-importing lookroom after a deploy), so the 1.3 GB model is loaded once.
+_S = sys.modules.setdefault("_wil_shared_state", types.ModuleType("_wil_shared_state")).__dict__.setdefault(
+    "llm", {"lock": threading.Lock(), "model": None, "error": None})
+_lock = _S["lock"]  # llama.cpp contexts are not thread-safe: one generation at a time
 
 EXTRACT_SCHEMA = {
     "type": "object",
@@ -45,18 +48,17 @@ def enabled() -> bool:
 
 
 def _load():
-    global _llm, _error
-    if _llm is not None or _error is not None:
-        return _llm
+    if _S["model"] is not None or _S["error"] is not None:
+        return _S["model"]
     try:
         from huggingface_hub import hf_hub_download
         from llama_cpp import Llama
 
         path = hf_hub_download(REPO, FILE)
-        _llm = Llama(model_path=path, n_ctx=2048, n_threads=max(1, min(4, os.cpu_count() or 2)), verbose=False)
+        _S["model"] = Llama(model_path=path, n_ctx=2048, n_threads=max(1, min(4, os.cpu_count() or 2)), verbose=False)
     except Exception as exc:  # no wheel, no network for the first download, low memory...
-        _error = f"{type(exc).__name__}: {exc}"
-    return _llm
+        _S["error"] = f"{type(exc).__name__}: {exc}"
+    return _S["model"]
 
 
 def warmup() -> bool:
@@ -70,7 +72,7 @@ def warmup() -> bool:
 def status() -> dict:
     if not enabled():
         return {"available": False, "loaded": False, "detail": "disabled or llama-cpp-python not installed"}
-    return {"available": _error is None, "loaded": _llm is not None, "detail": _error or LABEL}
+    return {"available": _S["error"] is None, "loaded": _S["model"] is not None, "detail": _S["error"] or LABEL}
 
 
 def _chat(messages: list[dict], **kw) -> str | None:

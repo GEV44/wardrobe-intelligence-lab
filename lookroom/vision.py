@@ -12,8 +12,10 @@ from __future__ import annotations
 import io
 import os
 import string
+import sys
 import threading
 import time
+import types
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -193,9 +195,11 @@ class SigLipTagger(_Tagger):
         return SIGLIP_SCALE * (self.text_emb @ self.embed(data))
 
 
-_lock = threading.Lock()
-_taggers: dict[str, _Tagger] = {}
-_errors: dict[str, str] = {}
+# Process-wide (outlives app.py re-importing lookroom after a deploy): ONNX sessions are created once.
+_SHARED = sys.modules.setdefault("_wil_shared_state", types.ModuleType("_wil_shared_state")).__dict__
+_lock: threading.Lock = _SHARED.setdefault("vision_lock", threading.Lock())
+_taggers: dict[str, _Tagger] = _SHARED.setdefault("vision_taggers", {})
+_errors: dict[str, str] = _SHARED.setdefault("vision_errors", {})
 
 
 def _installed(backend: str) -> bool:
