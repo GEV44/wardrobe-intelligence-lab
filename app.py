@@ -41,7 +41,7 @@ for _n, _src in _own_modules():
         setattr(sys.modules[_n], "_wil_mtime", os.path.getmtime(_src))
 
 for _key in ("DATABASE_URL", "LOOKROOM_LIVE_WEATHER_DEFAULT"):
-    if _key not in os.environ:
+    if _key not in os.environ and os.environ.get("LOOKROOM_NO_SECRETS") != "1":  # tests / demo recordings: local only
         try:
             if _key in st.secrets:
                 os.environ[_key] = str(st.secrets[_key])
@@ -238,7 +238,7 @@ def on_lang(key: str = "lang_sel") -> None:
 def _sign_in(user_id: str, name: str) -> str:
     st.query_params["s"] = service.start_session(user_id)
     st.query_params.pop("u", None)
-    for k in ("last_feedback", "chat", "skip", "rejected"):
+    for k in ("last_feedback", "chat", "skip", "rejected", "nav", "tech"):  # a new identity starts on Today
         ss.pop(k, None)
     ss["flash"] = T("welcome", name=name)
     return user_id
@@ -478,7 +478,7 @@ def on_sign_out() -> None:
     service.end_session(st.query_params.get("s"))  # read at click time (callbacks outlive the run)
     for k in ("s", "u"):
         st.query_params.pop(k, None)
-    for k in ("last_feedback", "chat", "skip", "rejected", "pending_prompt"):
+    for k in ("last_feedback", "chat", "skip", "rejected", "pending_prompt", "nav", "tech"):
         ss.pop(k, None)
 
 

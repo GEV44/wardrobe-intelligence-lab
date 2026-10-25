@@ -216,7 +216,9 @@ def record(name: str, fn, url: str) -> Path:
 def main(which: str) -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     data = tempfile.mkdtemp(prefix="wil-demo-")
-    env = {**os.environ, "LOOKROOM_DATA_DIR": data, "LOOKROOM_DISABLE_LLM": "1"}  # show the free, key-less path
+    env = {**os.environ, "LOOKROOM_DATA_DIR": data, "LOOKROOM_DISABLE_LLM": "1",  # show the free, key-less path
+           "LOOKROOM_NO_SECRETS": "1"}  # never record against the live database
+    env.pop("DATABASE_URL", None)
     procs = [
         subprocess.Popen([sys.executable, "-m", "streamlit", "run", "app.py", "--server.headless", "true",
                           "--server.port", str(UI_PORT)], cwd=ROOT, env=env,

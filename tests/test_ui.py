@@ -46,6 +46,8 @@ def test_sign_up_sign_out_sign_in_keeps_wardrobe(isolated_data):
     uid = service.session_user(token)
     assert uid and service.account_name(uid) == "anna.test"
     new = service.add_item("My Red Scarf", "outerwear", "red", "casual", 3, 2, user_id=uid)
+    at.segmented_control(key="nav").set_value("learn").run()
+    at.toggle(key="tech").set_value(True).run()
     at.button(key="signout").click().run()
     assert not _qp(at, "s") and any(b.key == "si_go" for b in at.button)
     assert service.session_user(token) is None  # session revoked server-side
@@ -58,6 +60,8 @@ def test_sign_up_sign_out_sign_in_keeps_wardrobe(isolated_data):
     assert not at.exception
     assert service.session_user(_qp(at, "s")) == uid
     assert new.id in {i.id for i in db.list_items(uid)}  # the account's own item is still there
+    assert at.segmented_control(key="nav").value == "today" and not at.toggle(key="tech").value  # fresh start
+    assert [b for b in at.button if b.key and b.key.startswith("like-hero-")]  # Today's page is what renders
 
 
 def test_duplicate_username_is_rejected(isolated_data):

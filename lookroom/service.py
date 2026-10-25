@@ -97,6 +97,7 @@ def end_session(token: str | None) -> None:
 
 
 def account_name(user_id: str) -> str | None:
+    db.init_db()
     return db.account_name(user_id)
 
 
