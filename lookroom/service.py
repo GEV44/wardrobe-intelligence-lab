@@ -1,0 +1,184 @@
+"""Service layer shared by the Streamlit UI and the FastAPI app. Every call is scoped to a user_id."""
+from __future__ import annotations
+
+import os
+import re
+import uuid
+
+from . import db, images, recommender, seed
+from .models import REQUIRED_CATEGORIES, Context, Item, validate_item
+
+VOTES = {"like": 1, "dislike": -1}
+_USER_RE = re.compile(r"^[A-Za-z0-9_-]{1,40}$")
+
+
+def clean_user_id(user_id: str | None) -> str:
+    """Untrusted id (URL/header) -> safe tenant key; anything malformed falls back to the shared demo user."""
+    return user_id if user_id and _USER_RE.match(user_id) else db.DEFAULT_USER
+
+
+def new_user_id() -> str:
+    return uuid.uuid4().hex[:12]
+
+
+def ensure_ready(user_id: str = db.DEFAULT_USER) -> None:
+    db.init_db()
+    seed.ensure_user(user_id)
+
+
+def get_recommendations(ctx: Context, user_id: str = db.DEFAULT_USER,
+                        lang: str = "en") -> recommender.RecommendationResult:
+    return recommender.recommend(db.list_items(user_id), ctx, db.item_preferences(user_id), lang=lang)
+
+
+def score_items(item_ids: list[str], ctx: Context, user_id: str = db.DEFAULT_USER,
+                lang: str = "en") -> recommender.Outfit | None:
+    """Re-score a specific outfit with current preferences (used for before/after comparisons)."""
+    found = db.get_items(item_ids, user_id)
+    if len(found) != len(set(item_ids)):
+        return None
+    order = {c: i for i, c in enumerate((*REQUIRED_CATEGORIES, "outerwear"))}
+    items = tuple(sorted(found.values(), key=lambda it: order[it.category]))
+    return recommender.score_outfit(items, ctx, db.item_preferences(user_id), lang)
+
+
+def record_feedback(item_ids: list[str], vote: str, ctx: Context, user_id: str = db.DEFAULT_USER) -> dict:
+    if vote not in VOTES:
+        raise ValueError("vote must be 'like' or 'dislike'")
+    ids = sorted(set(item_ids))
+    if len(ids) != len(item_ids):
+        raise ValueError("Duplicate item ids in outfit")
+    found = db.get_items(ids, user_id)
+    missing = [i for i in ids if i not in found]
+    if missing:
+        raise LookupError(f"Unknown item ids: {', '.join(missing)}")
+    cats = [found[i].category for i in ids]
+    if sorted(set(cats)) != sorted(cats) or not set(REQUIRED_CATEGORIES) <= set(cats):
+        raise ValueError("An outfit needs exactly one top, bottom and shoes (outerwear optional)")
+    before = score_items(ids, ctx, user_id)
+    fid = db.add_feedback(ids, VOTES[vote], ctx, before.score if before else None, user_id)
+    after = score_items(ids, ctx, user_id)
+    return {"feedback_id": fid, "score_before": before.score if before else 0.0,
+            "score_after": after.score if after else 0.0}
+
+
+def feedback_summary(user_id: str = db.DEFAULT_USER) -> dict:
+    counts = db.item_vote_counts(user_id)
+    items = {it.id: it for it in db.list_items(user_id)}
+    rows = []
+    for iid, c in counts.items():
+        if iid not in items:
+            continue
+        net = c["likes"] - c["dislikes"]
+        rows.append({"item_id": iid, "name": items[iid].name, "style": items[iid].style,
+                     "likes": c["likes"], "dislikes": c["dislikes"], "net": net,
+                     "signal": round(recommender.preference_signal(net), 3)})
+    rows.sort(key=lambda r: (-r["net"], r["item_id"]))
+    feedback = db.list_feedback(limit=1000, user_id=user_id)
+    style_net: dict[str, int] = {}
+    for r in rows:
+        style_net[r["style"]] = style_net.get(r["style"], 0) + r["net"]
+    return {
+        "likes": sum(1 for f in feedback if f["vote"] > 0),
+        "dislikes": sum(1 for f in feedback if f["vote"] < 0),
+        "items": rows,
+        "style_affinity": dict(sorted(style_net.items(), key=lambda kv: (-kv[1], kv[0]))),
+        "recent": feedback[:10],
+    }
+
+
+def add_item(name: str, category: str, color: str, style: str, warmth: int, formality: int,
+             image_bytes: bytes | None = None, user_id: str = db.DEFAULT_USER) -> Item:
+    """Validate and store a user item. Upload is re-encoded; otherwise an illustration is generated."""
+    item = validate_item({"id": f"user-{uuid.uuid4().hex[:10]}", "name": name, "category": category,
+                          "color": color, "style": style, "warmth": warmth, "formality": formality})
+    rel = images.save_upload(image_bytes) if image_bytes else images.ensure_illustration(item)
+    item = validate_item({**item.__dict__, "image_path": rel})
+    db.upsert_item(item, user_id=user_id)
+    return item
+
+
+def shop_suggestions(ctx: Context, user_id: str = db.DEFAULT_USER, n: int = 6) -> list[dict]:
+    from . import shop
+    return shop.suggestions(db.list_items(user_id), ctx, db.item_preferences(user_id), n=n)
+
+
+def add_product(product_id: str, user_id: str = db.DEFAULT_USER) -> Item:
+    """'Buy' (demo): copy a real catalog product, with its photo, into the user's wardrobe."""
+    from . import shop
+    p = next((x for x in shop.load_products() if x.id == product_id), None)
+    if p is None:
+        raise LookupError(f"Unknown product {product_id}")
+    return add_item(p.name[:60], p.category, p.color, p.style, p.warmth, p.formality,
+                    p.image_path.read_bytes(), user_id=user_id)
+
+
+def plan_week(contexts: list[Context], user_id: str = db.DEFAULT_USER, lang: str = "en"):
+    return recommender.plan_week(db.list_items(user_id), contexts, db.item_preferences(user_id), lang)
+
+
+def remove_item(item_id: str, user_id: str = db.DEFAULT_USER) -> bool:
+    found = db.get_items([item_id], user_id).get(item_id)
+    ok = db.delete_item(item_id, user_id)
+    if ok and found and not found.is_seed and found.image_path:
+        images.delete_uploads([found.image_path])
+    return ok
+
+
+def tag_image(data: bytes) -> dict:
+    """Suggest item attributes for an upload. Route: zero-shot vision model (if installed) -> color heuristic.
+
+    Suggestions only: the user confirms them in the form, so a model mistake never silently enters the wardrobe.
+    """
+    from . import vision
+
+    if len(data) > images.MAX_UPLOAD_BYTES:
+        raise images.ImageValidationError("Image is larger than 5 MB.")
+    tagger = vision.get_tagger()
+    if tagger is not None:
+        try:
+            r = tagger.tag(data)
+            return {"source": "fashionclip", "model": getattr(r, "model", vision.REPO_ID),
+                    "category": r.category, "garment": r.garment, "color": r.color,
+                    "style": r.style, "warmth": r.warmth, "formality": r.formality,
+                    "suggested_name": f"{r.color.title()} {r.garment.title()}",
+                    "confidence": r.confidence, "latency_ms": r.latency_ms}
+        except Exception:
+            pass  # corrupt image or runtime error -> heuristic below
+    color = images.dominant_color(data)
+    if color is None:
+        raise images.ImageValidationError("File is not a valid image.")
+    return {"source": "heuristic", "model": "pillow-color-quantization", "category": None, "garment": None,
+            "color": color, "style": None, "warmth": None, "formality": None, "suggested_name": None,
+            "confidence": {}, "latency_ms": 0}
+
+
+def bgremove_online() -> bool:
+    """BiRefNet costs ~45 s and ~4 GB RAM per image on 2 CPU threads: only on request paths when explicitly enabled."""
+    return os.environ.get("LOOKROOM_BGREMOVE_ONLINE") == "1"
+
+
+def prepare_upload(data: bytes) -> tuple[bytes, bool]:
+    """Cut the garment out onto white. Routed by latency budget:
+    fast classical cut-out (plain backdrops, ~50 ms) -> BiRefNet-lite (only if enabled online) -> original photo.
+    Never raises for model problems."""
+    if len(data) > images.MAX_UPLOAD_BYTES:
+        raise images.ImageValidationError("Image is larger than 5 MB.")
+    cleaned = images.flat_background_cutout(data)
+    if cleaned is None and bgremove_online():
+        try:
+            from . import bgremove
+            cleaned = bgremove.remove_background(data)
+        except Exception:
+            cleaned = None
+    return (cleaned, True) if cleaned else (data, False)
+
+
+def ai_status() -> dict:
+    from . import stylist, vision
+    try:
+        from . import bgremove
+        bg = bgremove.status()
+    except Exception as exc:
+        bg = {"available": False, "loaded": False, "detail": f"not installed ({type(exc).__name__})"}
+    return {"vision": vision.status(), "bgremove": bg, "llm": stylist.llm_available()}

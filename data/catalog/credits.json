@@ -1,0 +1,86 @@
+{
+ "top-white-oxford": {
+  "source_id": "p11119",
+  "title": "Indigo Nation Men Solid White Shirts",
+  "article": "Shirts",
+  "color": "white"
+ },
+ "top-black-tee": {
+  "source_id": "p17285",
+  "title": "U.S. Polo Assn. Men Solid Black  polo Tshirt",
+  "article": "Tshirts",
+  "color": "black"
+ },
+ "top-charcoal-turtleneck": {
+  "source_id": "p21110",
+  "title": "s.Oliver Men Solid Charcoal Sweater",
+  "article": "Sweaters",
+  "color": "grey"
+ },
+ "top-blue-buttondown": {
+  "source_id": "p19717",
+  "title": "United Colors of Benetton Men Check Blue Shirt",
+  "article": "Shirts",
+  "color": "blue"
+ },
+ "top-grey-hoodie": {
+  "source_id": "p13089",
+  "title": "ADIDAS Men Lfc Auth Hood Grey Sweatshirts",
+  "article": "Sweatshirts",
+  "color": "grey"
+ },
+ "bottom-navy-trousers": {
+  "source_id": "p16612",
+  "title": "Genesis Men Stripes Navy Blue Trouser",
+  "article": "Trousers",
+  "color": "navy"
+ },
+ "bottom-black-jeans": {
+  "source_id": "p48386",
+  "title": "French Connection Men Black Jeans",
+  "article": "Jeans",
+  "color": "black"
+ },
+ "bottom-beige-chinos": {
+  "source_id": "p15681",
+  "title": "Highlander Men Classic Chinos Khaki Trousers",
+  "article": "Trousers",
+  "color": "beige"
+ },
+ "bottom-lightblue-jeans": {
+  "source_id": "p11341",
+  "title": "Lee Men Light Blue Chicago Fit Jeans",
+  "article": "Jeans",
+  "color": "blue"
+ },
+ "shoes-white-sneakers": {
+  "source_id": "p13073",
+  "title": "Numero Uno Men White Shoes",
+  "article": "Casual Shoes",
+  "color": "white"
+ },
+ "shoes-black-formal": {
+  "source_id": "p45603",
+  "title": "Arrow Men Black Formal Shoes",
+  "article": "Formal Shoes",
+  "color": "black"
+ },
+ "shoes-brown-boots": {
+  "source_id": "p26562",
+  "title": "Lee Cooper Men Brown Shoes",
+  "article": "Casual Shoes",
+  "color": "brown"
+ },
+ "outer-black-jacket": {
+  "source_id": "p24135",
+  "title": "ADIDAS Men Black Jacket",
+  "article": "Jackets",
+  "color": "black"
+ },
+ "outer-olive-jacket": {
+  "source_id": "p27525",
+  "title": "Scullers Men Olive Jacket",
+  "article": "Jackets",
+  "color": "olive"
+ }
+}

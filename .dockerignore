@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+runtime/
+models/
+docs/videos/
+.env
+tests/
+DEMO_SCRIPT.md
+CLAUDE.md
