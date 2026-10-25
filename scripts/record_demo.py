@@ -6,6 +6,7 @@ Output: docs/videos/*.mp4 (+ a README GIF). Uses a throwaway data dir, so your d
 from __future__ import annotations
 
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -65,93 +66,136 @@ def tab(page: Page, name: str) -> None:
     page.wait_for_timeout(900)
 
 
+def idle(page: Page, ms: int = 900) -> None:
+    """Wait until Streamlit has finished rerunning."""
+    page.wait_for_timeout(400)
+    for _ in range(200):
+        if page.locator('[data-testid="stStatusWidget"]').count() == 0 and page.locator('[data-stale="true"]').count() == 0:
+            break
+        page.wait_for_timeout(250)
+    page.wait_for_timeout(ms)
+
+
+def hero_names(page: Page) -> list[str]:
+    return page.locator('.st-key-card-hero .wil-chip').all_inner_texts()[3:]
+
+
 def walkthrough(page: Page) -> None:
     page.goto(f"http://localhost:{UI_PORT}/?lang=en")
-    page.get_by_text("Today's look").first.wait_for(timeout=90000)
-    page.wait_for_timeout(2500)  # let the outfit boards load
+    page.get_by_text("Create account").first.wait_for(timeout=90000)
+    idle(page, 1500)
     page.mouse.move(900, 450)
-    caption(page, "Wardrobe Intelligence Lab: an independent LookRoom-inspired AI stylist MVP", 3.5)
-    caption(page, "Real wardrobe photos → context-aware 'Today's look' with a transparent 0-100 score", 4)
+    caption(page, "Wardrobe Intelligence Lab: a personal AI stylist (independent LookRoom-inspired concept)", 3.5)
+    caption(page, "Create an account, or look around as a guest", 1.2)
+    page.get_by_role("tab", name="Create account").click()
+    idle(page, 400)
+    page.locator('.st-key-su_user input').press_sequentially("anna.style", delay=70)
+    page.locator('.st-key-su_pw input').press_sequentially("secret123", delay=60)
+    page.wait_for_timeout(500)
+    page.locator('.st-key-su_go button').click()
+    page.get_by_text("Today's look").first.wait_for(timeout=90000)
+    idle(page, 1500)
+    caption(page, "Today's look: picked from YOUR clothes, today's weather and your plans", 4)
     smooth_scroll(page, 380)
-    caption(page, "Every score is explainable: 5 weighted components + a plain-English reason", 4.5)
-    smooth_scroll(page, 520)
-    caption(page, "Two diverse alternatives, never duplicates, always from the user's real items", 3.5)
-    smooth_scroll(page, -900)
+    caption(page, "Every pick is explained: a 0-100 match built from 5 clear factors", 4)
+    smooth_scroll(page, -380)
 
-    caption(page, "Live weather (MET Norway) or manual: it gets cold, 16°C → 2°C ...", 1.5)
+    caption(page, "Colder outside? Drop the temperature ...", 1.2)
     page.get_by_role("slider").first.focus()
-    for _ in range(14):
+    for _ in range(10):
         page.keyboard.press("ArrowLeft")
-        page.wait_for_timeout(110)
-    page.wait_for_timeout(2500)
-    caption(page, "... a coat is layered in automatically and weather-fit scores update", 4.5)
+        page.wait_for_timeout(90)
+    idle(page, 1200)
+    caption(page, "... and a coat is layered in automatically", 3.5)
 
-    caption(page, "Feedback loop: Dislike today's look ...", 1.5)
-    page.locator('button:has-text("Dislike")').first.click(force=True)
-    page.wait_for_timeout(2500)
-    caption(page, "... a different look from the same wardrobe replaces it; the signal is bounded (max ±7.5 pts)", 4.5)
+    for n in range(2):
+        before = hero_names(page)
+        caption(page, "Not your style? Dislike ..." if n == 0 else "Dislike again ...", 1.2)
+        page.locator('button:has-text("Dislike")').first.click(force=True)
+        idle(page, 1000)
+        changed = len(set(hero_names(page)) - set(before))
+        caption(page, f"... a clearly different look ({changed} pieces changed), until you love one", 3)
+    caption(page, "Like it: it's saved to your looks and the stylist learns", 1.5)
+    page.locator('button:has-text("Like")').first.click(force=True)
+    idle(page, 1500)
+    tab(page, "Saved looks")
+    idle(page, 800)
+    caption(page, "Saved looks: everything you liked, kept in your account", 3.5)
 
-    tab(page, "How it learns")
-    caption(page, "How it learns: before/after ranking, learned item signals, the exact formula", 3.5)
-    smooth_scroll(page, 600, 16)
-    page.wait_for_timeout(2500)
-    smooth_scroll(page, -600, 10)
+    tab(page, "Wardrobe")
+    caption(page, "Your wardrobe: real photos, filter by category", 2.5)
+    smooth_scroll(page, 900, 14)
+    caption(page, "The menu and the category filter stay pinned while you scroll", 3)
+    page.locator('.st-key-catbar button').filter(has_text="Shoes").first.click(force=True)
+    idle(page, 1200)
+    smooth_scroll(page, 1600, 16)
+    caption(page, "Add a new piece: just upload a photo", 1.5)
+    page.locator('input[type="file"]').first.set_input_files(str(SNEAKERS))
+    page.get_by_text("Looks like").first.wait_for(timeout=120000)
+    idle(page, 600)
+    smooth_scroll(page, 450, 10)
+    caption(page, "Background cleaned, item recognised, details pre-filled: you just check and save", 4)
+    page.locator('button:has-text("Add to wardrobe")').click(force=True)
+    idle(page, 2000)
+    smooth_scroll(page, -4000, 12)
+
+    tab(page, "AI Stylist")
+    caption(page, "Chat with your stylist in your own words", 1.5)
+    page.get_by_text("Dinner date, 8°C, classic", exact=True).click(force=True)
+    page.locator('[data-testid="stChatMessage"]').nth(1).wait_for(timeout=120000)
+    idle(page, 1200)
+    caption(page, "It only suggests clothes you actually own", 3.5)
+    smooth_scroll(page, 450)
+    page.wait_for_timeout(1500)
+    smooth_scroll(page, -450)
 
     tab(page, "Plan my week")
-    caption(page, "Plan my week: 7 looks from the daily forecast, no piece repeated on consecutive days", 4.5)
+    caption(page, "Plan my week: 7 looks from the forecast, no piece repeated two days in a row", 4)
     smooth_scroll(page, 450)
-    page.wait_for_timeout(2000)
+    page.wait_for_timeout(1500)
     smooth_scroll(page, -450)
 
     tab(page, "Shop the gap")
-    caption(page, "Shop the gap: 984 real products tested against the wardrobe across 6 situations", 4.5)
+    caption(page, "Shop the gap: the one piece that would unlock the most new looks for you", 4)
     smooth_scroll(page, 500)
-    caption(page, "Biggest gap first: its best look, the score gain and how many strong looks it unlocks", 3.5)
+    page.wait_for_timeout(1500)
     smooth_scroll(page, -500)
 
-    tab(page, "AI Stylist")
-    caption(page, "AI Stylist: free local LLM (Qwen3-1.7B, CPU, no API key) + the engine picks real items", 2.5)
-    page.get_by_text("Dinner date, 8°C, classic", exact=True).click(force=True)
-    page.locator('[data-testid="stChatMessage"]').nth(1).wait_for(timeout=120000)
-    page.wait_for_timeout(2500)
-    caption(page, "Context extracted (date · 8°C · classic); the pick is validated and re-scored by the engine", 3.5)
-    smooth_scroll(page, 450)
-    caption(page, "Grounded + fallback: invalid or failed LLM output → deterministic rule engine", 4.5)
-    smooth_scroll(page, -450)
-
-    tab(page, "Wardrobe")
-    caption(page, "The wardrobe: real garment photos, filterable by category", 3.5)
-    smooth_scroll(page, 1300, 20)
-    caption(page, "Upload a photo: cut-out + Marqo FashionSigLIP recognition (ONNX, CPU) pre-fill the form", 2)
-    page.locator('input[type="file"]').first.set_input_files(str(SNEAKERS))
-    page.get_by_text("AI suggests").first.wait_for(timeout=120000)
-    page.wait_for_timeout(800)
-    smooth_scroll(page, 500, 10)
-    caption(page, "Shoes · white · warmth/formality suggested; the user reviews, then saves", 4.5)
-    page.locator('button:has-text("Add to wardrobe")').click(force=True)
-    page.wait_for_timeout(3000)
-    caption(page, "Validated, re-encoded, stored under a UUID name in the user's private workspace", 3.5)
-    smooth_scroll(page, -3000, 12)
-
-    caption(page, "Switch to the women's wardrobe: dresses become a full outfit shape", 1.5)
-    page.locator('.st-key-preset_sel button').filter(has_text="Women").first.click(force=True)
-    page.wait_for_timeout(6000)
-    tab(page, "Today")
-    page.wait_for_timeout(3500)
-    smooth_scroll(page, 400)
+    tab(page, "How it learns")
+    caption(page, "How it learns: your taste profile and how each like changed the ranking", 4)
+    smooth_scroll(page, 650, 16)
     page.wait_for_timeout(1500)
-    smooth_scroll(page, -400)
+    smooth_scroll(page, -650, 10)
 
-    caption(page, "Fully localized: English · Armenian · Russian", 1.5)
-    for lang, today in (("hy", "Այսօրվա կերպարը"), ("ru", "Образ дня")):
-        url = page.url.split("?")[0] + "?" + "&".join(
-            p for p in page.url.split("?")[1].split("&") if not p.startswith("lang=")) + f"&lang={lang}"
+    caption(page, "For engineers: one switch shows what runs under the hood", 1.5)
+    page.locator('[data-testid="stPopover"] button').first.click(force=True)
+    idle(page, 700)
+    page.locator('.st-key-tech label').click()
+    idle(page, 1200)
+    page.locator('[data-testid="stPopover"] button').first.click(force=True)
+    idle(page, 600)
+    caption(page, "Free, no API keys: FashionSigLIP vision, local Qwen3 LLM, PostgreSQL, transparent scoring", 4.5)
+    page.keyboard.press("Escape")
+    idle(page, 400)
+
+    caption(page, "English · Armenian · Russian", 1.2)
+    for lang in ("hy", "ru", "en"):
+        url = re.sub(r"lang=\w+", f"lang={lang}", page.url)
         page.goto(url)
-        page.get_by_text(today).first.wait_for(timeout=90000)
-        page.wait_for_timeout(3500)
-        smooth_scroll(page, 400)
-        page.wait_for_timeout(1500)
-    caption(page, "100% free: FashionSigLIP + FashionCLIP ONNX · Qwen3 GGUF · MET Norway · Streamlit · FastAPI", 4.5)
+        page.locator(".st-key-card-hero").wait_for(timeout=90000)
+        idle(page, 1800 if lang != "en" else 600)
+    caption(page, "Sign out and back in: your wardrobe, uploads and saved looks are still there", 1.5)
+    page.locator('[data-testid="stPopover"] button').first.click(force=True)
+    idle(page, 600)
+    page.locator('.st-key-signout button').click(force=True)
+    idle(page, 1000)
+    page.locator('.st-key-si_user input').press_sequentially("anna.style", delay=60)
+    page.locator('.st-key-si_pw input').press_sequentially("secret123", delay=50)
+    page.locator('.st-key-si_go button').click()
+    page.get_by_text("Today's look").first.wait_for(timeout=90000)
+    idle(page, 800)
+    tab(page, "Saved looks")
+    caption(page, "Wardrobe Intelligence Lab: your wardrobe, fewer decisions", 4)
 
 
 def api_demo(page: Page) -> None:
@@ -217,6 +261,7 @@ def main(which: str) -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     data = tempfile.mkdtemp(prefix="wil-demo-")
     env = {**os.environ, "LOOKROOM_DATA_DIR": data, "LOOKROOM_DISABLE_LLM": "1",  # show the free, key-less path
+           "LOOKROOM_LOCAL_LLM": os.environ.get("LOOKROOM_LOCAL_LLM", "1"),
            "LOOKROOM_NO_SECRETS": "1"}  # never record against the live database
     env.pop("DATABASE_URL", None)
     procs = [
