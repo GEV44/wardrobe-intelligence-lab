@@ -1,9 +1,13 @@
 """Service layer shared by the Streamlit UI and the FastAPI app. Every call is scoped to a user_id."""
 from __future__ import annotations
 
+import hashlib
+import hmac
 import os
 import re
+import secrets
 import uuid
+from datetime import datetime, timedelta, timezone
 
 from . import db, images, recommender, seed
 from .models import DISPLAY_ORDER, Context, Item, is_valid_outfit, validate_item
@@ -21,6 +25,88 @@ def new_user_id() -> str:
     return uuid.uuid4().hex[:12]
 
 
+USERNAME_RE = re.compile(r"^[a-z0-9_.-]{3,30}$")
+MIN_PASSWORD = 6
+SESSION_DAYS = 30
+
+
+class AuthError(ValueError):
+    """Message key (i18n) explaining why sign-up / sign-in failed."""
+
+
+def hash_password(password: str, salt: bytes | None = None) -> str:
+    salt = salt or secrets.token_bytes(16)
+    digest = hashlib.scrypt(password.encode(), salt=salt, n=2 ** 14, r=8, p=1, dklen=32)
+    return f"scrypt$16384$8$1${salt.hex()}${digest.hex()}"
+
+
+def verify_password(password: str, stored: str) -> bool:
+    try:
+        _, n, r, p, salt, digest = stored.split("$")
+        got = hashlib.scrypt(password.encode(), salt=bytes.fromhex(salt), n=int(n), r=int(r), p=int(p),
+                             dklen=len(digest) // 2)
+    except (ValueError, TypeError):
+        return False
+    return hmac.compare_digest(got.hex(), digest)
+
+
+def register(username: str, password: str, preset: str | None = None) -> str:
+    """Create an account with its own sample wardrobe. Returns the new user_id; raises AuthError."""
+    username = (username or "").strip().lower()
+    if not USERNAME_RE.match(username) or len(password or "") < MIN_PASSWORD:
+        raise AuthError("auth_rules")
+    db.init_db()
+    user_id = new_user_id()
+    if not db.create_account(user_id, username, hash_password(password)):
+        raise AuthError("auth_taken")
+    ensure_ready(user_id, preset)
+    return user_id
+
+
+def authenticate(username: str, password: str) -> str:
+    """user_id for valid credentials; raises AuthError (same message for unknown user and wrong password)."""
+    db.init_db()
+    acc = db.get_account((username or "").strip().lower())
+    if not acc or not verify_password(password or "", acc["pw_hash"]):
+        raise AuthError("auth_bad")
+    return acc["user_id"]
+
+
+def _token_hash(token: str) -> str:
+    return hashlib.sha256(token.encode()).hexdigest()
+
+
+def start_session(user_id: str) -> str:
+    """Opaque token for the visitor's URL; only its hash is stored."""
+    token = secrets.token_urlsafe(24)
+    expires = (datetime.now(timezone.utc) + timedelta(days=SESSION_DAYS)).isoformat(timespec="seconds")
+    db.add_session(_token_hash(token), user_id, expires)
+    return token
+
+
+def session_user(token: str | None) -> str | None:
+    if not token or len(token) > 64:
+        return None
+    db.init_db()
+    return db.session_user(_token_hash(token), datetime.now(timezone.utc).isoformat(timespec="seconds"))
+
+
+def end_session(token: str | None) -> None:
+    if token:
+        db.delete_session(_token_hash(token))
+
+
+def account_name(user_id: str) -> str | None:
+    return db.account_name(user_id)
+
+
+def saved_looks(user_id: str) -> list[list[Item]]:
+    """Liked outfits whose pieces still exist, newest first."""
+    owned = {it.id: it for it in db.list_items(user_id)}
+    return [sorted((owned[i] for i in row["item_ids"]), key=lambda it: DISPLAY_ORDER[it.category])
+            for row in db.liked_outfits(user_id) if all(i in owned for i in row["item_ids"])]
+
+
 def ensure_ready(user_id: str = db.DEFAULT_USER, preset: str | None = None) -> None:
     db.init_db()
     seed.ensure_user(user_id, preset)
@@ -36,11 +122,13 @@ def switch_preset(user_id: str, preset: str) -> dict:
 
 
 def get_recommendations(ctx: Context, user_id: str = db.DEFAULT_USER, lang: str = "en",
-                        skip: set[tuple[str, ...]] | None = None) -> recommender.RecommendationResult:
-    """Rejected outfits (disliked, or skipped with "Show another") never come back as-is."""
+                        skip: set[tuple[str, ...]] | None = None,
+                        avoid: list[tuple[str, ...]] | None = None) -> recommender.RecommendationResult:
+    """Rejected outfits (disliked, or skipped with "Show another") never come back as-is; looks close to the
+    recently rejected ones (`avoid`) are shown only after clearly different ones."""
     exclude = db.disliked_outfits(user_id) | (skip or set())
     return recommender.recommend(db.list_items(user_id), ctx, db.item_preferences(user_id), lang=lang,
-                                 exclude=exclude)
+                                 exclude=exclude, avoid=avoid)
 
 
 def score_items(item_ids: list[str], ctx: Context, user_id: str = db.DEFAULT_USER,
@@ -104,6 +192,7 @@ def add_item(name: str, category: str, color: str, style: str, warmth: int, form
                           "color": color, "style": style, "warmth": warmth, "formality": formality})
     rel = images.save_upload(image_bytes) if image_bytes else images.ensure_illustration(item)
     item = validate_item({**item.__dict__, "image_path": rel})
+    images.persist(rel, user_id)
     db.upsert_item(item, user_id=user_id)
     return item
 

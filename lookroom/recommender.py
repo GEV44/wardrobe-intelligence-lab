@@ -296,9 +296,16 @@ def plan_week(items: list[Item], contexts: list[Context], prefs: Mapping[str, fl
     return plan
 
 
+def _near_duplicate(key: tuple[str, ...], rejected: tuple[str, ...]) -> bool:
+    """Shares all but at most one piece with a rejected look (e.g. the same outfit with other shoes)."""
+    return len(set(key) & set(rejected)) >= max(len(key), len(rejected)) - 1
+
+
 def recommend(items: list[Item], ctx: Context, prefs: Mapping[str, float] | None = None,
-              n: int = TOP_N, lang: str = "en", exclude: set[tuple[str, ...]] | None = None) -> RecommendationResult:
-    """exclude: exact outfit keys the user rejected (a Dislike swaps the look immediately)."""
+              n: int = TOP_N, lang: str = "en", exclude: set[tuple[str, ...]] | None = None,
+              avoid: list[tuple[str, ...]] | None = None) -> RecommendationResult:
+    """exclude: exact outfit keys the user rejected (a Dislike swaps the look immediately).
+    avoid: recently rejected looks; near-duplicates of them rank after genuinely different looks."""
     missing = missing_categories(items)
     if missing:
         cats = ", ".join(i18n.label("category", c, lang) for c in missing)
@@ -308,6 +315,9 @@ def recommend(items: list[Item], ctx: Context, prefs: Mapping[str, float] | None
     if exclude:
         kept = [o for o in ranked if o.key not in exclude]
         ranked = kept or ranked  # never show an empty page because of rejections
+    if avoid:
+        fresh = [o for o in ranked if not any(_near_duplicate(o.key, r) for r in avoid)]
+        ranked = fresh + [o for o in ranked if o not in fresh] if fresh else ranked
     message = None
     if ctx.temperature < OUTERWEAR_REQUIRED_BELOW and not any(i.category == "outerwear" for i in items):
         message = i18n.t("cold_no_outer", lang)

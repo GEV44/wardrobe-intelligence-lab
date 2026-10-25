@@ -29,11 +29,8 @@ def seed(restore: bool = False, user_id: str = db.DEFAULT_USER, preset: str | No
     db.init_db()
     preset = preset or db.get_preset(user_id) or DEFAULT_PRESET
     db.set_preset(user_id, preset)
-    written = 0
-    for item in load_demo_items(preset):
-        item = replace(item, image_path=images.seed_image(item, CATALOG_DIR))
-        written += db.upsert_item(item, replace=restore, user_id=user_id)
-    return written
+    items = [replace(item, image_path=images.seed_image(item, CATALOG_DIR)) for item in load_demo_items(preset)]
+    return db.upsert_items(items, user_id, replace=restore)
 
 
 def ensure_user(user_id: str, preset: str | None = None) -> None:

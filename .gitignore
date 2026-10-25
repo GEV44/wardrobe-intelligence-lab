@@ -7,3 +7,6 @@ runtime/
 .env
 /models/
 *.part
+
+.streamlit/secrets.toml
+keepalive_fail.png

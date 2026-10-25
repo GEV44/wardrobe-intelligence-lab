@@ -40,20 +40,20 @@ for _n, _src in _own_modules():
     if os.path.exists(_src) and not hasattr(sys.modules[_n], "_wil_mtime"):
         setattr(sys.modules[_n], "_wil_mtime", os.path.getmtime(_src))
 
+for _key in ("DATABASE_URL", "LOOKROOM_LIVE_WEATHER_DEFAULT"):
+    if _key not in os.environ:
+        try:
+            if _key in st.secrets:
+                os.environ[_key] = str(st.secrets[_key])
+        except Exception:  # no secrets file: local SQLite mode
+            pass
+
 st.set_page_config(page_title="Wardrobe Intelligence Lab", page_icon=":material/checkroom:", layout="wide",
                    initial_sidebar_state="expanded")
 log = logging.getLogger("wil")
 SESSION_LLM_LIMIT = int(os.environ.get("LOOKROOM_SESSION_LLM_LIMIT", "20"))
 LIVE_WEATHER_DEFAULT = os.environ.get("LOOKROOM_LIVE_WEATHER_DEFAULT") == "1"
 ss = st.session_state
-
-# ---------- identity (private workspace per visitor) & language, both kept in the URL ----------
-_raw_uid = st.query_params.get("u")
-if _raw_uid and service.clean_user_id(_raw_uid) == _raw_uid:
-    UID = _raw_uid
-else:
-    UID = service.new_user_id()
-    st.query_params["u"] = UID
 LANG = i18n.norm(st.query_params.get("lang"))
 
 
@@ -200,12 +200,144 @@ button[aria-checked="false"]:hover {border-color: var(--ink) !important;}
 .wil-note {font-size:.8rem; color:var(--muted);}
 div[data-testid="stTabs"] button p {font-size: 1rem; font-weight: 500;}
 @media (max-width: 760px) {.wil-tiles {grid-template-columns:repeat(2, minmax(0,1fr));}}
+/* pinned page menu + category filter: always reachable while scrolling */
+[data-testid="stLayoutWrapper"]:has(> .st-key-mainnav) {position: sticky; top: 0; z-index: 990; padding: .5rem 0 .1rem 0;
+  background: linear-gradient(rgba(248,246,242,.97) 75%, rgba(248,246,242,0));}
+[data-testid="stLayoutWrapper"]:has(> .st-key-catbar) {position: sticky; top: 4.35rem; z-index: 980;}
+.st-key-mainnav [data-testid="stButtonGroup"] {box-shadow: 0 6px 22px rgba(20,20,20,.07);}
+.st-key-catbar {background: rgba(248,246,242,.94); backdrop-filter: blur(8px); padding: .45rem .3rem .25rem .3rem;
+  border-radius: 14px;}
+/* sign-in page */
+.st-key-card-auth {padding: 1.1rem 1.2rem;}
+.st-key-card-auth:hover {transform: none;}
+.wil-benefit {display:flex; gap:.7rem; align-items:flex-start; font-size:1.02rem; color:#34312d; margin:.55rem 0;
+  line-height:1.45;}
+.wil-benefit span {flex:0 0 28px; height:28px; border-radius:50%; background:var(--accent-soft); color:var(--accent);
+  display:flex; align-items:center; justify-content:center; font-size:.85rem;}
+.wil-or {text-align:center; color:var(--muted); font-size:.8rem; margin:.6rem 0 .4rem; letter-spacing:.08em;
+  text-transform:uppercase;}
 </style>""", unsafe_allow_html=True)
 
 if LANG == "hy":  # Armenian capitals are hard to scan in small eyebrow labels: keep natural case
     st.markdown("<style>.wil-eyebrow,.wil-tile .k,.wil-score .lbl,[data-testid='stWidgetLabel'] p"
                 "{text-transform:none !important;letter-spacing:.01em !important;font-size:.82rem !important;}</style>",
                 unsafe_allow_html=True)
+
+def board_path(items) -> str | None:
+    rel = images.compose_board(list(items))
+    p = images.resolve_image(rel) if rel else None
+    return str(p) if p else None
+
+
+# ---------- identity: account session (?s=token) or guest workspace (?u=id), both kept in the URL ----------
+
+def on_lang(key: str = "lang_sel") -> None:
+    st.query_params["lang"] = ss[key] or "en"
+
+
+def _sign_in(user_id: str, name: str) -> str:
+    st.query_params["s"] = service.start_session(user_id)
+    st.query_params.pop("u", None)
+    for k in ("last_feedback", "chat", "skip", "rejected"):
+        ss.pop(k, None)
+    ss["flash"] = T("welcome", name=name)
+    return user_id
+
+
+@st.cache_data(show_spinner=False)
+def landing_board() -> str | None:
+    """A real outfit from the sample wardrobe for the sign-in page."""
+    from dataclasses import replace as _r
+
+    from lookroom import recommender
+    sample = [_r(i, image_path=images.seed_image(i, seed.CATALOG_DIR)) for i in seed.load_demo_items("women")]
+    res = recommender.recommend(sample, validate_context("date", 20, "classic"))
+    return board_path(res.outfits[0].items) if res.outfits else None
+
+
+def auth_page() -> str | None:
+    """Sign in / sign up / guest. Returns the user_id to continue with (same run), or None to stop here."""
+    shell = st.empty()
+    done: tuple[str, str] | None = None
+    with shell.container():
+        done = _auth_form()
+    if done is None:
+        return None
+    shell.empty()  # replace the sign-in page by the app in this same run
+    return _sign_in(*done) if done[1] else done[0]
+
+
+def _auth_form() -> tuple[str, str] | None:
+    top_l, top_r = st.columns([6, 1.7], vertical_alignment="center")
+    top_l.markdown('<div class="wil-brand"><div class="wil-mark">WI</div><div><div class="wil-name">'
+                   f'{T("brand")}</div></div></div>', unsafe_allow_html=True)
+    top_r.segmented_control("Language", list(i18n.LANGS), format_func=lambda k: i18n.LANG_SHORT[k], default=LANG,
+                            key="lang_sel_auth", on_change=on_lang, args=("lang_sel_auth",),
+                            label_visibility="collapsed")
+    left, right = st.columns([1.2, 1], gap="large", vertical_alignment="center")
+    with left:
+        st.markdown(f'<div class="wil-hero"><div class="wil-eyebrow">{T("land_eyebrow")}</div>'
+                    f'<h1>{html.escape(T("headline"))}</h1></div>'
+                    + "".join(f'<div class="wil-benefit"><span>{icon}</span>{html.escape(T(k))}</div>'
+                              for icon, k in (("✦", "land_b1"), ("◎", "land_b2"), ("♥", "land_b3"))),
+                    unsafe_allow_html=True)
+        if p := landing_board():
+            st.image(p, width="stretch")
+    with right, st.container(border=True, key="card-auth"):
+        sign_in, sign_up = st.tabs([T("auth_signin"), T("auth_signup")])
+        with sign_in, st.form("signin", border=False):
+            u = st.text_input(T("username"), max_chars=30, autocomplete="username", key="si_user")
+            pw = st.text_input(T("password"), type="password", max_chars=128, autocomplete="current-password",
+                               key="si_pw")
+            if st.form_submit_button(T("auth_signin"), type="primary", width="stretch", key="si_go"):
+                try:
+                    return service.authenticate(u, pw), u.strip().lower()
+                except service.AuthError as exc:
+                    st.error(T(str(exc)))
+        with sign_up, st.form("signup", border=False):
+            u2 = st.text_input(T("username"), max_chars=30, autocomplete="username", key="su_user")
+            pw2 = st.text_input(T("password"), type="password", max_chars=128, autocomplete="new-password",
+                                key="su_pw")
+            preset = st.segmented_control(T("start_wardrobe"), seed.available_presets(), default=seed.DEFAULT_PRESET,
+                                          format_func=lambda p_: T(f"preset_{p_}"), key="su_preset")
+            st.caption(T("auth_rules"))
+            if st.form_submit_button(T("auth_signup"), type="primary", width="stretch", key="su_go"):
+                try:
+                    return service.register(u2, pw2, preset or seed.DEFAULT_PRESET), u2.strip().lower()
+                except service.AuthError as exc:
+                    st.error(T(str(exc)))
+        st.markdown(f'<div class="wil-or">{T("or_word")}</div>', unsafe_allow_html=True)
+        if st.button(T("auth_guest"), width="stretch", icon=":material/visibility:", key="guest"):
+            st.query_params["u"] = guest_id = service.new_user_id()
+            return guest_id, ""
+    st.markdown(f'<div class="wil-footer">{html.escape(T("footer"))}</div>', unsafe_allow_html=True)
+    return None
+
+
+TOKEN = st.query_params.get("s")
+UID: str | None = None
+ACCOUNT: str | None = None
+try:
+    if TOKEN:
+        UID = service.session_user(TOKEN)
+        if UID:
+            ACCOUNT = service.account_name(UID)
+        else:
+            st.query_params.pop("s", None)
+    if UID is None and (guest := st.query_params.get("u")) and service.clean_user_id(guest) == guest:
+        UID = guest
+    if UID is None:
+        UID = auth_page()
+        if UID is None:
+            st.stop()
+        ACCOUNT = service.account_name(UID)
+except Exception as exc:
+    if type(exc).__name__ in ("RerunException", "StopException"):
+        raise
+    log.exception("sign-in failed")
+    st.error(T("section_error"))
+    st.stop()
+assert UID is not None  # otherwise the sign-in page has stopped the script
 
 try:
     service.ensure_ready(UID)
@@ -248,7 +380,7 @@ def safe(section: str):
         if type(exc).__name__ in ("RerunException", "StopException"):  # Streamlit control flow
             raise
         log.exception("section %s failed", section)
-        st.error(T("section_error") + f" ({type(exc).__name__})")
+        st.error(T("section_error") + (f" ({type(exc).__name__})" if ss.get("tech") else ""))
 
 
 @st.cache_data(ttl=900, show_spinner=False)
@@ -261,12 +393,6 @@ def process_upload(data: bytes) -> tuple[bytes, bool, dict]:
     """Background removal (if available) then garment recognition on the clean cut-out. Cached per image."""
     clean, removed = service.prepare_upload(data)
     return clean, removed, service.tag_image(clean)
-
-
-def board_path(items) -> str | None:
-    rel = images.compose_board(list(items))
-    p = images.resolve_image(rel) if rel else None
-    return str(p) if p else None
 
 
 def score_ring(score: float, size: int = 86) -> str:
@@ -306,19 +432,22 @@ def on_feedback(item_ids: list[str], vote: str, ctx_tuple: tuple, snapshot: list
     names = [name_of(i) for i in db.get_items(item_ids, UID).values()]
     ss["last_feedback"] = {**res, "vote": vote, "names": names, "ctx": ctx_tuple, "ranking_before": snapshot,
                            "item_ids": item_ids}
+    if vote == "dislike":
+        ss.setdefault("rejected", []).append(tuple(sorted(item_ids)))
     ss["flash"] = T("liked_toast" if vote == "like" else "disliked_toast",
                     a=f"{res['score_before']:.1f}", b=f"{res['score_after']:.1f}")
 
 
 def on_another(outfit_key: tuple) -> None:
     ss.setdefault("skip", set()).add(tuple(outfit_key))
+    ss.setdefault("rejected", []).append(tuple(sorted(outfit_key)))
     ss["flash"] = T("swapped_toast")
 
 
 def on_preset() -> None:
     preset = ss.get("preset_sel") or "men"
     service.switch_preset(UID, preset)
-    for k in ("last_feedback", "chat", "skip"):
+    for k in ("last_feedback", "chat", "skip", "rejected"):
         ss.pop(k, None)
     ss["flash"] = T("preset_switched", p=T(f"preset_{preset}"))
 
@@ -326,10 +455,6 @@ def on_preset() -> None:
 def on_delete(item_id: str) -> None:
     service.remove_item(item_id, UID)
     ss["flash"] = T("removed")
-
-
-def on_lang() -> None:
-    st.query_params["lang"] = ss["lang_sel"] or "en"
 
 
 def queue_prompt(text: str) -> None:
@@ -346,37 +471,57 @@ def feedback_buttons(outfit, ctx_tuple, snapshot, key: str, primary: bool = True
 
 # ---------- app header: brand · language · settings ----------
 
-h1, h_p, h2, h3 = st.columns([5, 1.8, 1.7, 0.55], vertical_alignment="center")
+TECH = bool(ss.get("tech"))  # interview mode: show models, latencies and formulas
+
+
+def on_sign_out() -> None:
+    service.end_session(st.query_params.get("s"))  # read at click time (callbacks outlive the run)
+    for k in ("s", "u"):
+        st.query_params.pop(k, None)
+    for k in ("last_feedback", "chat", "skip", "rejected", "pending_prompt"):
+        ss.pop(k, None)
+
+
+h1, h2, h3 = st.columns([6.2, 1.7, 0.55], vertical_alignment="center")
 h1.markdown('<div class="wil-brand"><div class="wil-mark">WI</div><div><div class="wil-name">'
             f'{T("brand")}</div><div class="wil-tagline">{html.escape(T("headline"))}</div></div></div>',
             unsafe_allow_html=True)
-presets = seed.available_presets()
-if len(presets) > 1:
-    h_p.segmented_control("Wardrobe", presets, format_func=lambda p: T(f"preset_{p}"),
-                          default=service.current_preset(UID), key="preset_sel", on_change=on_preset,
-                          label_visibility="collapsed")
 h2.segmented_control("Language", list(i18n.LANGS), format_func=lambda k: i18n.LANG_SHORT[k], default=LANG,
                      key="lang_sel", on_change=on_lang, label_visibility="collapsed")
-with h3.popover("", icon=":material/tune:", help=T("settings"), width="stretch"):
-    st.markdown(f"**{T('ai_services')}**")
-    ai = service.ai_status()
-    for label_key, on, detail in (("svc_tagger", ai["vision"]["available"], ai["vision"].get("detail", "")),
-                                  ("svc_bg", True, "BiRefNet-lite" if service.bgremove_online()
-                                   and ai["bgremove"]["available"] else "fast cut-out · BiRefNet offline"),
-                                  ("svc_llm", ai["llm"] or ai["local_llm"]["available"],
-                                   stylist.MODEL if ai["llm"] else ai["local_llm"]["detail"])):
-        state = T("svc_on") if on else T("svc_off")
-        st.caption(f"{'●' if on else '○'} {T(label_key)}: {state}" + (f" · {detail}" if on and detail else ""))
+with h3.popover("", icon=":material/account_circle:", help=T("account"), width="stretch"):
+    if ACCOUNT:
+        st.markdown(f"**{html.escape(T('signed_in_as', name=ACCOUNT))}**")
+        st.caption(T("privacy_note"))
+    else:
+        st.markdown(f"**{T('guest_badge')}**")
+        st.caption(T("guest_note"))
+    st.button(T("signout") if ACCOUNT else T("auth_signin"), on_click=on_sign_out, width="stretch",
+              icon=":material/logout:" if ACCOUNT else ":material/login:", key="signout")
     st.divider()
+    presets = seed.available_presets()
     st.markdown(f"**{T('demo_controls')}**")
+    if len(presets) > 1:
+        st.segmented_control(T("start_wardrobe"), presets, format_func=lambda p: T(f"preset_{p}"),
+                             default=service.current_preset(UID), key="preset_sel", on_change=on_preset)
     confirm = st.checkbox(T("reset_confirm"))
     if st.button(T("reset"), disabled=not confirm, width="stretch", icon=":material/restart_alt:"):
         seed.reset_demo(UID)
-        for k in ("last_feedback", "chat"):
+        for k in ("last_feedback", "chat", "skip", "rejected"):
             ss.pop(k, None)
         ss["flash"] = T("reset_done")
         st.rerun()
-    st.caption(T("privacy_note"))
+    st.divider()
+    st.toggle(T("tech_mode"), key="tech")
+    if TECH:
+        ai = service.ai_status()
+        for label_key, on, detail in (("svc_tagger", ai["vision"]["available"], ai["vision"].get("detail", "")),
+                                      ("svc_bg", True, "BiRefNet-lite" if service.bgremove_online()
+                                       and ai["bgremove"]["available"] else "fast cut-out · BiRefNet offline"),
+                                      ("svc_llm", ai["llm"] or ai["local_llm"]["available"],
+                                       stylist.MODEL if ai["llm"] else ai["local_llm"]["detail"])):
+            state = T("svc_on") if on else T("svc_off")
+            st.caption(f"{'●' if on else '○'} {T(label_key)}: {state}" + (f" · {detail}" if on and detail else ""))
+        st.caption(f"● Storage: {db.backend()}")
 
 # ---------- context bar: the inputs that drive every recommendation ----------
 
@@ -399,17 +544,20 @@ with st.container(border=True, key="ctxbar"):
 
 ctx = validate_context(occasion, temperature, style)
 CTX_T = (occasion, temperature, style)
-result = service.get_recommendations(ctx, UID, LANG, skip=ss.get("skip"))
+AVOID = ss.get("rejected", [])[-6:]
+result = service.get_recommendations(ctx, UID, LANG, skip=ss.get("skip"), avoid=AVOID)
 items = db.list_items(UID)
 summary = service.feedback_summary(UID)
 st.markdown('<div class="wil-statusline">' + chips([
-    f"{len(items)} {T('m_items').lower()}", f"{result.candidates_considered} {T('m_scored').lower()}",
-    f"♥ {summary['likes']} · ✕ {summary['dislikes']}"]) + "</div>", unsafe_allow_html=True)
+    f"{len(items)} {T('m_items').lower()}", f"♥ {summary['likes']} · ✕ {summary['dislikes']}"]
+    + ([f"{result.candidates_considered} {T('m_scored').lower()}"] if TECH else [])
+    + ([T("signed_in_as", name=ACCOUNT)] if ACCOUNT else [T("guest_badge")])) + "</div>", unsafe_allow_html=True)
 
 # Pill navigation: only the selected page is computed (Streamlit tabs would run every page on each rerun).
 NAV = {"today": ("wb_sunny", "tab_today"), "week": ("calendar_month", "tab_week"),
        "stylist": ("forum", "tab_stylist"), "wardrobe": ("checkroom", "tab_wardrobe"),
-       "shop": ("shopping_bag", "tab_shop"), "learn": ("insights", "tab_insights")}
+       "saved": ("favorite", "tab_saved"), "shop": ("shopping_bag", "tab_shop"),
+       "learn": ("insights", "tab_insights")}
 with st.container(key="mainnav"):
     PAGE = st.segmented_control("Navigation", list(NAV), default="today", key="nav",
                                 format_func=lambda k: f":material/{NAV[k][0]}: {T(NAV[k][1])}",
@@ -638,11 +786,15 @@ if PAGE == "stylist":
                         if p := board_path(outfit_items):
                             st.image(p, width=520)
                     c_occ, c_temp, c_style = msg["ctx"]
-                    src = {"claude": T("src_claude") + f" ({stylist.MODEL})",
-                           "local": "Qwen3-1.7B · " + T("src_local")}.get(msg["source"], T("src_rules"))
-                    st.caption(f"{src} · {T('engine_score')} {msg['score']:.1f}/100 · {L('occasion', c_occ)} · "
-                               f"{c_temp:g}°C · {L('style', c_style)} · {msg['latency_ms']} ms"
-                               + (f" · {msg['note']}" if msg.get("note") else ""))
+                    if TECH:
+                        src = {"claude": T("src_claude") + f" ({stylist.MODEL})",
+                               "local": "Qwen3-1.7B · " + T("src_local")}.get(msg["source"], T("src_rules"))
+                        st.caption(f"{src} · {T('engine_score')} {msg['score']:.1f}/100 · {L('occasion', c_occ)} · "
+                                   f"{c_temp:g}°C · {L('style', c_style)} · {msg['latency_ms']} ms"
+                                   + (f" · {msg['note']}" if msg.get("note") else ""))
+                    else:
+                        st.caption(f"{L('occasion', c_occ)} · {c_temp:g}°C · {L('style', c_style)} · "
+                                   f"{T('engine_score')} {msg['score']:.0f}/100")
                     snap = ranking(service.get_recommendations(validate_context(*msg["ctx"]), UID, LANG))
                     f1, f2, _ = st.columns([1, 1, 3])
                     f1.button(T("like"), key=f"chat-like-{idx}", type="primary", width="stretch",
@@ -669,9 +821,11 @@ if PAGE == "stylist":
 if PAGE == "wardrobe":
     with safe("wardrobe"):
         counts = {c: sum(1 for i in items if i.category == c) for c in CATEGORIES}
-        options = ["all", *CATEGORIES]
-        pick = st.pills("filter", options, default="all", label_visibility="collapsed",
-                        format_func=lambda c: f"{T('all')} · {len(items)}" if c == "all" else f"{L('category', c)} · {counts[c]}")
+        options = ["all", *(c for c in CATEGORIES if counts[c])]
+        with st.container(key="catbar"):
+            pick = st.pills("filter", options, default="all", label_visibility="collapsed",
+                            format_func=lambda c: f"{T('all')} · {len(items)}" if c == "all"
+                            else f"{L('category', c)} · {counts[c]}")
         shown = [i for i in items if pick in (None, "all") or i.category == pick]
         if not items:
             st.info(T("empty_wardrobe"))
@@ -686,11 +840,12 @@ if PAGE == "wardrobe":
                             f'{T("formality")} {it.formality}/5</div>', unsafe_allow_html=True)
                 with st.popover(T("similar"), icon=":material/image_search:", width="stretch"):
                     sims = cached_similar(UID, it.id)
-                    st.caption(T("similar_note"))
+                    if TECH:
+                        st.caption(T("similar_note"))
                     for sc, (prod, sim) in zip(st.columns(max(1, len(sims))), sims):
                         if prod.image_path.is_file():
                             sc.image(str(prod.image_path), width="stretch")
-                        sc.caption(f"{prod.name[:42]} · {sim:.2f}")
+                        sc.caption(prod.name[:42] + (f" · {sim:.2f}" if TECH else ""))
                 if not it.is_seed:
                     st.button(T("remove"), key=f"del-{it.id}", on_click=on_delete, args=(it.id,), width="stretch",
                               icon=":material/close:")
@@ -724,7 +879,7 @@ if PAGE == "wardrobe":
                                         L("style", tags["style"])]), unsafe_allow_html=True)
                     pc2.caption(f"{tags['model']} · {T('confidence')}: {conf.get('garment', 0):.0%} / "
                                 f"{conf.get('color', 0):.0%} / {conf.get('style', 0):.0%} · {tags['latency_ms']} ms · "
-                                f"{T('review_note')}")
+                                f"{T('review_note')}" if TECH else T("review_note"))
                 else:
                     pc2.caption(T("heuristic_note", c=L("color", tags.get("color", "white"))))
 
@@ -753,6 +908,22 @@ if PAGE == "wardrobe":
                     ss["flash"] = T("added", name=new.name)
                     ss["upload_nonce"] += 1
                     st.rerun()
+
+# ---------- Saved looks ----------
+
+if PAGE == "saved":
+    with safe("saved"):
+        looks = service.saved_looks(UID)
+        if not looks:
+            st.info(T("saved_empty"), icon=":material/favorite:")
+        else:
+            st.caption(T("saved_count", n=len(looks)))
+            for row_start in range(0, len(looks), 3):
+                for n, (col, look) in enumerate(zip(st.columns(3, gap="medium"), looks[row_start:row_start + 3])):
+                    with col, st.container(border=True, key=f"card-saved-{row_start + n}"):
+                        if p := board_path(look):
+                            st.image(p, width="stretch")
+                        st.markdown(chips([name_of(i) for i in look]), unsafe_allow_html=True)
 
 # ---------- How it learns ----------
 
@@ -802,8 +973,10 @@ if PAGE == "learn":
             f'<div class="wil-tile"><div class="k">{T("likes")}</div><div class="v">{summary["likes"]}</div></div>'
             f'<div class="wil-tile"><div class="k">{T("dislikes")}</div><div class="v">{summary["dislikes"]}</div></div>'
             f'<div class="wil-tile"><div class="k">{T("learned_items")}</div><div class="v">{n_learned}</div></div>'
-            f'<div class="wil-tile"><div class="k">±{cap} pts</div><div class="v">tanh</div></div>'
-            '</div>', unsafe_allow_html=True)
+            + (f'<div class="wil-tile"><div class="k">±{cap} pts</div><div class="v">tanh</div></div>' if TECH else
+               f'<div class="wil-tile"><div class="k">{T("tab_saved")}</div><div class="v">{len(service.saved_looks(UID))}'
+               '</div></div>')
+            + '</div>', unsafe_allow_html=True)
         if not summary["items"]:
             st.info(T("learn_empty"), icon=":material/school:")
         else:
@@ -845,7 +1018,8 @@ if PAGE == "learn":
                                     f'</span><div class="wil-gain">{now:.1f}<span class="{"down" if now < lf["score_before"] else ""}">'
                                     f'{now - lf["score_before"]:+.1f}</span>'
                                     '</div>', unsafe_allow_html=True)
-                        now_rank = ranking(service.get_recommendations(lctx, UID, LANG, skip=ss.get("skip")))
+                        now_rank = ranking(service.get_recommendations(lctx, UID, LANG, skip=ss.get("skip"),
+                                                                       avoid=AVOID))
                         st.markdown(f'<div class="wil-note">{T("ranking_before")}</div>' + "".join(
                             f'<div class="wil-rank"><b>{r}</b> {html.escape(nm)} <i>{sc:.1f}</i></div>'
                             for r, nm, sc in lf["ranking_before"])
@@ -871,4 +1045,5 @@ if PAGE == "learn":
                     f'{html.escape(L("style", f["style"]))} · {f["score_at_feedback"] or 0:.1f}/100</div></div></div>'
                     for f in summary["recent"][:8]) + "</div>", unsafe_allow_html=True)
 
-st.markdown(f'<div class="wil-footer">{html.escape(T("footer"))}</div>', unsafe_allow_html=True)
+st.markdown(f'<div class="wil-footer">{html.escape(T("footer"))}'
+            + (f'<br>{html.escape(T("footer_tech"))}' if TECH else "") + '</div>', unsafe_allow_html=True)

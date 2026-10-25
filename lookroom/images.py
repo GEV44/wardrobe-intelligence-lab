@@ -14,7 +14,7 @@ from .models import COLOR_HEX, Item
 MAX_UPLOAD_BYTES = 5 * 1024 * 1024
 MAX_PIXELS = 20_000_000
 ALLOWED_FORMATS = {"JPEG", "PNG", "WEBP"}
-THUMB_SIZE = (512, 512)
+THUMB_SIZE = (1024, 1024)
 CANVAS = 320
 BACKGROUND = "#F4F1EC"
 
@@ -35,7 +35,31 @@ def resolve_image(rel_path: str | None) -> Path | None:
         return None
     root = (db.data_dir() / "images").resolve()
     p = (db.data_dir() / rel_path).resolve()
-    return p if p.is_relative_to(root) and p.is_file() else None
+    if not p.is_relative_to(root):
+        return None
+    if not p.is_file():
+        _restore(rel_path, p)
+    return p if p.is_file() else None
+
+
+def _restore(rel_path: str, dst: Path) -> None:
+    """A fresh container has no local copies: bring back bundled catalog photos and stored uploads."""
+    try:
+        kind, name = rel_path.split("/")[1], Path(rel_path).name
+        src = db.PROJECT_ROOT / "data" / "catalog" / name if kind == "catalog" else None
+        data = src.read_bytes() if src is not None and src.is_file() else (
+            db.get_blob(rel_path) if kind in ("uploads", "seed") else None)
+        if data:
+            dst.parent.mkdir(parents=True, exist_ok=True)
+            dst.write_bytes(data)
+    except Exception:  # a missing photo must never break a page
+        pass
+
+
+def persist(rel_path: str, user_id: str) -> None:
+    """Keep a user's photo in the database (remote backend), so it survives container restarts."""
+    if db.backend() == "postgres" and (p := resolve_image(rel_path)):
+        db.put_blob(rel_path, user_id, p.read_bytes())
 
 
 # ---------- uploads ----------
@@ -194,13 +218,22 @@ def flat_background_cutout(data: bytes, max_side: int = 900, tol: float = 38.0) 
 BOARD_BG = (243, 239, 233)
 
 
+def _trim(img: Image.Image, pad: int = 8) -> Image.Image:
+    """Crop the near-white studio margins so the garment, not the background, fills its cell."""
+    ys, xs = np.nonzero(np.asarray(img.convert("L")) < 243)
+    if xs.size < 64:
+        return img
+    return img.crop((max(int(xs.min()) - pad, 0), max(int(ys.min()) - pad, 0),
+                     min(int(xs.max()) + pad + 1, img.width), min(int(ys.max()) + pad + 1, img.height)))
+
+
 def _fit(img: Image.Image, box: tuple[int, int]) -> Image.Image:
-    img = img.copy()
-    img.thumbnail(box, Image.Resampling.LANCZOS)
-    return img
+    img = _trim(img)
+    scale = min(box[0] / img.width, box[1] / img.height, 2.0)  # upscale small photos, at most 2x
+    return img.resize((max(1, round(img.width * scale)), max(1, round(img.height * scale))), Image.Resampling.LANCZOS)
 
 
-def compose_board(items: list[Item], width: int = 960) -> str | None:
+def compose_board(items: list[Item], width: int = 1280) -> str | None:
     """Flat-lay 'outfit board': each piece on a white card over a warm backdrop. Cached by content."""
     import hashlib
 
@@ -210,7 +243,7 @@ def compose_board(items: list[Item], width: int = 960) -> str | None:
     if not items or any(p is None for p in paths):
         return None
     sig = "|".join(f"{p}:{p.stat().st_mtime_ns}" for p in paths)  # type: ignore[union-attr]
-    name = hashlib.sha1(f"{sig}|{width}".encode()).hexdigest()[:16] + ".jpg"
+    name = hashlib.sha1(f"{sig}|{width}|v3".encode()).hexdigest()[:16] + ".jpg"  # bump vN when the layout changes
     out = images_dir("boards") / name
     if out.is_file():
         return f"images/boards/{name}"
@@ -249,9 +282,15 @@ def compose_board(items: list[Item], width: int = 960) -> str | None:
     for cat, (x, y, w, hh) in cells.items():
         d.rounded_rectangle((x, y, x + w, y + hh), radius=22, fill="white")
         with Image.open(by_cat[cat]) as src:
-            img = _fit(ImageOps.exif_transpose(src).convert("RGB"), (int(w * 0.86), int(hh * 0.86)))
+            img = _trim(ImageOps.exif_transpose(src).convert("RGB"))
+        if hh < w and img.height > 1.5 * img.width:  # full-body model shot in a short cell: show the garment
+            if cat == "top":
+                img = img.crop((0, 0, img.width, int(img.height * 0.58)))
+            elif cat == "bottom":
+                img = img.crop((0, int(img.height * 0.40), img.width, img.height))
+        img = _fit(img, (int(w * 0.86), int(hh * 0.86)))
         canvas.paste(img, (x + (w - img.width) // 2, y + (hh - img.height) // 2))
-    canvas.save(out, format="JPEG", quality=88)
+    canvas.save(out, format="JPEG", quality=92)
     return f"images/boards/{name}"
 
 
@@ -276,4 +315,6 @@ def delete_uploads(rel_paths: list[str]) -> int:
         if p.is_relative_to(root) and p.is_file():
             p.unlink(missing_ok=True)
             n += 1
+    if db.backend() == "postgres":
+        db.delete_blobs([r for r in rel_paths if r.startswith(("images/uploads/", "images/seed/user-"))])
     return n

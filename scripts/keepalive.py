@@ -31,7 +31,7 @@ def main() -> int:
     with sync_playwright() as p:
         browser = p.chromium.launch()
         page = browser.new_page(viewport={"width": 1280, "height": 900})
-        page.goto(f"{URL}/?lang=en", timeout=120000)
+        page.goto(f"{URL}/?lang=en&u=keepalive01", timeout=120000)  # a guest workspace: skips the sign-in page
         end = time.time() + DEADLINE_S
         while time.time() < end:
             wake = page.get_by_role("button", name=re.compile("get this app back up", re.I))

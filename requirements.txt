@@ -8,6 +8,8 @@ fastapi==0.162.0
 uvicorn==0.52.0
 python-multipart==0.0.32
 pillow==12.2.0
+psycopg[binary]==3.2.13      # PostgreSQL (Supabase) when DATABASE_URL is set: accounts + wardrobes survive restarts
+psycopg-pool==3.2.8
 numpy==2.4.6
 onnxruntime==1.30.0
 tokenizers==0.23.2

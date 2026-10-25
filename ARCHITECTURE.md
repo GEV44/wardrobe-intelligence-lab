@@ -30,9 +30,12 @@ Design rule: **the LLM chooses, the engine verifies.** The model never sees imag
 - **Spend guard.** An atomic SQLite counter caps paid Claude calls per UTC day (`LOOKROOM_LLM_DAILY_CAP`, default 150), and each browser session has its own limit (`LOOKROOM_SESSION_LLM_LIMIT`, default 20).
 - **Deployment.** A pinned `Dockerfile` (python:3.11-slim, non-root user 1000) bakes the ONNX models into the image and has a healthcheck. It runs on Hugging Face Spaces (free CPU tier) with secrets in the Space settings.
 
-## SQLite schema
-- `wardrobe_items(id PK, name, category CHECK, color, style, warmth 1–5, formality 1–5, image_path, tags JSON, is_seed, created_at)`
-- `outfit_feedback(id PK, item_ids JSON sorted, vote ±1, occasion, temperature, style, score_at_feedback, created_at)`
+## Storage (PostgreSQL or SQLite, same SQL)
+`db.py` speaks the common subset of both dialects (`ON CONFLICT … DO UPDATE/NOTHING`, `RETURNING`). With `DATABASE_URL` set it uses PostgreSQL through a small `psycopg_pool` (Supabase session pooler, a dedicated `wil_app` role owning schema `wil`, not exposed to the public REST API); otherwise SQLite under `LOOKROOM_DATA_DIR`. Per-user reads are memoised in-process and invalidated on every write for that user, because the remote round trip dominates page time.
+- `wardrobe_items(user_id, id, name, category CHECK, color, style, warmth 1–5, formality 1–5, image_path, tags JSON, is_seed, created_at)`, PK `(user_id, id)`
+- `outfit_feedback(id PK, user_id, item_ids JSON sorted, vote ±1, occasion, temperature, style, score_at_feedback, created_at)`
+- `accounts(user_id PK, username UNIQUE, pw_hash scrypt)`, `sessions(token_hash PK, user_id, expires_at)` (30 days)
+- `blobs(path PK, user_id, data)`: uploaded photos. A fresh container restores missing files from here (uploads) or from the bundled catalog (sample items).
 
 Item preferences are **derived** from the feedback log when a request comes in, not stored. The log is the source of truth, so it can be replayed or re-weighted later.
 
