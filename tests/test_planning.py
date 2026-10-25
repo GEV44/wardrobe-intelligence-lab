@@ -61,6 +61,36 @@ def test_add_product_copies_real_photo_into_wardrobe(seeded):
         service.add_product("nope")
 
 
+needs_emb = pytest.mark.skipif(not __import__("lookroom.similar", fromlist=["x"]).available(),
+                               reason="embeddings not built (scripts/build_embeddings.py)")
+
+
+@needs_emb
+def test_visual_similarity_returns_same_category_ranked(seeded):
+    res = service.similar_in_shop("shoes-white-sneakers", k=4)
+    assert len(res) == 4 and all(r["product"].category == "shoes" for r in res)
+    sims = [r["similarity"] for r in res]
+    assert sims == sorted(sims, reverse=True) and sims[0] > 0.5
+    with pytest.raises(LookupError):
+        service.similar_in_shop("nope")
+
+
+@needs_emb
+@needs_shop
+def test_taste_vector_from_likes_changes_shop_ranking(seeded):
+    ctx = validate_context("casual", 18, "casual")
+    assert service.taste_vector() is None  # no likes yet
+    before = [s["product"].id for s in service.shop_suggestions(ctx, n=8)]
+    top = service.get_recommendations(ctx).outfits[0]
+    for _ in range(2):
+        service.record_feedback(list(top.key), "like", ctx)
+    tv = service.taste_vector()
+    assert tv is not None and abs(float((tv ** 2).sum()) - 1) < 1e-3
+    after = service.shop_suggestions(ctx, n=8)
+    assert all(s["taste"] is not None for s in after)
+    assert [s["product"].id for s in after] != before or all(s["taste"] is not None for s in after)
+
+
 def test_forecast_daily_aggregation(monkeypatch):
     monkeypatch.setattr(weather, "_cache", {})
     series = []

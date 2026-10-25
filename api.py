@@ -190,6 +190,25 @@ def shop_suggestions(occasion: Occasion = "casual", temperature: float = Query(1
                     pairs_with=[i.id for i in s["pairs_with"]]) for s in out]
 
 
+class SimilarOut(BaseModel):
+    product_id: str
+    name: str
+    category: str
+    color: str
+    similarity: float = Field(ge=-1, le=1)
+
+
+@app.get("/shop/similar/{item_id}", response_model=list[SimilarOut])
+def shop_similar(item_id: str, k: int = Query(4, ge=1, le=12), user: str = Depends(current_user)):
+    """Visually similar real products for a wardrobe item (FashionSigLIP image embeddings, cosine)."""
+    try:
+        out = service.similar_in_shop(item_id, user, k)
+    except LookupError as exc:
+        raise HTTPException(404, str(exc)) from exc
+    return [SimilarOut(product_id=s["product"].id, name=s["product"].name, category=s["product"].category,
+                       color=s["product"].color, similarity=s["similarity"]) for s in out]
+
+
 class DayIn(BaseModel):
     occasion: Occasion
     temperature: float = Field(ge=TEMP_MIN, le=TEMP_MAX)

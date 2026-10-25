@@ -183,10 +183,14 @@ class SigLipTagger(_Tagger):
                 raise ValueError("text_embeds.npz is stale (label vocabulary changed); rerun scripts/setup_models.py")
             self.text_emb = z["emb"].astype(np.float32)
 
-    def _logits(self, data: bytes) -> np.ndarray:
+    def embed(self, data: bytes) -> np.ndarray:
+        """L2-normalized 768-d image embedding (for visual similarity search)."""
         x = preprocess(data, SIGLIP_MEAN, SIGLIP_STD, squash=True)
         img = self.vision.run(["image_embeds"], {"pixel_values": x})[0][0].astype(np.float32)
-        return SIGLIP_SCALE * (self.text_emb @ (img / np.linalg.norm(img)))
+        return img / np.linalg.norm(img)
+
+    def _logits(self, data: bytes) -> np.ndarray:
+        return SIGLIP_SCALE * (self.text_emb @ self.embed(data))
 
 
 _lock = threading.Lock()

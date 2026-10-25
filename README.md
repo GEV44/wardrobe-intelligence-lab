@@ -11,11 +11,14 @@ It implements the full loop: **context → wardrobe → AI decision → action �
 | Learns from feedback | Like/Dislike is stored per user. A bounded `tanh` item signal shifts scores by at most ±7.5 pts, and *How it learns* shows the before/after ranking. |
 | AI Stylist chat | **Claude Opus 5.5** with a JSON-schema structured output. It may only pick existing item ids; picks are validated, then re-scored by the engine. It replies in the UI language, and falls back to the rule engine on any failure, budget cap or missing key. |
 | Photo upload → auto-tagging | **Marqo FashionSigLIP** (Apache-2.0, int8 ONNX, CPU) zero-shot garment, color and style recognition, with **FashionCLIP** (MIT) as fallback and a color heuristic as the last resort. Results are suggestions the user confirms. |
+| Plan my week | A 7-day plan from the MET Norway daily forecast and an occasion per day. Repeat penalties stop any item appearing on consecutive days. Deterministic. |
+| Shop the gap | 594 real catalog products, each scored with the user's wardrobe by the same engine and ranked by gain, versatility (occasions improved) and visual taste match. "Add to my wardrobe" copies the real product in. |
+| Visual similarity | FashionSigLIP image embeddings (608 precomputed, ~0.9 MB) with cosine nearest neighbours. Every wardrobe item has "Similar in shop", and a taste vector (mean embedding of liked items) personalizes shop ranking. |
 | Product cut-outs | A fast classical backdrop removal (~50 ms) on the request path. **BiRefNet-lite** (MIT) runs offline for catalog curation, because it takes ~45 s/image on a 2-vCPU server. |
-| Real sample wardrobe | `scripts/build_catalog.py` searches Openverse for CC0, PD or CC BY photos only. FashionCLIP ranks them and rejects any with people, the backdrop is cut out, and credits go to `data/catalog/CREDITS.md`. |
+| Real sample wardrobe | Real catalog photos from the *Fashion Product Images* dataset (44k Myntra products, listed as MIT), picked per slot by FashionCLIP zero-shot ranking (`scripts/build_shop.py`). Provenance is in `data/catalog/CREDITS.md`. |
 | Private workspace per visitor | Every row is scoped by `user_id`, which is kept in the URL (`?u=`). Each new visitor gets their own copy of the sample wardrobe. |
 | Robustness | Each UI section is isolated so one failure can't take down the page. Models are baked into the Docker image, every AI call has a fallback, and the Claude budget guard has a daily cap plus a per-session limit. |
-| API | FastAPI with typed schemas: `/health`, `/wardrobe`, `/recommendations`, `/feedback`, `/feedback-summary`, `/vision/tag`, `/stylist/chat`. Swagger is at `/docs`. Optional `X-User-Id` header and `lang` parameter. |
+| API | FastAPI with typed schemas: `/health`, `/wardrobe`, `/recommendations`, `/feedback`, `/feedback-summary`, `/vision/tag`, `/stylist/chat`, `/plan/week`, `/shop/suggestions`, `/shop/similar/{item_id}`. Swagger is at `/docs`. Optional `X-User-Id` header and `lang` parameter. |
 
 ## Run locally (Windows, Python 3.11, CPU only)
 ```powershell

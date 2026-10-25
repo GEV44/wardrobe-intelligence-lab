@@ -98,9 +98,42 @@ def add_item(name: str, category: str, color: str, style: str, warmth: int, form
     return item
 
 
+def _item_vector(item: Item):
+    from . import similar
+    vec = similar.vector_for(item.id)  # precomputed for catalog / sample items
+    if vec is None and item.image_path:
+        p = images.resolve_image(item.image_path)
+        vec = similar.vector_for(item.id, p.read_bytes()) if p else None  # uploads: embed with the live model
+    return vec
+
+
+def taste_vector(user_id: str = db.DEFAULT_USER):
+    """Mean FashionSigLIP embedding of the items this user likes (net votes > 0), or None."""
+    import numpy as np
+    prefs = db.item_preferences(user_id)
+    liked = [it for it in db.list_items(user_id) if prefs.get(it.id, 0) > 0]
+    vecs = [v for v in (_item_vector(it) for it in liked) if v is not None]
+    if not vecs:
+        return None
+    m = np.mean(vecs, axis=0)
+    return m / np.linalg.norm(m)
+
+
 def shop_suggestions(ctx: Context, user_id: str = db.DEFAULT_USER, n: int = 6) -> list[dict]:
     from . import shop
-    return shop.suggestions(db.list_items(user_id), ctx, db.item_preferences(user_id), n=n)
+    return shop.suggestions(db.list_items(user_id), ctx, db.item_preferences(user_id), n=n,
+                            taste=taste_vector(user_id))
+
+
+def similar_in_shop(item_id: str, user_id: str = db.DEFAULT_USER, k: int = 4) -> list[dict]:
+    """Visually similar real products (same category) for a wardrobe item, via image embeddings."""
+    from . import similar
+    item = db.get_items([item_id], user_id).get(item_id)
+    if item is None:
+        raise LookupError(f"Unknown item {item_id}")
+    vec = _item_vector(item)
+    return [{"product": p, "similarity": round(s, 3)}
+            for p, s in similar.similar_products(vec, k=k, category=item.category)]
 
 
 def add_product(product_id: str, user_id: str = db.DEFAULT_USER) -> Item:

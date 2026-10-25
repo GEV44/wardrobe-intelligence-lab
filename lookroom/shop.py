@@ -84,13 +84,21 @@ def current_best(wardrobe: list[Item], ctx: Context, prefs: Mapping[str, float])
     return max((_total(c, ctx, prefs) for c in cands), default=0.0)
 
 
+TASTE_WEIGHT = 3.0  # points of ranking bonus at cosine similarity 1.0 to the user's liked-items taste vector
+
+
 def suggestions(wardrobe: list[Item], ctx: Context, prefs: Mapping[str, float] | None = None, n: int = 6,
-                max_per_category: int = 2) -> list[dict]:
-    """Top products by score gain in this context, plus how many occasions they improve (versatility)."""
+                max_per_category: int = 2, taste=None) -> list[dict]:
+    """Top products by score gain in this context (+ optional visual taste bonus from image embeddings),
+    plus how many occasions they improve (versatility)."""
     prefs = prefs or {}
     products = load_products()
     if not products or rec.missing_categories(wardrobe):
         return []
+    sims: dict[str, float] = {}
+    if taste is not None:
+        from . import similar
+        sims = {p.id: s for p, s in similar.similar_products(taste, k=len(products))}
     base = current_best(wardrobe, ctx, prefs)
     other_ctx = [Context(o, ctx.temperature, ctx.style) for o in OCCASIONS]
     other_base = {c.occasion: current_best(wardrobe, c, prefs) for c in other_ctx}
@@ -101,16 +109,17 @@ def suggestions(wardrobe: list[Item], ctx: Context, prefs: Mapping[str, float] |
         gain = s - base
         if gain <= 0.3 or not combo:
             continue
-        scored.append((gain, s, p, combo))
-    scored.sort(key=lambda x: (-x[0], -x[1], x[2].id))
+        scored.append((gain + TASTE_WEIGHT * max(0.0, sims.get(p.id, 0.0)), gain, s, p, combo))
+    scored.sort(key=lambda x: (-x[0], -x[2], x[3].id))
     out, per_cat = [], {}
-    for gain, s, p, combo in scored:
+    for _rank, gain, s, p, combo in scored:
         if per_cat.get(p.category, 0) >= max_per_category:
             continue
         per_cat[p.category] = per_cat.get(p.category, 0) + 1
         versatile = sum(1 for c in other_ctx if best_with(p.as_item(), wardrobe, c, prefs)[0] > other_base[c.occasion] + 0.3)
         out.append({"product": p, "gain": round(gain, 1), "score": round(s, 1), "base": round(base, 1),
-                    "pairs_with": [it for it in combo if it.id != p.id], "occasions_improved": versatile})
+                    "pairs_with": [it for it in combo if it.id != p.id], "occasions_improved": versatile,
+                    "taste": round(sims[p.id], 3) if p.id in sims else None})
         if len(out) >= n:
             break
     return out

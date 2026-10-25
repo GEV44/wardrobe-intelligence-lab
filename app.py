@@ -336,6 +336,14 @@ def cached_shop(uid: str, ctx_t: tuple, wardrobe_sig: tuple, prefs_sig: tuple):
     return service.shop_suggestions(validate_context(*ctx_t), uid, n=8)
 
 
+@st.cache_data(max_entries=256, show_spinner=False)
+def cached_similar(uid: str, item_id: str) -> list[tuple]:
+    try:
+        return [(s["product"], s["similarity"]) for s in service.similar_in_shop(item_id, uid, k=3)]
+    except Exception:
+        return []
+
+
 def on_buy(product_id: str, name: str) -> None:
     service.add_product(product_id, UID)
     ss["flash"] = T("added", name=name)
@@ -398,8 +406,10 @@ with tab_shop, safe("shop"):
                             f'<div class="wil-item-meta">{html.escape(L("category", p.category))} · '
                             f'{html.escape(L("color", p.color))} · {html.escape(L("style", p.style))}</div>',
                             unsafe_allow_html=True)
-                st.markdown(chips([T("shop_gain", g=f"{s['gain']:.1f}"),
-                                   T("shop_versatile", n=s["occasions_improved"])], True), unsafe_allow_html=True)
+                badges = [T("shop_gain", g=f"{s['gain']:.1f}"), T("shop_versatile", n=s["occasions_improved"])]
+                if s.get("taste") is not None and s["taste"] > 0:
+                    badges.append(T("taste", p=f"{100 * s['taste']:.0f}"))
+                st.markdown(chips(badges, True), unsafe_allow_html=True)
                 st.markdown(f'<div class="wil-item-meta">{T("shop_pairs")}: '
                             f'{html.escape(", ".join(name_of(i) for i in s["pairs_with"]))}</div>',
                             unsafe_allow_html=True)
@@ -470,6 +480,13 @@ with tab_wardrobe, safe("wardrobe"):
                         f'<div class="wil-item-meta">{html.escape(L("color", it.color))} · '
                         f'{html.escape(L("style", it.style))}<br>{T("warmth")} {it.warmth}/5 · '
                         f'{T("formality")} {it.formality}/5</div>', unsafe_allow_html=True)
+            with st.popover(T("similar"), icon=":material/image_search:", width="stretch"):
+                sims = cached_similar(UID, it.id)
+                st.caption(T("similar_note"))
+                for sc, (prod, sim) in zip(st.columns(max(1, len(sims))), sims):
+                    if prod.image_path.is_file():
+                        sc.image(str(prod.image_path), width="stretch")
+                    sc.caption(f"{prod.name[:42]} · {sim:.2f}")
             if not it.is_seed:
                 st.button(T("remove"), key=f"del-{it.id}", on_click=on_delete, args=(it.id,), width="stretch",
                           icon=":material/close:")
