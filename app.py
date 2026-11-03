@@ -351,13 +351,18 @@ if flash := ss.pop("flash", None):
 
 @st.cache_resource(show_spinner=False)
 def _warmup() -> bool:
-    """Once per server process: load ML models and the API SDK in the background so first use is fast."""
+    """Once per server process: load the vision model in the background so first use is fast.
+
+    The local LLM is not preloaded: it is the largest model and only the chat needs it, so it loads on first
+    chat message. Set LOOKROOM_LLM_WARMUP=1 to preload it on hosts with memory to spare.
+    """
     import threading
 
     def run() -> None:
         for step in (lambda: __import__("lookroom.vision", fromlist=["x"]).ensure_siglip(),
                      lambda: __import__("lookroom.vision", fromlist=["x"]).get_tagger(),
-                     lambda: __import__("lookroom.llm", fromlist=["x"]).warmup()):
+                     lambda: os.environ.get("LOOKROOM_LLM_WARMUP") == "1"
+                     and __import__("lookroom.llm", fromlist=["x"]).warmup()):
             try:
                 step()
             except Exception:
@@ -801,7 +806,7 @@ if PAGE == "stylist":
                     c_occ, c_temp, c_style = msg["ctx"]
                     if TECH:
                         src = {"claude": T("src_claude") + f" ({stylist.MODEL})",
-                               "local": "Qwen3-1.7B · " + T("src_local")}.get(msg["source"], T("src_rules"))
+                               "local": __import__("lookroom.llm", fromlist=["x"]).MODEL_NAME + " · " + T("src_local")}.get(msg["source"], T("src_rules"))
                         st.caption(f"{src} · {T('engine_score')} {msg['score']:.1f}/100 · {L('occasion', c_occ)} · "
                                    f"{c_temp:g}°C · {L('style', c_style)} · {msg['latency_ms']} ms"
                                    + (f" · {msg['note']}" if msg.get("note") else ""))
