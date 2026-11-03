@@ -238,7 +238,7 @@ def main():
 
     Xtr, Xte = embed_all(train, tagger), embed_all(test, tagger)
 
-    heads, info, preds = {}, {}, {}
+    heads, info = {}, {}
     ytr_g = [r["garment"] for r in train]
     m, info["garment"] = fit_head(Xtr, ytr_g, a.seed, "acc")
     heads["garment"] = m

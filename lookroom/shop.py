@@ -13,7 +13,7 @@ from pathlib import Path
 from typing import Mapping
 
 from . import recommender as rec
-from .models import OCCASIONS, Context, Item
+from .models import Context, Item
 
 SHOP_DIR = Path(__file__).resolve().parent.parent / "data" / "shop"
 

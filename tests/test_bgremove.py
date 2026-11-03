@@ -1,4 +1,5 @@
 import io
+import os
 from pathlib import Path
 
 import pytest
@@ -8,7 +9,6 @@ from lookroom import bgremove
 
 ROOT = Path(__file__).resolve().parent.parent
 SNEAKERS = ROOT / "demo_assets" / "sneakers_public_domain.jpg"
-import os
 
 # BiRefNet takes ~45 s/image on CPU: run its model tests only when explicitly requested (RUN_SLOW=1).
 needs_model = pytest.mark.skipif(not bgremove.available() or os.environ.get("RUN_SLOW") != "1",

@@ -184,7 +184,6 @@ def main(only: list[str]) -> None:
     CACHE.mkdir(parents=True, exist_ok=True)
     scorer = Scorer()
     items = [i for i in load_demo_items() if not only or i.id in only]
-    words = list(GARMENT_WORD.values())
     credits_path = OUT / "credits.json"
     credits = json.loads(credits_path.read_text(encoding="utf-8")) if credits_path.exists() else {}
     sheet_rows = []

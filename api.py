@@ -11,7 +11,7 @@ from typing import Literal
 from fastapi import Depends, FastAPI, File, Header, HTTPException, Query, UploadFile
 from pydantic import BaseModel, Field
 
-from lookroom import __version__, db, images, service, stylist, vision
+from lookroom import __version__, db, images, service, stylist
 from lookroom.models import TEMP_MAX, TEMP_MIN, validate_context
 from lookroom.recommender import WEIGHTS, Outfit
 

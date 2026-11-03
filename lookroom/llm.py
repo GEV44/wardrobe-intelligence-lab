@@ -1,10 +1,15 @@
-"""Free, local LLM for the AI stylist: Qwen3-1.7B (Apache-2.0), GGUF Q4_K_M via llama.cpp on CPU. No API key.
+"""Free, local LLM for the AI stylist: Qwen3 (Apache-2.0), GGUF via llama.cpp on CPU. No API key.
 
 Role is deliberately narrow: (1) fill context fields the multilingual keyword rules could not, via
 schema-constrained JSON, and (2) phrase the stylist reply. The outfit itself is always chosen by the
 deterministic engine, so a small model can never invent clothes or break scoring.
-Measured on a 2-thread CPU: load ~2 s, JSON extraction 2.5-5 s, 2-3 sentence reply 5-7 s, ~1.3 GB RAM.
-Env: LOOKROOM_LOCAL_LLM=0 disables; LOOKROOM_LLM_REPO / LOOKROOM_LLM_FILE override the model.
+Default is Qwen3-0.6B (Q8_0, ~0.6 GB file) so the app fits the memory limit of free hosting; the model
+loads lazily on first use, not at startup. Qwen3-1.7B (Q4_K_M) was measured on a 2-thread CPU at load ~2 s,
+JSON extraction 2.5-5 s, 2-3 sentence reply 5-7 s and ~1.3 GB RAM, which pushed the free Streamlit host
+over its memory limit; select it with LOOKROOM_LLM_REPO="unsloth/Qwen3-1.7B-GGUF" and
+LOOKROOM_LLM_FILE="Qwen3-1.7B-Q4_K_M.gguf".
+Env: LOOKROOM_LOCAL_LLM=0 disables; LOOKROOM_LLM_REPO / LOOKROOM_LLM_FILE override the model;
+LOOKROOM_LLM_CTX sets the context window (default 1024 tokens; prompts here are short).
 """
 from __future__ import annotations
 
@@ -15,11 +20,13 @@ import threading
 import time
 import types
 
-REPO = os.environ.get("LOOKROOM_LLM_REPO", "unsloth/Qwen3-1.7B-GGUF")
-FILE = os.environ.get("LOOKROOM_LLM_FILE", "Qwen3-1.7B-Q4_K_M.gguf")
-LABEL = "Qwen3-1.7B (local, Apache-2.0)"
+REPO = os.environ.get("LOOKROOM_LLM_REPO", "Qwen/Qwen3-0.6B-GGUF")
+FILE = os.environ.get("LOOKROOM_LLM_FILE", "Qwen3-0.6B-Q8_0.gguf")
+N_CTX = int(os.environ.get("LOOKROOM_LLM_CTX", "1024"))
+MODEL_NAME = FILE.split("-Q")[0].removesuffix(".gguf")  # e.g. "Qwen3-0.6B"
+LABEL = f"{MODEL_NAME} (local, Apache-2.0)"
 
-# Process-wide (outlives app.py re-importing lookroom after a deploy), so the 1.3 GB model is loaded once.
+# Process-wide (outlives app.py re-importing lookroom after a deploy), so the model is loaded once.
 _S = sys.modules.setdefault("_wil_shared_state", types.ModuleType("_wil_shared_state")).__dict__.setdefault(
     "llm", {"lock": threading.Lock(), "model": None, "error": None})
 _lock = _S["lock"]  # llama.cpp contexts are not thread-safe: one generation at a time
@@ -55,7 +62,7 @@ def _load():
         from llama_cpp import Llama
 
         path = hf_hub_download(REPO, FILE)
-        _S["model"] = Llama(model_path=path, n_ctx=2048, n_threads=max(1, min(4, os.cpu_count() or 2)), verbose=False)
+        _S["model"] = Llama(model_path=path, n_ctx=N_CTX, n_threads=max(1, min(4, os.cpu_count() or 2)), verbose=False)
     except Exception as exc:  # no wheel, no network for the first download, low memory...
         _S["error"] = f"{type(exc).__name__}: {exc}"
     return _S["model"]

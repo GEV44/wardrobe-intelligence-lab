@@ -1,4 +1,9 @@
 # Wardrobe Intelligence Lab
+
+[![Live demo](https://img.shields.io/badge/Live_demo-Streamlit-FF4B4B?logo=streamlit&logoColor=white)](https://wardrobe-intelligence-lab.streamlit.app)
+[![CI](https://github.com/GEV44/wardrobe-intelligence-lab/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/GEV44/wardrobe-intelligence-lab/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
 *A LookRoom-inspired AI stylist MVP. Independent concept demo, not affiliated with LookRoom.ai.*
 
 **Live demo:** https://wardrobe-intelligence-lab.streamlit.app (free hosting; it wakes up in about 1 minute if it has been idle).
@@ -11,7 +16,7 @@ It implements the full loop: **context → wardrobe → AI decision → action �
 | Today's look + 2 alternatives | Transparent engine scores every top × bottom × shoes **or** dress × shoes (+ outerwear) combination: occasion 30%, weather 25%, color 15%, style 15%, learned preference 15%. Picks are diverse and deterministic, shown as flat-lay boards. **Show another look** and **Dislike** both swap in the next-best outfit that differs in at least two pieces from the looks just rejected. |
 | Live weather | MET Norway API (no key, commercial use allowed, CC BY 4.0), cached and falling back to a manual slider. |
 | Learns from feedback | Like/Dislike is stored per user. A bounded `tanh` item signal shifts scores by at most ±7.5 pts, and *How it learns* shows the before/after ranking. |
-| AI Stylist chat (free, no API key) | **Qwen3-1.7B** (Apache-2.0, GGUF Q4_K_M) running locally on the CPU via llama.cpp. Multilingual EN/RU/HY keyword rules extract the context first; the LLM fills unknown fields via schema-constrained JSON and writes the reply in English or Russian (Armenian uses translated templates). The engine always picks the outfit, so the model can't invent clothes. Optional: if `ANTHROPIC_API_KEY` is set, Claude is used instead, with a budget cap. |
+| AI Stylist chat (free, no API key) | **Qwen3-0.6B** by default (Apache-2.0, GGUF Q8_0; Qwen3-1.7B optional) running locally on the CPU via llama.cpp. Multilingual EN/RU/HY keyword rules extract the context first; the LLM fills unknown fields via schema-constrained JSON and writes the reply in English or Russian (Armenian uses translated templates). The engine always picks the outfit, so the model can't invent clothes. Optional: if `ANTHROPIC_API_KEY` is set, Claude is used instead, with a budget cap. |
 | Photo upload → auto-tagging | **Marqo FashionSigLIP** (Apache-2.0, int8 ONNX, CPU) image embedding plus **fine-tuned linear-probe heads** (garment, color, style; 0.1 MB, pure numpy) trained on 2,600 labeled catalog products (`scripts/train_probe.py`). On a 649-image held-out split from the same catalog, the probe gets category 0.995 vs zero-shot 0.949 (dress 0.96 vs 0.00), color 0.81 vs 0.73 and garment 0.90. These are catalog photos, so expect lower accuracy on phone photos (details in `data/models/probe/metrics.json`). Fallbacks are zero-shot SigLIP, then **FashionCLIP** (MIT), then a color heuristic. Results are suggestions the user confirms. |
 | Plan my week | A 7-day plan from the MET Norway daily forecast and an occasion per day. Repeat penalties stop any item appearing on consecutive days. Deterministic. |
 | Shop the gap | 984 real catalog products (men's and women's). A wardrobe-gap analysis scores each candidate with the user's wardrobe by the same engine across today's context (double weight) plus 5 representative situations, counts the near-best looks it unlocks, then re-ranks by visual taste match. The page shows the biggest gap, its best look and smart picks. "Add to my wardrobe" copies the real product in. |
@@ -26,11 +31,12 @@ It implements the full loop: **context → wardrobe → AI decision → action �
 
 ## Run locally (Windows, Python 3.11, CPU only)
 ```powershell
-cd lookroom-night-demo
-python -m venv .venv; .\.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
+git clone https://github.com/GEV44/wardrobe-intelligence-lab.git
+cd wardrobe-intelligence-lab
+python -m venv .venv; .\.venv\Scripts\Activate.ps1   # macOS/Linux: source .venv/bin/activate
+pip install -r requirements-dev.txt        # app + pytest + onnx (needed by setup_models.py)
 python scripts/setup_models.py            # FashionSigLIP + FashionCLIP ONNX (~250 MB)
-# no API keys needed: the stylist LLM (Qwen3-1.7B GGUF, ~1.1 GB) downloads on first start
+# no API keys needed: the stylist LLM (Qwen3-0.6B GGUF, ~0.6 GB) downloads on first chat use
 streamlit run app.py                       # http://localhost:8501
 uvicorn api:app --port 8010                # http://127.0.0.1:8010/docs
 python -m pytest -q                        # offline; paid APIs are faked, BiRefNet tests need RUN_SLOW=1
@@ -38,8 +44,8 @@ python -m pytest -q                        # offline; paid APIs are faked, BiRef
 Optional tools: `python scripts/build_catalog.py` rebuilds the photo catalog, `python scripts/record_demo.py` re-records the demo videos, and `python scripts/reset_demo.py` resets the demo user.
 
 ## Deploy (always on, independent of this laptop)
-**Streamlit Community Cloud (free):** at share.streamlit.io choose New app, then this repo, then `app.py`, with Python 3.11. No AI keys are needed. In *Secrets* add `DATABASE_URL = "postgresql://…"` (a Supabase pooler URL for a dedicated role; without it data lives in local SQLite and resets on restart) and optionally `LOOKROOM_LIVE_WEATHER_DEFAULT = "1"`. A GitHub Actions job (`.github/workflows/keepalive.yml`) opens the app every 2 hours so the free host doesn't put it to sleep, and fails (email) if it shows an error. If the host is short on memory, switch to the smaller model with `LOOKROOM_LLM_REPO = "Qwen/Qwen3-0.6B-GGUF"` and `LOOKROOM_LLM_FILE = "Qwen3-0.6B-Q8_0.gguf"`.
-On first start the app downloads the FashionSigLIP int8 vision model (~94 MB) and Qwen3-1.7B (~1.1 GB) in the background. The text embeddings are bundled in the repo, and until the download finishes every feature works through its fallback.
+**Streamlit Community Cloud (free):** at share.streamlit.io choose New app, then this repo, then `app.py`, with Python 3.11. No AI keys are needed. In *Secrets* add `DATABASE_URL = "postgresql://…"` (a Supabase pooler URL for a dedicated role; without it data lives in local SQLite and resets on restart) and optionally `LOOKROOM_LIVE_WEATHER_DEFAULT = "1"`. A GitHub Actions job (`.github/workflows/keepalive.yml`) opens the app every 2 hours so the free host doesn't put it to sleep, and fails (email) if it shows an error. The default local LLM is Qwen3-0.6B and loads only when the chat is first used: with Qwen3-1.7B preloaded at startup (~1.3 GB RAM) the free host restricted the app for exceeding its memory limit. On a host with more memory, set `LOOKROOM_LLM_REPO = "unsloth/Qwen3-1.7B-GGUF"` and `LOOKROOM_LLM_FILE = "Qwen3-1.7B-Q4_K_M.gguf"`, and `LOOKROOM_LLM_WARMUP = "1"` to preload it.
+On first start the app downloads the FashionSigLIP int8 vision model (~94 MB) in the background; the chat model downloads on first chat use. The text embeddings are bundled in the repo, and until the download finishes every feature works through its fallback.
 
 **Docker** (any container host, or Hugging Face Spaces with PRO): the pinned `Dockerfile` bakes the models into the image, and `python scripts/deploy_space.py` deploys it to a Space with the key stored as an encrypted secret.
 
@@ -60,7 +66,10 @@ See [ARCHITECTURE.md](ARCHITECTURE.md) and [RESEARCH.md](RESEARCH.md).
 
 ## Honest limitations
 - The scoring is hand-tuned rules plus bounded feedback adaptation. It is not a trained ranker, and there has been no real-user evaluation yet.
-- Zero-shot tagging works best on product-style photos. I measured it on a small sample only, so I don't claim an accuracy figure.
-- Identity is a URL token, not authentication. On the free hosting tier, data resets when the server restarts.
-- The local 1.7B model is small: its phrasing is good in English, acceptable in Russian, and replaced by templates in Armenian. Replies take about 5–10 s on 2 CPU cores.
-- Everything is free: no paid API or key is required, and nothing leaves the server except the MET Norway weather request.
+- Tagging accuracy was measured on held-out catalog (product-style) photos only, so expect lower accuracy on phone photos of real wardrobes.
+- Sessions are a bearer token in the URL (`?s=`, guests `?u=`), so anyone with the link can act as that user. Without `DATABASE_URL`, data lives in local SQLite and resets when the free host restarts.
+- The default local 0.6B model is small: its phrasing is good in English, acceptable in Russian, and replaced by templates in Armenian. Replies take about 5–10 s on 2 CPU cores.
+- Everything is free: no paid API or key is required. At runtime the server only calls MET Norway (weather), the database when `DATABASE_URL` is set, the Hugging Face Hub for first-start model downloads, and Claude only if you configure `ANTHROPIC_API_KEY`.
+
+## License
+Code: [MIT](LICENSE). Catalog photos and downloaded model weights keep their own licenses; see [data/catalog/CREDITS.md](data/catalog/CREDITS.md).
