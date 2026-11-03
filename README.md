@@ -1,4 +1,9 @@
 # Wardrobe Intelligence Lab
+
+[![Live demo](https://img.shields.io/badge/Live_demo-Streamlit-FF4B4B?logo=streamlit&logoColor=white)](https://wardrobe-intelligence-lab.streamlit.app)
+[![CI](https://github.com/GEV44/wardrobe-intelligence-lab/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/GEV44/wardrobe-intelligence-lab/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
 *A LookRoom-inspired AI stylist MVP. Independent concept demo, not affiliated with LookRoom.ai.*
 
 **Live demo:** https://wardrobe-intelligence-lab.streamlit.app (free hosting; it wakes up in about 1 minute if it has been idle).
@@ -26,9 +31,10 @@ It implements the full loop: **context → wardrobe → AI decision → action �
 
 ## Run locally (Windows, Python 3.11, CPU only)
 ```powershell
-cd lookroom-night-demo
-python -m venv .venv; .\.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
+git clone https://github.com/GEV44/wardrobe-intelligence-lab.git
+cd wardrobe-intelligence-lab
+python -m venv .venv; .\.venv\Scripts\Activate.ps1   # macOS/Linux: source .venv/bin/activate
+pip install -r requirements-dev.txt        # app + pytest + onnx (needed by setup_models.py)
 python scripts/setup_models.py            # FashionSigLIP + FashionCLIP ONNX (~250 MB)
 # no API keys needed: the stylist LLM (Qwen3-1.7B GGUF, ~1.1 GB) downloads on first start
 streamlit run app.py                       # http://localhost:8501
@@ -60,7 +66,10 @@ See [ARCHITECTURE.md](ARCHITECTURE.md) and [RESEARCH.md](RESEARCH.md).
 
 ## Honest limitations
 - The scoring is hand-tuned rules plus bounded feedback adaptation. It is not a trained ranker, and there has been no real-user evaluation yet.
-- Zero-shot tagging works best on product-style photos. I measured it on a small sample only, so I don't claim an accuracy figure.
-- Identity is a URL token, not authentication. On the free hosting tier, data resets when the server restarts.
+- Tagging accuracy was measured on held-out catalog (product-style) photos only, so expect lower accuracy on phone photos of real wardrobes.
+- Sessions are a bearer token in the URL (`?s=`, guests `?u=`), so anyone with the link can act as that user. Without `DATABASE_URL`, data lives in local SQLite and resets when the free host restarts.
 - The local 1.7B model is small: its phrasing is good in English, acceptable in Russian, and replaced by templates in Armenian. Replies take about 5–10 s on 2 CPU cores.
-- Everything is free: no paid API or key is required, and nothing leaves the server except the MET Norway weather request.
+- Everything is free: no paid API or key is required. At runtime the server only calls MET Norway (weather), the database when `DATABASE_URL` is set, the Hugging Face Hub for first-start model downloads, and Claude only if you configure `ANTHROPIC_API_KEY`.
+
+## License
+Code: [MIT](LICENSE). Catalog photos and downloaded model weights keep their own licenses; see [data/catalog/CREDITS.md](data/catalog/CREDITS.md).
