@@ -5,6 +5,8 @@
 
 It implements the full loop: **context → wardrobe → AI decision → action → feedback → deeper personalization**, with real garment photos, pretrained models and three languages (English · Հայերեն · Русский).
 
+![Walkthrough of the running app: sign-up, today's look, like/dislike, saved looks, photo upload, stylist chat, languages](docs/videos/demo_walkthrough.gif)
+
 ## What it does
 | Feature | How |
 |---|---|
