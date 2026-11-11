@@ -66,3 +66,8 @@ See [ARCHITECTURE.md](ARCHITECTURE.md) and [RESEARCH.md](RESEARCH.md).
 - Identity is a URL token, not authentication. On the free hosting tier, data resets when the server restarts.
 - The local 1.7B model is small: its phrasing is good in English, acceptable in Russian, and replaced by templates in Armenian. Replies take about 5–10 s on 2 CPU cores.
 - Everything is free: no paid API or key is required, and nothing leaves the server except the MET Norway weather request.
+
+## Need something like this?
+
+Built by **Gevorg Hovhannisyan**, AI engineer in Yerevan (RAG assistants, LLM agents, bots, automations, AI video).
+[Portfolio](https://gev44.github.io) · [Telegram @hovhannisyan77](https://t.me/hovhannisyan77)
